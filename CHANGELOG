@@ -1,6 +1,10 @@
 If you have ideas, email them to me at avery98@pm.me. Who knows? Maybe your idea
 will make it in the next version of Lines!
 
+Also, you'll see previous versions of Lines that were not here in previously in
+this repository. They were originally hosted from my Google Drive, then Lines
+was moved to Tresorit. Now, it resides here on GitHub.
+
 =================================
 2.x
 =================================
@@ -24,19 +28,21 @@ v2.0:
     Some time I'll learn how to use use Git. Hopefully that changes
     things.
 
-    Due to an issue that I thought had to do with Lines
-    but wasn't the cause, and due to lack of time, I've added some
-    incomplete features. You'll see these features complete in a future
-    release, maybe 2.1 or 2.2. Something like that.
+    Due to an issue that I thought had to do with Lines but wasn't caused by
+    Lines, contributing to the lack of time I've had with Lines, I've added
+    some features, but they're not what I wanted to include originally.
+    Over time, you'll see these features improved in Lines v2.1, v2.2, or
+    something like that.
 
     One more thing: If you've looked at the code in lines.hpp, you'll notice
     that the options() function is SUPER long. The way Lines handles commands is
     better than v1.2.1, but it can be better. I'm planning to make command
     handling even better in future versions of Lines, so that way
     void options(string option) can stop giving me a headache because that's too
-    long! It'll be beneficial with other functions as well.
+    long! It'll be beneficial with other functions as well, because some of the
+    commands you see on the main screen can be called from functions
 
-    Now for the release notes:
+    Now, here are the release notes:
 
     * Updated liblines (formerly libcalc) to version 2.0
       - Code cleanups:
@@ -51,8 +57,8 @@ v2.0:
 
       - liblines has temporary disabled Pythagorean Theorem code
 
-      - The LinearGraphFunctions class no longer exists. Its functions,
-        however, still exist.
+      - The LinearGraphFunctions class no longer exists. It's
+        functions are now standalone functions.
 
       - Added a new function that returns the version number. The
         version number has been defined by a macro.
@@ -62,9 +68,9 @@ v2.0:
 
     * Massive changes, including:
 
-      - Compared to 1.2, command and option handling have been massively
+      - Compared to v1.2.1, command and option handling have been massively
         improved. There will be more improvements later on.
-        
+
       - Lines properly treats unknown commands as unknown commands.
 
       - Some core functionallity has been moved to a new header named
@@ -196,4 +202,9 @@ v1.2.1:
        series. However, I've decided to correct the formatting when displaying
        the equation**.
 
-    * Fixed formating when displaying an equation for a graph
+    * Backptborted a few features from Lines v2.0. This includes:
+      - Fixed formating when displaying an equation for a graph
+      - Lines now properly handles unknown commands
+
+    * libcalc now has tighter integration, including:
+      - The main screen can now be called from libcalc
