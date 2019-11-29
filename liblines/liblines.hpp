@@ -1,0 +1,102 @@
+/* Libcalc Core (libcalc.hpp)
+ * Avery King <avery98@pm.me>
+ *
+ * Part of liblines v2.0
+ *
+ * This file contains the core functionallity that powers Lines. For example, it
+ * contains certain commands like the "clear" command.
+ *
+ **/
+
+// Includes
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <cstdlib>
+#include <cstdio>
+
+// Defines
+#define LIBLINES_VERSION 2.0 // Lines version number
+#ifdef _WIN32 // If the OS is Windows
+  // In this case, we need to represent both the 32 bit and 64 bit
+  // versions of Windows. This allows more universal compatibility between the
+  // two versions
+  #define OS "win"
+#elif __unix__ || __APPLE__ // If the OS is Linux, *BSD, etc
+  #define OS "unix"
+#endif
+
+// Namespaces
+using namespace std;
+
+
+// Function declarations
+void options(string option);
+
+// Get OS platform
+string get_platform() {
+  if (OS == "win") {
+    return "win";
+  }
+
+  else if (OS == "unix") {
+    return "unix";
+  }
+
+  else {
+    return "other";
+  }
+}
+
+// Clear command
+void clear() {
+  // Clear command
+  if (OS == "win") { // Clear command for Windows (cls)
+    system("cls");
+  } else if (OS == "unix" || OS == "macos") { // Clear (clear) command for Unix and similar
+    system("clear");
+  } else { // If none of the above is specified, then the default is "clear"
+    system("clear");
+  }
+}
+
+// Main screen
+void main_screen(string custom_data, string prompt_type) {
+  // Variables
+  string option;
+
+  // Parameter checks
+  if (prompt_type == "prompt" && custom_data != "") {
+    clear();
+    // It's easier if we just detect prompt. Any other value will be ignored
+    cout << custom_data << endl;
+    cout << ">> ";
+    getline(cin, option);
+    options(option);
+  }
+
+  if (custom_data != "") {
+    clear();
+    cout << custom_data << "\n\n";
+  }
+
+  // Welcome screen
+  cout << "====================================\n";
+  cout << "Welcome to Lines\n";
+  cout << "====================================\n\n";
+
+  // Options screen
+  cout << "Select an option: \n\n";
+
+  cout << "(1) Find an equation with two given points\n";
+  cout << "(2) Find an equation with a given slope and a point\n";
+  cout << "(3) Generate coordinate points\n";
+  cout << "(4) Generate coordinate points to a file\n";
+  cout << "(5) Generate coordinate point with only one number\n\n";
+  cout << "To see a list of commands, type \'help\'\n";
+
+  cout << ">> ";
+  cin >> option;
+  options(option);
+}
+
