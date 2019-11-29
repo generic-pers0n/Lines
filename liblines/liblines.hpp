@@ -1,4 +1,5 @@
-/* Copyright (C) 2019 Avery King <avery98@pm.me>
+/* This file is a part of liblines
+ * Copyright (C) 2019 Avery King <avery98@pm.me>
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -31,9 +32,6 @@
 // Defines
 #define LIBLINES_VERSION 2.0 // Lines version number
 #ifdef _WIN32 // If the OS is Windows
-  // In this case, we need to represent both the 32 bit and 64 bit
-  // versions of Windows. This allows more universal compatibility between the
-  // two versions
   #define OS "win"
 #elif __unix__ || __APPLE__ // If the OS is Linux, *BSD, etc
   #define OS "unix"
@@ -41,7 +39,6 @@
 
 // Namespaces
 using namespace std;
-
 
 // Function declarations
 void options(string option);
@@ -59,6 +56,22 @@ string get_platform() {
   else {
     return "other";
   }
+}
+
+// Copyright command
+void show_copyright() {
+  cout << "The swiss army knife for linear graphs. \
+Copyright (C) 2019  Avery King\n\n \
+This program is free software: you can redistribute it and/or modify\n \
+it under the terms of the GNU General Public License as published by\n \
+the Free Software Foundation, either version 3 of the License, or\n \
+(at your option) any later version.\n\n \
+This program is distributed in the hope that it will be useful,\n \
+but WITHOUT ANY WARRANTY; without even the implied warranty of\n \
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n \
+GNU General Public License for more details.\n \
+You should have received a copy of the GNU General Public License\n \
+along with this program.  If not, see <https://www.gnu.org/licenses/>.\n\n \
 }
 
 // Clear command
