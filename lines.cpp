@@ -16,6 +16,5 @@ int main() {
   clear();
 
   // Display the main screen
-  main_screen("", "");
-}
+  main_screen("", "")
 
