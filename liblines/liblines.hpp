@@ -30,7 +30,7 @@
 #include <cstdio>
 
 // Defines
-#define LIBLINES_VERSION 2.0 // Lines version number
+#define LIBLINES_VERSION "v2.0.1" // Lines version number
 #ifdef _WIN32 // If the OS is Windows
   #define OS "win"
 #elif __unix__ || __APPLE__ // If the OS is Linux, *BSD, etc
