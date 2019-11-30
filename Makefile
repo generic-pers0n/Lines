@@ -4,3 +4,6 @@ lines: lines.cpp liblines.so
 	mv lines ../bin
 	mv liblines.so ../bin
 
+install: lines
+	cp lines /bin
+
