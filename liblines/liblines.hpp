@@ -27,13 +27,10 @@
 #include <fstream>
 #include <string>
 #include <cstdlib>
-#include <cstdio>
 
-// Defines
-#define LIBLINES_VERSION "v2.0.1" // Lines version number
-#ifdef _WIN32 // If the OS is Windows
+#ifdef _WIN32
   #define OS "win"
-#elif __unix__ || __APPLE__ // If the OS is Linux, *BSD, etc
+#elif __unix__ || __APPLE__
   #define OS "unix"
 #endif
 
@@ -71,7 +68,7 @@ but WITHOUT ANY WARRANTY; without even the implied warranty of\n \
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n \
 GNU General Public License for more details.\n \
 You should have received a copy of the GNU General Public License\n \
-along with this program.  If not, see <https://www.gnu.org/licenses/>.\n\n \
+along with this program.  If not, see <https://www.gnu.org/licenses/>.\n\n";
 }
 
 // Clear command
