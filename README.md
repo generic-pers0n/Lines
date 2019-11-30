@@ -4,7 +4,10 @@ The official repository for Lines
 ### What is Lines?
 Lines is a basic calculator that calculates the slope, y-intercept, and equation for a linear graph. However, Lines can do many more things too.
 
-Lines only works UNIX and UNIX-like systems (Linux, macOS, FreeBSD, etc). Also, Lines is 64-bit only.
+### What OSes does Lines work on?
+Lines only works UNIX and UNIX-like systems (Linux, FreeBSD, etc). Also, Lines is 64-bit only. I do not plan to make a 32-bit version anytime soon.
+
+I don't provide any Windows binaries, so you'll need to compile those yourself. However, the Lines source code should be Windows compatible, although I'm not making any guarentee about that.
 
 ### Features
 * You can find a graph's equation, y-intercept, and slope using two coordinate points
