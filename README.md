@@ -13,4 +13,4 @@ Lines is a basic calculator that calculates the slope, y-intercept, and equation
 1. For generating coordinate points, you'll have 3 options.
 
 ### License
-Right now, I'm not sure what license Lines should be licensed under. I'm thinking of using the [GPL v3 License](https://www.gnu.org/licenses/gpl-3.0.html).
+Lines is currently livensed under the [GPL](https://www.gnu.org/licenses/gpl-3.0.html), version 3 or later.
