@@ -14,12 +14,8 @@ v2.0.1:
       fault). Because of this, the lines and liblines makefiles are a bit
       different:
 
-      - You can either compile liblines statically or dynamically (either as a
-        shared (dynamic) library or as a static library. NOTE: This choice is
-        temporary. Once I decide, you'll only have one option.
-
-      - You can now install Lines using the main makefile. For Windows, an
-        installer is comming soon
+      - You can now install Lines using the Lines makefile. For Windows, an
+        installer is comming soon.
 
     * Lines is now licensed under the GPL, version 3 or (at your choice) any
       later version. YOU ARE NOW SUBJECT TO THE GPL. Because of this, there
