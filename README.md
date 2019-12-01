@@ -18,4 +18,4 @@ I don't provide any Windows binaries, so you'll need to compile those yourself. 
 1. For generating coordinate points, you'll have 3 options.
 
 ### License
-Lines is currently livensed under the [GPL](https://www.gnu.org/licenses/gpl-3.0.html), version 3 or later.
+Lines is currently licensed under the [GPL](https://www.gnu.org/licenses/gpl-3.0.html), version 3 or later.
