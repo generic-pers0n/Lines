@@ -55,7 +55,7 @@ string get_platform() {
   }
 }
 
-// Copyright comman
+// Copyright command
 void show_copyright() {
   cout << "The swiss army knife for linear graphs. \
 Copyright (C) 2019  Avery King\n\n \
