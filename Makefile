@@ -1,4 +1,4 @@
-lines: lines.cpp liblines.so
+lines: lines.cpp
 	g++ -o lines lines.cpp -L. -llines -g --std=c++17
 
 install: lines
