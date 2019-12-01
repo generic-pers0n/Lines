@@ -1,8 +1,6 @@
 lines: lines.cpp
 	g++ -o lines lines.cpp -L. -llines -g --std=c++17
 
-install: lines
-	cp lines /bin
+install: lines # Also requires liblines.so
 	cd liblines
-	cp liblines.so /lib64
-
+	install liblines.so /lib64
