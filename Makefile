@@ -3,4 +3,6 @@ lines: lines.cpp liblines.so
 
 install: lines
 	cp lines /bin
+	cd liblines
+	cp liblines.so /lib64
 
