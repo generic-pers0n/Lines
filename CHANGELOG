@@ -9,6 +9,28 @@ was moved to Tresorit. Now, it resides here on GitHub.
 2.x
 =================================
 
+v2.0.1:
+    * Fixed Makefile issues with liblines (caused after uploading to GitHub, my
+      fault). Because of this, the lines and liblines makefiles are a bit
+      different:
+
+      - You can either compile liblines statically or dynamically (either as a
+        shared (dynamic) library or as a static library. NOTE: This choice is
+        temporary. Once I decide, you'll only have one option.
+
+      - You can now install Lines using the main makefile. For Windows, an
+        installer is comming soon
+
+    * Lines is now licensed under the GPL, version 3 or (at your choice) any
+      later version. YOU ARE NOW SUBJECT TO THE GPL. Because of this, there
+      have been some made changes:
+
+      - Added appropriate copyright notices.
+
+      - Added new copyright command named "copyright". This displays the
+        copyright information.
+
+
 v2.0:
     Before getting to the actual changes, I want to thank everyone for
     supporting me with this calculator. THANK YOU SO MUCH!!!
@@ -55,16 +77,18 @@ v2.0:
 
       - liblines now supports writing coordinate points to a file
 
-      - liblines has temporary disabled Pythagorean Theorem code
+      - Removed Pythagorean Theorem code. It is no longer in the scope of Lines.
 
       - The LinearGraphFunctions class no longer exists. It's
-        functions are now standalone functions.
+        functions are now standalone.
 
       - Added a new function that returns the version number. The
         version number has been defined by a macro.
 
       - liblines now detects what OS you are using. This helps with many things,
         including file paths, running external programs, etc.
+    
+    * Added makefiles for easier compiling
 
     * Massive changes, including:
 
