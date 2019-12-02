@@ -1,6 +1,5 @@
-lines: lines.cpp liblines.so
-	cd ..
-	g++ -o ../src/lines lines.cpp -L. -llines -g --std=c++17
-	mv lines ../bin
-	mv liblines.so ../bin
+liblines: liblines.cpp liblines.o
+	g++ -fPIC -g -c liblines.cpp -o liblines.o
+	g++ -shared -fPIC -g liblines.o -o liblines.so
+	rm -rf liblines.o
 

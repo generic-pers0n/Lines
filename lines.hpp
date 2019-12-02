@@ -24,7 +24,7 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
-#define LINES_VERSION 2.0
+#define LINES_VERSION "v2.0.1"
 using namespace std;
 
 // Function declarations
@@ -37,6 +37,7 @@ void write_generated_points_to_file(double slope, double y_intercept, int max_nu
 void main_screen(string custom_data, string prompt_type);
 void options(string option); // For use later on
 void clear();
+void show_copyright();
 string get_platform();
 
 
@@ -225,7 +226,12 @@ THANK YOU SO MUCH!!!\n\n\n";
     cout << "Bye!\n";
     exit(0);
   }
-  
+
+  else if (option == "copyright") {
+    show_copyright();
+    main_screen("", "");
+  }
+
   else {
     main_screen("Unknown command - " + option, "prompt");
   }

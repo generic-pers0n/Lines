@@ -15,7 +15,7 @@
 */
 /* Libcalc Core (libcalc.hpp)
  *
- * Part of liblines v2.0
+ * Part of Lines
  *
  * This file contains the core functionallity that powers Lines. For example, it
  * contains certain commands like the "clear" command.
