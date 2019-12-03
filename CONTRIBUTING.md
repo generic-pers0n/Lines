@@ -13,6 +13,8 @@ The `beta` branch is similar to the `devel` branch. However, this is for more st
 
 If you want to create your own seperate branch for a feature you are proposing, then it will be reviewed. For the most part, some features or changes will always be accepted, but this doesn't mean that all features will be accepted. During the review, anybody can contribute to that branch, but only if it's related to that feature.
 
+If you want to merge a separate branch into the `master` branch, you may not **UNLESS** it's related to documentation.
+
 ### Merging a branch
 When there's a branch that's ready to be merged, you can go ahead and start a pull request. When you do, we'll review all the changes there is to look at. If approved, then your pull request may come to life.
 
