@@ -57,18 +57,18 @@ string get_platform() {
 
 // Copyright command
 void show_copyright() {
-  cout << "The swiss army knife for linear graphs. \
-Copyright (C) 2019  Avery King\n\n \
-This program is free software: you can redistribute it and/or modify\n \
-it under the terms of the GNU General Public License as published by\n \
-the Free Software Foundation, either version 3 of the License, or\n \
-(at your option) any later version.\n\n \
-This program is distributed in the hope that it will be useful,\n \
-but WITHOUT ANY WARRANTY; without even the implied warranty of\n \
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n \
-GNU General Public License for more details.\n \
-You should have received a copy of the GNU General Public License\n \
-along with this program.  If not, see <https://www.gnu.org/licenses/>.\n\n";
+  cout << "The swiss army knife for linear graphs.\n\n";
+  cout << "Copyright (C) 2019  Avery King\n\";
+  cout << "This program is free software: you can redistribute it and/or modify\n";
+  cout << "it under the terms of the GNU General Public License as published by\n"
+  cout << "the Free Software Foundation, either version 3 of the License, or\n";
+  cout << "(at your option) any later version.\n\n"
+  cout << "This program is distributed in the hope that it will be useful,\n";
+  cout << "but WITHOUT ANY WARRANTY; without even the implied warranty of\n";
+  cout << "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n";
+  cout << "GNU General Public License for more details.\n\n";
+  cout << "You should have received a copy of the GNU General Public License\n";
+  cout << "along with this program.  If not, see <https://www.gnu.org/licenses/>.\n\n";
 }
 
 // Clear command
@@ -84,7 +84,7 @@ void clear() {
 }
 
 // Main screen
-void main_screen(string custom_data, string prompt_type) {
+void main_screen(string custom_data, string prompt_type, bool banner) {
   // Variables
   string option;
 
@@ -104,9 +104,11 @@ void main_screen(string custom_data, string prompt_type) {
   }
 
   // Welcome screen
-  cout << "====================================\n";
-  cout << "Welcome to Lines\n";
-  cout << "====================================\n\n";
+  if (banner == 1) {
+    cout << "====================================\n";
+    cout << "Welcome to Lines\n";
+    cout << "====================================\n\n";
+  }
 
   // Options screen
   cout << "Select an option: \n\n";
