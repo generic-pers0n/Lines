@@ -1,0 +1,4 @@
+Lines:
+  * Move help command to seperate function in liblines
+
+
