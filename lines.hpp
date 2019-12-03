@@ -129,12 +129,8 @@ void options(string option) {
     int starting_number;
 
     // Get the and slope
-    cout << "What is the slope? ";
-    cin >> slope;
-
-    // Get the y-intercept
-    cout << "What is the y-intercept? ";
-    cin >> y_intercept;
+    cout << "What is the slope and y-intercept";
+    cin >> slope >> y_intercept;
 
     // Get the number the user wants to start at
     cout << "What number do you want to start at? ";
@@ -170,11 +166,7 @@ void options(string option) {
 
     // Get the slope
     cout << "What is the slope? ";
-    cin >> slope;
-
-    // Get the y-intercept
-    cout << "What is the y-intercept? ";
-    cin >> y_intercept;
+    cin >> slope >> y_intercept;
 
     // Get the number the user wants to use for x
     cout << "What is the number that x will be? ";
