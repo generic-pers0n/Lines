@@ -1,4 +1,4 @@
 Lines:
   * Move help command to seperate function in liblines
-
+  * Add doc folder for documentation
 
