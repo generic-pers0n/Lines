@@ -1,4 +1,4 @@
-#Lines
+# Lines
 The Swiss Army knife for linear graphs.
 
 ### What is Lines?
