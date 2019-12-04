@@ -1,5 +1,5 @@
-# Lines
-The official repository for Lines
+#Lines
+The Swiss Army knife for linear graphs.
 
 ### What is Lines?
 Lines is a basic calculator that calculates the slope, y-intercept, and equation for a linear graph. However, Lines can do many more things too.
