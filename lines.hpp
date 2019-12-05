@@ -34,7 +34,7 @@ void generate_points(double slope, double y_intercept, int max_number, int start
 void generate_point(double slope, double y_intercept, int number);
 void write_generated_points_to_file(double slope, double y_intercept, int max_number, int starting_number, string file_name);
 
-void main_screen(string custom_data, string prompt_type);
+void main_screen(string custom_data, string prompt_type, bool banner);
 void options(string option); // For use later on
 void clear();
 void show_copyright();
@@ -60,7 +60,7 @@ void options(string option) {
     coordinate(xcoor1, ycoor1, xcoor2, ycoor2);
 
     // Return to the main screen
-    main_screen("", "");
+    main_screen("", "", false);
   }
 
   else if (option == "2") { // Find equation and related using slope and coordinate point
@@ -82,7 +82,7 @@ void options(string option) {
     slope(xcoor, ycoor, slope_value);
 
     // Return to the main screen
-    main_screen("", "");
+    main_screen("", "", false);
   }
 
   else if (option == "3") { // Generate coordinate points
@@ -110,7 +110,7 @@ void options(string option) {
     generate_points(slope, y_intercept, max_number, starting_number);
 
     // Return to the main screen
-    main_screen("", "");
+    main_screen("", "", false);
   }
 
   else if (option == "4") {
@@ -150,7 +150,7 @@ void options(string option) {
     }
 
     // Return to the main screen
-    main_screen("", "");
+    main_screen("", "", false);
   }
 
   else if (option == "5") { // Generate one coordinate point with number
@@ -159,7 +159,7 @@ void options(string option) {
     double number;
 
     // Get the slope
-    cout << "What is the slope? ";
+    cout << "What is the slope and y-intercept? ";
     cin >> slope >> y_intercept;
 
     // Get the number the user wants to use for x
@@ -170,7 +170,7 @@ void options(string option) {
     generate_point(slope, y_intercept, number);
 
     // Return to the main screen
-    main_screen("", "");
+    main_screen("", "", false);
   }
 
   // "about" command
@@ -187,9 +187,8 @@ void options(string option) {
 calculator.\nI would like to thank my friends, classmates, and my parents! \
 THANK YOU SO MUCH!!!\n\n\n";
 
-
     // Return to the main screen
-    main_screen("", "");
+    main_screen("", "", false);
   }
 
   else if (option == "clear") {
@@ -202,9 +201,11 @@ THANK YOU SO MUCH!!!\n\n\n";
     cout << "Available commands:\n\n";
     cout << "about - Shows the About screen\n";
     cout << "help - Displays this message\n";
+    cout << "copyright - Displays copyright\n";
+    cout << "exit - Exits the program\n\n";
 
     // Return to the main screen
-    main_screen("", "");
+    main_screen("", "", false);
   }
 
   else if (option == "exit") { // Command 2 (exit)
@@ -215,11 +216,11 @@ THANK YOU SO MUCH!!!\n\n\n";
 
   else if (option == "copyright") {
     show_copyright();
-    main_screen("", "");
+    main_screen("", "", false);
   }
 
   else {
-    main_screen("Unknown command - " + option, "prompt");
+    main_screen("Unknown command - " + option, "prompt", false);
   }
 }
 
