@@ -50,17 +50,11 @@ void options(string option) {
     double xcoor1, ycoor1, xcoor2, ycoor2;
 
     // Get the coordinate points from the user
-    cout << "Enter coordinate point 1 (x): ";
-    cin >> xcoor1;
+    cout << "Enter coordinate point 1: ";
+    cin >> xcoor1 >> ycoor1;
 
-    cout << "Enter coordinate point 1 (y): ";
-    cin >> ycoor1;
-
-    cout << "Enter coordinate point 2 (x): ";
-    cin >> xcoor2;
-
-    cout << "Enter coordinate point 2 (y): ";
-    cin >> ycoor2;
+    cout << "Enter coordinate point 2: ";
+    cin >> xcoor2 >> ycoor2;
 
     // Calculate the equation and so with two coordinate points
     coordinate(xcoor1, ycoor1, xcoor2, ycoor2);
