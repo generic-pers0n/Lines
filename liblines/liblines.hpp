@@ -41,9 +41,14 @@ using namespace std;
 void options(string option);
 
 // Get OS platform
+char arg(int argc, char *argv[]) {
+  return argv; // Returns argv[]
+}
+
+// Platform detection
 string get_platform() {
   if (OS == "win") {
-    return "win";
+    return "windows";
   }
 
   else if (OS == "unix") {
@@ -51,7 +56,7 @@ string get_platform() {
   }
 
   else {
-    return "other";
+    return "unknown";
   }
 }
 
