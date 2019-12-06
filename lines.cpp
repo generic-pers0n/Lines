@@ -21,14 +21,16 @@
  *  - Generate coordinate points and optionally save them to a file
  *  - Generate one coordinate point
  **/
-// #include "libcalc.hpp"
 #include "lines.hpp"
 
-int main() {
+int main(int argc, char *argv[]) {
   // Clear the screen before the screen
   clear();
 
   // Display the main screen
   main_screen("", "");
+
+  // Pass the arguments to an internal function
+  arg(argc, argv);
 }
 
