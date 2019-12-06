@@ -24,7 +24,7 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
-#define LINES_VERSION "v2.0.1"
+#define LINES_VERSION "v2.1b"
 using namespace std;
 
 // Function declarations
@@ -177,7 +177,7 @@ void options(string option) {
   else if (option == "about") {
     clear();
     cout << "====================================\n";
-    cout << "Lines v" << LINES_VERSION << "\n";
+    cout << "Lines " << LINES_VERSION << "\n";
     cout << "====================================\n";
     cout << "\n2019 Avery King\n";
     cout << "Partially made during a Xoads live stream\n\n";
