@@ -36,6 +36,7 @@ void write_generated_points_to_file(double slope, double y_intercept, int max_nu
 void main_screen(string custom_data, string prompt_type, bool banner);
 void options(string option); // For use later on
 void clear();
+void help();
 void show_copyright();
 string get_platform();
 
