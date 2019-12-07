@@ -1,9 +1,9 @@
 ---
 name: Feature request
-about: Suggest an idea for this project
+about: Have an idea? Go ahead and tell us!
 title: ''
 labels: ''
-assignees: ''
+assignees: generic-pers0n
 
 ---
 
