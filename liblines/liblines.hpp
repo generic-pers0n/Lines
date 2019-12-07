@@ -22,8 +22,6 @@
  * contains certain commands like the "clear" command.
  *
  **/
-
-// Includes
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -40,7 +38,7 @@ using namespace std;
 
 // Function declarations
 void options(string option);
-void main_screen(string custom_data, string prompt_type, bool banner);
+void main_screen(string custom_data, string prompt_type);
 
 // Get arguments
 char arg(int argc, char *argv[]) {
@@ -104,31 +102,24 @@ void help() { // Help command
 //////////////////////////////////////////////////////////
 
 // Main screen
-void main_screen(string custom_data, string prompt_type, bool banner) {
+void main_screen(string custom_data, string prompt_type) {
   // Variables
   string option;
 
   // Parameter checks
   if (prompt_type == "prompt" && custom_data != "") {
     clear();
-    // It's easier if we just detect prompt. Any other value will be ignored
+    // It's easier if we just detect "prompt". Any other value will be ignored
     cout << custom_data << endl;
     cout << ">> ";
     getline(cin, option);
     options(option);
   }
 
-  if (custom_data != "") {
-    clear();
-    cout << custom_data << "\n\n";
-  }
-
   // Welcome screen
-  if (banner == 1) {
-    cout << "====================================\n";
-    cout << "Welcome to Lines\n";
-    cout << "====================================\n\n";
-  }
+  cout << "====================================\n";
+  cout << "Welcome to Lines\n";
+  cout << "====================================\n\n";
 
   // Options screen
   cout << "Select an option: \n\n";
