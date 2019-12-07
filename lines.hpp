@@ -72,11 +72,8 @@ void options(string option) {
     cin >> slope_value;
 
     // Get the coordinate points from the user
-    cout << "Enter coordinate point x: ";
-    cin >> xcoor;
-
-    cout << "Enter coordinate point y: ";
-    cin >> ycoor;
+    cout << "Enter the coordinate point to use: ";
+    cin >> xcoor >> ycoor;
 
     // Calculate the equation
     slope(xcoor, ycoor, slope_value);
@@ -94,11 +91,8 @@ void options(string option) {
     int starting_number;
 
     // Get the y-intercept and slope
-    cout << "What is the slope? ";
-    cin >> slope;
-
-    cout << "What is the y-intercept? ";
-    cin >> y_intercept;
+    cout << "What is the slope and y-intercept? ";
+    cin >> slope >> y-intercept;
 
     cout << "What number do you want to start at? ";
     cin >> starting_number;
