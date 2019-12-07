@@ -20,7 +20,6 @@
  * if the user wants to go back to the main menu, etc.
  *
  **/
-// #include "liblines.hpp"
 #include <iostream>
 #include <string>
 #include <cstdlib>
@@ -198,14 +197,8 @@ THANK YOU SO MUCH!!!\n\n\n";
 
   // "help" command
   else if (option == "help") {
-    cout << "Available commands:\n\n";
-    cout << "about - Shows the About screen\n";
-    cout << "help - Displays this message\n";
-    cout << "copyright - Displays copyright\n";
-    cout << "exit - Exits the program\n\n";
-
-    // Return to the main screen
-    main_screen("", "", false);
+    // Run the help command
+    help();
   }
 
   else if (option == "exit") { // Command 2 (exit)
