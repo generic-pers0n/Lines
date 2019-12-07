@@ -91,7 +91,7 @@ void help() { // Help command
   cout << "exit - Exits the program\n\n";
 
   // Return to the main screen
-  main_screen("", "", false);
+  main_screen("", "");
 }
 
 //////////////////////////////////////////////////////////
