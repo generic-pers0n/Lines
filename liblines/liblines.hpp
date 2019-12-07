@@ -1,4 +1,5 @@
 /* This file is a part of liblines
+ *
  * Copyright (C) 2019 Avery King <avery98@pm.me>
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -39,8 +40,9 @@ using namespace std;
 
 // Function declarations
 void options(string option);
+void main_screen(string custom_data, string prompt_type, bool banner);
 
-// Get OS platform
+// Get arguments
 char arg(int argc, char *argv[]) {
   return argv; // Returns argv[]
 }
@@ -76,8 +78,8 @@ void show_copyright() {
   cout << "along with this program.  If not, see <https://www.gnu.org/licenses/>.\n\n";
 }
 
-// Clear command
-void clear() {
+//////////////////////// Commands ////////////////////////
+void clear() { // Clear command
   // Clear command
   if (OS == "win") { // Clear command for Windows (cls)
     system("cls");
@@ -87,6 +89,19 @@ void clear() {
     system("clear");
   }
 }
+
+void help() { // Help command
+  cout << "Available commands:\n\n";
+  cout << "about - Shows the About screen\n";
+  cout << "help - Displays this message\n";
+  cout << "copyright - Displays copyright\n";
+  cout << "exit - Exits the program\n\n";
+
+  // Return to the main screen
+  main_screen("", "", false);
+}
+
+//////////////////////////////////////////////////////////
 
 // Main screen
 void main_screen(string custom_data, string prompt_type, bool banner) {
