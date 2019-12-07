@@ -177,9 +177,9 @@ void options(string option) {
     cout << "Partially made during a Xoads live stream\n\n";
 
     // About screen message
-    cout << "Thanks to everyone who supported me when I showed them this \
-calculator.\nI would like to thank my friends, classmates, and my parents! \
-THANK YOU SO MUCH!!!\n\n\n";
+    cout << "Thanks to everyone who supported me when I showed them this\n";
+    cout << "calculator.\nI would like to thank my friends, classmates, and my parents!\n";
+    "THANK YOU SO MUCH!!!\n\n\n";
 
     // Return to the main screen
     main_screen("", "");
