@@ -88,7 +88,9 @@ void help() { // Help command
   cout << "about - Shows the About screen\n";
   cout << "help - Displays this message\n";
   cout << "copyright - Displays copyright\n";
-  cout << "exit - Exits the program\n\n";
+  cout << "exit - Exits the program\n";
+  cout << "clear - Clears the screen\n";
+  cout << "For more help on Lines, see the Lines wiki at https://github.com/generic-pers0n/lines/wiki\n\n";
 
   // Return to the main screen
   main_screen("", "");
