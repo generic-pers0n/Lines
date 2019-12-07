@@ -65,9 +65,9 @@ void show_copyright() {
   cout << "The swiss army knife for linear graphs.\n\n";
   cout << "Copyright (C) 2019  Avery King\n\";
   cout << "This program is free software: you can redistribute it and/or modify\n";
-  cout << "it under the terms of the GNU General Public License as published by\n"
+  cout << "it under the terms of the GNU General Public License as published by\n";
   cout << "the Free Software Foundation, either version 3 of the License, or\n";
-  cout << "(at your option) any later version.\n\n"
+  cout << "(at your option) any later version.\n\n";
   cout << "This program is distributed in the hope that it will be useful,\n";
   cout << "but WITHOUT ANY WARRANTY; without even the implied warranty of\n";
   cout << "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n";
