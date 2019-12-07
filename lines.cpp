@@ -29,8 +29,5 @@ int main(int argc, char *argv[]) {
 
   // Display the main screen
   main_screen("", "");
-
-  // Pass the arguments to an internal function
-  arg(argc, argv);
 }
 
