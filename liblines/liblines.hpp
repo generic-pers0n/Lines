@@ -40,11 +40,6 @@ using namespace std;
 void options(string option);
 void main_screen(string custom_data, string prompt_type);
 
-// Get arguments
-char arg(int argc, char *argv[]) {
-  return argv; // Returns argv[]
-}
-
 // Platform detection
 string get_platform() {
   if (OS == "win") {
@@ -63,7 +58,7 @@ string get_platform() {
 // Copyright command
 void show_copyright() {
   cout << "The swiss army knife for linear graphs.\n\n";
-  cout << "Copyright (C) 2019  Avery King\n\";
+  cout << "Copyright (C) 2019  Avery King\n";
   cout << "This program is free software: you can redistribute it and/or modify\n";
   cout << "it under the terms of the GNU General Public License as published by\n";
   cout << "the Free Software Foundation, either version 3 of the License, or\n";
