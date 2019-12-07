@@ -60,7 +60,7 @@ void options(string option) {
     coordinate(xcoor1, ycoor1, xcoor2, ycoor2);
 
     // Return to the main screen
-    main_screen("", "", false);
+    main_screen("", "");
   }
 
   else if (option == "2") { // Find equation and related using slope and coordinate point
@@ -82,7 +82,7 @@ void options(string option) {
     slope(xcoor, ycoor, slope_value);
 
     // Return to the main screen
-    main_screen("", "", false);
+    main_screen("", "");
   }
 
   else if (option == "3") { // Generate coordinate points
@@ -110,7 +110,7 @@ void options(string option) {
     generate_points(slope, y_intercept, max_number, starting_number);
 
     // Return to the main screen
-    main_screen("", "", false);
+    main_screen("", "");
   }
 
   else if (option == "4") {
@@ -150,7 +150,7 @@ void options(string option) {
     }
 
     // Return to the main screen
-    main_screen("", "", false);
+    main_screen("", "");
   }
 
   else if (option == "5") { // Generate one coordinate point with number
@@ -170,7 +170,7 @@ void options(string option) {
     generate_point(slope, y_intercept, number);
 
     // Return to the main screen
-    main_screen("", "", false);
+    main_screen("", "");
   }
 
   // "about" command
@@ -188,7 +188,7 @@ calculator.\nI would like to thank my friends, classmates, and my parents! \
 THANK YOU SO MUCH!!!\n\n\n";
 
     // Return to the main screen
-    main_screen("", "", false);
+    main_screen("", "");
   }
 
   else if (option == "clear") {
@@ -210,11 +210,11 @@ THANK YOU SO MUCH!!!\n\n\n";
 
   else if (option == "copyright") {
     show_copyright();
-    main_screen("", "", false);
+    main_screen("", "");
   }
 
   else {
-    main_screen("Unknown command - " + option, "prompt", false);
+    main_screen("Unknown command - " + option, "prompt");
   }
 }
 
