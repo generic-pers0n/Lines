@@ -93,7 +93,7 @@ void about() { // About command
   // About screen message
   cout << "Thanks to everyone who supported me when I showed them this\n";
   cout << "calculator.\nI would like to thank my friends, classmates, and my parents!\n";
-  "THANK YOU SO MUCH!!!\n\n\n";
+  cout << "THANK YOU SO MUCH!!!\n\n\n";
 
   // Return to the main screen
   main_screen("", "");
