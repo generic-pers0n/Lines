@@ -85,7 +85,7 @@ void clear() { // Clear command
 void about() { // About command
   clear();
   cout << "====================================\n";
-  cout << "Lines v2.1\n";
+  cout << "Lines v2.1.1\n";
   cout << "====================================\n";
   cout << "\nCopyright (C) 2019 Avery King\n";
   cout << "Partially made during a Xoads live stream\n\n";
