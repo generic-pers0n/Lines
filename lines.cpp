@@ -21,10 +21,9 @@
  *  - Generate coordinate points and optionally save them to a file
  *  - Generate one coordinate point
  **/
-// #include "libcalc.hpp"
 #include "lines.hpp"
 
-int main() {
+int main(int argc, char *argv[]) {
   // Clear the screen before the screen
   clear();
 

@@ -22,7 +22,6 @@
  * For crucial functionallity of Lines, see lines.hpp
  **/
 #include "liblines.hpp"
-#include <cmath>
 using namespace std;
 
 

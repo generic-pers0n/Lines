@@ -20,11 +20,9 @@
  * if the user wants to go back to the main menu, etc.
  *
  **/
-// #include "liblines.hpp"
 #include <iostream>
 #include <string>
 #include <cstdlib>
-#define LINES_VERSION "v2.0.1"
 using namespace std;
 
 // Function declarations
@@ -36,9 +34,12 @@ void write_generated_points_to_file(double slope, double y_intercept, int max_nu
 
 void main_screen(string custom_data, string prompt_type);
 void options(string option); // For use later on
-void clear();
 void show_copyright();
 string get_platform();
+
+void clear();
+void help();
+void about();
 
 
 // Global variables
@@ -50,17 +51,11 @@ void options(string option) {
     double xcoor1, ycoor1, xcoor2, ycoor2;
 
     // Get the coordinate points from the user
-    cout << "Enter coordinate point 1 (x): ";
-    cin >> xcoor1;
+    cout << "Enter coordinate point 1: ";
+    cin >> xcoor1 >> ycoor1;
 
-    cout << "Enter coordinate point 1 (y): ";
-    cin >> ycoor1;
-
-    cout << "Enter coordinate point 2 (x): ";
-    cin >> xcoor2;
-
-    cout << "Enter coordinate point 2 (y): ";
-    cin >> ycoor2;
+    cout << "Enter coordinate point 2: ";
+    cin >> xcoor2 >> ycoor2;
 
     // Calculate the equation and so with two coordinate points
     coordinate(xcoor1, ycoor1, xcoor2, ycoor2);
@@ -78,11 +73,8 @@ void options(string option) {
     cin >> slope_value;
 
     // Get the coordinate points from the user
-    cout << "Enter coordinate point x: ";
-    cin >> xcoor;
-
-    cout << "Enter coordinate point y: ";
-    cin >> ycoor;
+    cout << "Enter the coordinate point to use: ";
+    cin >> xcoor >> ycoor;
 
     // Calculate the equation
     slope(xcoor, ycoor, slope_value);
@@ -100,11 +92,8 @@ void options(string option) {
     int starting_number;
 
     // Get the y-intercept and slope
-    cout << "What is the slope? ";
-    cin >> slope;
-
-    cout << "What is the y-intercept? ";
-    cin >> y_intercept;
+    cout << "What is the slope and y-intercept? ";
+    cin >> slope >> y_intercept;
 
     cout << "What number do you want to start at? ";
     cin >> starting_number;
@@ -129,12 +118,8 @@ void options(string option) {
     int starting_number;
 
     // Get the and slope
-    cout << "What is the slope? ";
-    cin >> slope;
-
-    // Get the y-intercept
-    cout << "What is the y-intercept? ";
-    cin >> y_intercept;
+    cout << "What is the slope and y-intercept";
+    cin >> slope >> y_intercept;
 
     // Get the number the user wants to start at
     cout << "What number do you want to start at? ";
@@ -169,12 +154,8 @@ void options(string option) {
     double number;
 
     // Get the slope
-    cout << "What is the slope? ";
-    cin >> slope;
-
-    // Get the y-intercept
-    cout << "What is the y-intercept? ";
-    cin >> y_intercept;
+    cout << "What is the slope and y-intercept? ";
+    cin >> slope >> y_intercept;
 
     // Get the number the user wants to use for x
     cout << "What is the number that x will be? ";
@@ -190,20 +171,7 @@ void options(string option) {
   // "about" command
   else if (option == "about") {
     clear();
-    cout << "====================================\n";
-    cout << "Lines v" << LINES_VERSION << "\n";
-    cout << "====================================\n";
-    cout << "\n2019 Avery King\n";
-    cout << "Partially made during a Xoads live stream\n\n";
-
-    // About screen message
-    cout << "Thanks to everyone who supported me when I showed them this \
-calculator.\nI would like to thank my friends, classmates, and my parents! \
-THANK YOU SO MUCH!!!\n\n\n";
-
-
-    // Return to the main screen
-    main_screen("", "");
+    about();
   }
 
   else if (option == "clear") {
@@ -213,12 +181,8 @@ THANK YOU SO MUCH!!!\n\n\n";
 
   // "help" command
   else if (option == "help") {
-    cout << "Available commands:\n\n";
-    cout << "about - Shows the About screen\n";
-    cout << "help - Displays this message\n";
-
-    // Return to the main screen
-    main_screen("", "");
+    // Run the help command
+    help();
   }
 
   else if (option == "exit") { // Command 2 (exit)

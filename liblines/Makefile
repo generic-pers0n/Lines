@@ -3,3 +3,5 @@ liblines: liblines.cpp liblines.o
 	g++ -shared -fPIC -g liblines.o -o liblines.so
 	rm -rf liblines.o
 
+install: liblines.so
+	install liblines.so /lib64
