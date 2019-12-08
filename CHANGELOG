@@ -4,6 +4,12 @@ in this release:
   * Code cleanups
 
   * Fixed about screen
+  
+  * Moved about screen to liblines
+
+  * Simplified inputs
+
+  * The "about" command is now a function in liblines, about()
 
   * Fixed "help" command
 
