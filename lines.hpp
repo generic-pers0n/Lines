@@ -35,10 +35,12 @@ void write_generated_points_to_file(double slope, double y_intercept, int max_nu
 
 void main_screen(string custom_data, string prompt_type);
 void options(string option); // For use later on
-void clear();
-void help();
 void show_copyright();
 string get_platform();
+
+void clear();
+void help();
+void about();
 
 
 // Global variables
@@ -170,19 +172,7 @@ void options(string option) {
   // "about" command
   else if (option == "about") {
     clear();
-    cout << "====================================\n";
-    cout << "Lines " << LINES_VERSION << "\n";
-    cout << "====================================\n";
-    cout << "\n2019 Avery King\n";
-    cout << "Partially made during a Xoads live stream\n\n";
-
-    // About screen message
-    cout << "Thanks to everyone who supported me when I showed them this\n";
-    cout << "calculator.\nI would like to thank my friends, classmates, and my parents!\n";
-    "THANK YOU SO MUCH!!!\n\n\n";
-
-    // Return to the main screen
-    main_screen("", "");
+    about();
   }
 
   else if (option == "clear") {
