@@ -24,10 +24,10 @@ If you want to create your own seperate branch for a feature you are proposing, 
 ### Merging a branch
 When there's a branch that's ready to be merged, you can go ahead and start a pull request, or go ahead and merge it. When you do, we'll review all the changes there is to look at. If approved, then your pull request may come to life.
 
-## Adding new files
-If you want to add a new file to Lines, then you may do so. Depending on what you add, this may count as a new major version for Lines. If it's something related to the program, then it will count as a new version of Lines as though this affects the program's functionallity. If it's not related to the program (e.g. documentation), then it will not count as a 
-
 **NOTE: If your pull request gets accepted, and your pull request is about merging the** `beta` **branch into the** `master` **branch, then that indicates you want to release a new version of Lines.**
+
+## Adding new files
+If you want to add a new file to Lines, then you may do so appropriately. Depending on what you add, this may count as a new major version for Lines. If it's something related to the program, then it will count as a new version of Lines as though this affects the program's functionallity. **You can only, however, add the file if there's work being done in the `devel` branch. Else the file(s) will be REJECTED if you try to do so**. If it's not related to the program (e.g. documentation), then it will not count as a new major verion.
 
 ## Documentation
 If you want to change something about the documentation, then you can go ahead and contribute. You'll need to know some Markdown, which is extremely easy to learn (at least, the standard implementation is). To learn Markdown, visit [this link](https://www.markdowntutorial.com/).
