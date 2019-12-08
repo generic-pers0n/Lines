@@ -73,7 +73,6 @@ void show_copyright() {
 
 //////////////////////// Commands ////////////////////////
 void clear() { // Clear command
-  // Clear command
   if (OS == "win") { // Clear command for Windows (cls)
     system("cls");
   } else if (OS == "unix" || OS == "macos") { // Clear (clear) command for Unix and similar
@@ -81,6 +80,23 @@ void clear() { // Clear command
   } else { // If none of the above is specified, then the default is "clear"
     system("clear");
   }
+}
+
+void about() { // About command
+  clear();
+  cout << "====================================\n";
+  cout << "Lines v2.1\n";
+  cout << "====================================\n";
+  cout << "\nCopyright (C) 2019 Avery King\n";
+  cout << "Partially made during a Xoads live stream\n\n";
+
+  // About screen message
+  cout << "Thanks to everyone who supported me when I showed them this\n";
+  cout << "calculator.\nI would like to thank my friends, classmates, and my parents!\n";
+  "THANK YOU SO MUCH!!!\n\n\n";
+
+  // Return to the main screen
+  main_screen("", "");
 }
 
 void help() { // Help command
