@@ -13,6 +13,8 @@ The `beta` branch is similar to the `devel` branch. However, this is for more st
 
 When you want to merge the `devel` branch into the `beta` branch, the code **must** compile at least to an executable. The code can compile with errors. If the code is not able to compile at all, then `devel` won't be merged.
 
+Whenever a new version of Lines is released, you can go ahead and merge `master` into `beta` and `devel`. If you want, you can merge `beta` into `devel` for whatever reason. Generally, you should do this after a new stable version of Lines is released.
+
 If you want to create your own seperate branch for a feature you are proposing, then it will be reviewed. For the most part, some features or changes will always be accepted, but this doesn't mean that all features will be accepted. During the review, anybody can contribute to that branch, but only if it's related to that feature.
 
 ### Merging a branch
