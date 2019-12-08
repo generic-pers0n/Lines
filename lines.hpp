@@ -94,7 +94,7 @@ void options(string option) {
 
     // Get the y-intercept and slope
     cout << "What is the slope and y-intercept? ";
-    cin >> slope >> y-intercept;
+    cin >> slope >> y_intercept;
 
     cout << "What number do you want to start at? ";
     cin >> starting_number;
