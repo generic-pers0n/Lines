@@ -2,6 +2,9 @@
 #include <string>
 #include <unistd.h>
 #include <cstdlib>
+#ifndef CMDLINE_H
+#define CMDLINE_H
+#endif
 using namespace std;
 
 class CmdLineError {
