@@ -40,7 +40,7 @@
  *
  **/
 
-#include "calculator.hpp"
+#include "libcalc.hpp"
 
 
 // Global variables
