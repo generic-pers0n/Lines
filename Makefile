@@ -11,9 +11,9 @@
 #
 #  You should have received a copy of the GNU General Public License
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
-#
+
 lines: lines.cpp
-	g++ -o lines lines.cpp -L. -llines -g --std=c++17
+	g++ -o lines lines.cpp -L./libs -llines -g --std=c++17
 
 install: lines # Also requires liblines.so
 	install lines /bin
