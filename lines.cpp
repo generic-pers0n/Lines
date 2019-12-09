@@ -12,22 +12,29 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
-/* Lines v2.0
- *
- * This is where the core application is. It contains the basic and
- * neccessary application functions. There are 4 options total:
- *  - Find a graph's equation, slope, and y-intercept using two coordinate points
- *  - Find a graph's equation and y-intercept using the slope and one coordinate point
- *  - Generate coordinate points and optionally save them to a file
- *  - Generate one coordinate point
- **/
 #include "lines.hpp"
 
-int main(int argc, char *argv[]) {
-  // Clear the screen before the screen
-  clear();
+// Function declarations
+void OriginalLines::main();
 
-  // Display the main screen
+
+int main(int argc, char *argv[]) {
+  if (argv[1] == "--classic") {
+    cout << "You have implied the --classic flag\n\n";
+    cout << "You will have the opportunity to use an older version of Lines.However,\n";
+    cout << "You will be able to go back to this version of Lines. To get back to\n";
+    cout << "this screen again, use the \'classic\' command to get back to classic\n";
+    cout << "mode\n\n";
+
+    OriginalLines::main();
+  }
+
+  else {
+    cerr << "Unknown command: " << argv[1] << endl;
+    return -1;
+  }
+
+  clear();
   main_screen("", "");
 }
 
