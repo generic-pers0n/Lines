@@ -41,16 +41,16 @@
  **/
 
 #include "libcalc.hpp"
-
+#include <cstdlib>
 
 // Global variables
 int option;
 
 void main_screen() {
   // Welcome screen
-	cout << "========================================\n";
-	cout << "Linear Graph Equation Calculator\n";
-	cout << "========================================\n\n";
+  cout << "========================================\n";
+  cout << "Linear Graph Equation Calculator\n";
+  cout << "========================================\n\n";
 
   // Options screen
   cout << "Select an option: \n\n";
@@ -66,7 +66,7 @@ void main_screen() {
 // not a library, this has been converted to a library.
 // Nevertheless, the code you see here was the original code
 // here, but this is even before the first version of Lines.
-// Plus, there is a new namespace: 
+// Plus, there is a new namespace: OriginalLines.
 
 namespace OriginalLines{
   void main() {
@@ -100,7 +100,7 @@ namespace OriginalLines{
       // NOTE: Option 2 is not yet implemented
       case (2):
         cout << "This feature is not available yet\n";
-        return 0;
+        exit(0);
         break;
 
       case (3):
