@@ -8,15 +8,15 @@
 using namespace std;
 
 class CmdLineError {
-  void fatal_error(string err_msg) {
+  void fatal_error(string err_msg, int exit_status = -1) {
     cout << "The program has encountered a fatal error. It cannot continue";
 
     if (err_msg == "") {
-      exit(0);
+      exit(exit_status);
     }
 
     cout << "Error message: " << err_msg << endl;
-    exit(0);
+    exit(exit_status);
   }
 };
 
