@@ -1,5 +1,5 @@
-origin-lines: equation_calculator.cpp
-	g++ -c -fPIC -g equation_calculator.cpp
-	g++ -shared -o liblines-origin.so equation_calculator.o
+origin-lines: equation_calculator.cpp cmd_line.cpp
+	g++ -c -fPIC -g equation_calculator.cpp cmd_line.cpp
+	g++ -shared -o liblines-origin.so equation_calculator.o cmd_line.o
 	rm equation_calculator.o
 
