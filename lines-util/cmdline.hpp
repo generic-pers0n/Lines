@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <unistd.h>
 #include <cstdlib>
 #ifndef CMDLINE_H
 #define CMDLINE_H
