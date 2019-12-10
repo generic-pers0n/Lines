@@ -171,7 +171,7 @@ void options(string option) {
   else if (option == "about") {
     clear();
     cout << "====================================\n";
-    cout << "Lines " << LINES_VERSION << "\n";
+    cout << "Lines v3.0dev\n";
     cout << "====================================\n";
     cout << "\n2019 Avery King\n";
     cout << "Partially made during a Xoads live stream\n\n";
