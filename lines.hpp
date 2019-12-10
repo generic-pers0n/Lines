@@ -23,7 +23,7 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
-#define LINES_VERSION "v2.1b"
+
 using namespace std;
 
 // Function declarations
