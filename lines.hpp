@@ -1,4 +1,5 @@
 /* Copyright (C) 2019 Avery King <avery98@pm.me>
+ *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -12,18 +13,11 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
-/* lines.hpp
- *
- *
- * This file contains the basic functionallity of Lines. It includes
- * what to do if the user selects a certain option in the main screen,
- * if the user wants to go back to the main menu, etc.
- *
- **/
 #include <iostream>
 #include <string>
 #include <cstdlib>
-
+#ifndef LINES_H
+#define LINES_H
 using namespace std;
 
 // Function declarations
@@ -217,4 +211,6 @@ THANK YOU SO MUCH!!!\n\n\n";
     main_screen("Unknown command - " + option, "prompt");
   }
 }
+
+#endif // end lines.hpp
 
