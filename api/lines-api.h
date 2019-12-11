@@ -29,7 +29,7 @@ void generate_point(double slope, double y_intercept, int number);
 void write_generated_points_to_file(double slope, double y_intercept, int max_number, int starting_number, string file_name);
 
 namespace Lines {
-  class CalcPt{
+  class Calc{
     void calc_coor_pts(double xcoor, double ycoor, double xcoor2, double ycoor2) {
       coordinate(xcoor, ycoor, xcoor2, ycoor2);
     }
