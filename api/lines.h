@@ -52,6 +52,10 @@ namespace Lines {
       write(generated_points_to_file(slope, y_int, max, start, file);
     }
   };
+
+  string getver() {
+    return "v3.0";
+  }
 }
 
 #endif // end lines-api.h
