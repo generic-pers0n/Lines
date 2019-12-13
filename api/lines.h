@@ -17,7 +17,7 @@
 #include <fstream>
 #include <cstdlib>
 #ifndef LINES_API_H
-#define LINES_API_H
+#define LINES_API
 using namespace std;
 
 // Function declarations
