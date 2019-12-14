@@ -16,7 +16,7 @@ class CmdLineError {
 
     cout << "Error message: " << err_msg << endl;
     exit(exit_status);
-  0}
+  }
 
   void warning(string err_msg) {
     cout << "\x1B[30;43mWarning - " << err_msg << "\0[0m" << endl;
