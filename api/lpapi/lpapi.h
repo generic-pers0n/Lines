@@ -24,11 +24,16 @@
 #include <lines/util.h>
 using namespace std;
 
+#ifdef _WIN32
+#error "The Lines Plugin Framework does not work on Windows"
+#endif
+
 #ifndef LPAPI_H
 #define LPAPI_H
 
 // Global variables
 ofstream file;
+char *error = dlerror();
 
 struct LpapiData {
   string api_ver = "v3.0";
@@ -47,13 +52,14 @@ namespace Plugin {
     return file; // Return file location
   }
 
+  // Here I got some inspiration from the C library
+  // functions 'malloc()' and 'free()'.
   void *allocate(size_t size) {
     void *data = malloc(size);
 
     // Whenever this function fails (if NULL), then Lines will go into
     // a failsafe mode. First, the function will make sure Lines is not
     // in a failsafe mode. If that's true, then allocate() will not work.
-    //
     if (data == NULL) {
         cout << "Error: Failed to allocate RAM";
         Lines::failsafe("Error: Failed to deallocate RAM"); // Enter a failsafe mode
@@ -71,8 +77,14 @@ namespace Plugin {
     free(ptr); // Free allocated space
   }
 
-  // unimplemented
-  void unload();
+  // Unload a plugin
+  void unload(void *plugin) {
+    dlclose(plugin);
+
+    if (error != NULL) {
+      cout << "Error: " << error << endl;
+    }
+  }
 }
 
 #endif // end lpapi.h
