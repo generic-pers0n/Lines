@@ -6,6 +6,9 @@
 using namespace std;
 
 namespace Util {
+  // Function declarations
+  void failsafe(string prompt_type);
+
   vector<string> prompt() {
     vector<string> commands;
     string input;
