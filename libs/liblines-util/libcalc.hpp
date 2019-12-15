@@ -184,4 +184,5 @@ namespace OriginalLines {
        return b;
      }
   };
+}
 
