@@ -46,30 +46,30 @@
 // Global variables
 int option;
 
-void main_screen() {
-  // Welcome screen
-  cout << "========================================\n";
-  cout << "Linear Graph Equation Calculator\n";
-  cout << "========================================\n\n";
+namespace OriginalLines
+  void main_screen() {
+    // Welcome screen
+    cout << "========================================\n";
+    cout << "Linear Graph Equation Calculator\n";
+    cout << "========================================\n\n";
 
-  // Options screen
-  cout << "Select an option: \n\n";
-  cout << "(1) Find an equation with two given points\n";
-  cout << "(2) Find an equation with a given slope and a point (unimplemented)\n\n";
-  cout << ">> ";
-  cin >> option;
-}
+    // Options screen
+    cout << "Select an option: \n\n";
+    cout << "(1) Find an equation with two given points\n";
+    cout << "(2) Find an equation with a given slope and a point (unimplemented)\n\n";
+    cout << ">> ";
+    cin >> option;
+  }
 
-// NOTE: The main function has been change from 'int main' to
-// 'void main'. This is because a library does not
-// have a main() function. While the original application was
-// not a library, this has been converted to a library.
-// Nevertheless, the code you see here was the original code
-// here, but this is even before the first version of Lines.
-// Plus, there is a new namespace: OriginalLines.
+  // NOTE: The main function has been change from 'int main' to
+  // 'void main'. This is because a library does not
+  // have a main() function. While the original application was
+  // not a library, this has been converted to a library.
+  // Nevertheless, the code you see here was the original code
+  // here, but this is even before the first version of Lines.
+  // Plus, there is a new namespace: OriginalLines.
 
-namespace OriginalLines{
-  void main() {
+  void original_main() {
 
     // Display the main screen
     main_screen();
