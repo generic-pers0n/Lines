@@ -123,19 +123,6 @@ void main_screen(string custom_data, string prompt_type) {
     options(option);
   }
 
-  // Welcome screen
-  cout << "====================================\n";
-  cout << "Welcome to Lines\n";
-  cout << "====================================\n\n";
-
-  // Options screen
-  cout << "Select an option: \n\n";
-
-  cout << "(1) Find an equation with two given points\n";
-  cout << "(2) Find an equation with a given slope and a point\n";
-  cout << "(3) Generate coordinate points\n";
-  cout << "(4) Generate coordinate points to a file\n";
-  cout << "(5) Generate coordinate point with only one number\n\n";
   cout << "To see a list of commands, type \'help\'\n";
 
   cout << ">> ";
