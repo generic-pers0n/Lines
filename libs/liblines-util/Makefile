@@ -3,3 +3,6 @@ liblines-util: equation_calculator.cpp
 	g++ -shared -o liblines-util.so equation_calculator.o
 	rm *.o
 
+install: liblines-util.so
+	install liblines-util.so /lib64
+	install util.h /usr/include/lines
