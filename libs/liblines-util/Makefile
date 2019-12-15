@@ -1,6 +1,6 @@
-origin-lines: equation_calculator.cpp cmdline.cpp
-	g++ -c -fPIC -g equation_calculator.cpp cmdline.cpp
-	g++ -shared -o liblines-util.so equation_calculator.o cmdline.o
+origin-lines: equation_calculator.cpp
+	g++ -c -fPIC -g equation_calculator.cpp
+	g++ -shared -o liblines-util.so equation_calculator.o
 	rm *.o
 	mv libliness-util.so ../libs
 
