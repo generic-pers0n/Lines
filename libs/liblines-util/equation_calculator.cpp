@@ -46,7 +46,7 @@
 // Global variables
 int option;
 
-namespace OriginalLines
+namespace OriginalLines {
   void main_screen() {
     // Welcome screen
     cout << "========================================\n";
@@ -108,7 +108,7 @@ namespace OriginalLines
 
       default:
         cerr << "Error: you need to select an option!\n";
-        main();
+        original_main();
         break;
     }
   }
