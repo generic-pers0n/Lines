@@ -14,6 +14,7 @@
 */
 #include "lines.hpp"
 #include "libs/liblines-util/libcalc.hpp"
+#include <getopt.h>
 
 
 int main(int argc, char *argv[]) {
@@ -32,7 +33,7 @@ int main(int argc, char *argv[]) {
   }
 
   else {
-    cerr << "Unknown command: " << argv[1] << endl;
+    cerr << "Unknown argument: " << argv[1] << endl;
     return -1;
   }
 
