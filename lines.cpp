@@ -15,7 +15,7 @@
 #include "lines.hpp"
 
 // Function declarations
-void OriginalLines::main();
+void OriginalLines::original_main();
 
 
 int main(int argc, char *argv[]) {
