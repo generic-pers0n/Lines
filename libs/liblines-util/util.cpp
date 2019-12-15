@@ -1,5 +1,6 @@
 #include <lines/util.h>
 
+namespace Util {
 ///////////////////// Get failsafe prompt option /////////////////////
 void failsafe_multi_options(vector<string> option);
 
@@ -42,3 +43,4 @@ void failsafe() {
   single_prompt();
 }
 
+}
