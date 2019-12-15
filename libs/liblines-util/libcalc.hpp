@@ -106,6 +106,10 @@ double exp(double num, double pwr) {
 }
 
 namespace OriginalLines {
+  // Declarations
+  void main_screen();
+  void original_main();
+
   // Find a linear graph equation
   class Linear {
     public:
