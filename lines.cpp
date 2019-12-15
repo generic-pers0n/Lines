@@ -15,9 +15,6 @@
 #include "lines.hpp"
 #include "libs/liblines-util/libcalc.hpp"
 
-// Function declarations
-void OriginalLines::original_main();
-
 
 int main(int argc, char *argv[]) {
   if (argv[1] == "--classic") {
@@ -28,6 +25,10 @@ int main(int argc, char *argv[]) {
     cout << "mode\n\n";
 
     OriginalLines::original_main();
+  }
+
+  else if (argv[0]) {
+    main_screen("", "");
   }
 
   else {
