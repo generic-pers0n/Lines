@@ -1,4 +1,5 @@
 /* Copyright (C) 2019 Avery King <avery98@pm.me>
+ *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -46,7 +47,7 @@ double subtract(double num1, double num2) {
   double result = num1 - num2;
   return result;
 }
-  
+
 // Multiply
 double multiply(double num1, double num2) {
   double result = num1 * num2;
@@ -104,82 +105,83 @@ double exp(double num, double pwr) {
   return result;
 }
 
-// Find a linear graph equation
-class Linear {
-  public:
-    void coordinate(double pt1x, double pt1y, double pt2x, double pt2y) {
-      // Coordinate point variables
-      double xcoor1 = pt1x;
-      double ycoor1 = pt1y;
-      double xcoor2 = pt2x;
-      double ycoor2 = pt2y;
+namespace OriginalLines {
+  // Find a linear graph equation
+  class Linear {
+    public:
+      void coordinate(double pt1x, double pt1y, double pt2x, double pt2y) {
+        // Coordinate point variables
+        double xcoor1 = pt1x;
+        double ycoor1 = pt1y;
+        double xcoor2 = pt2x;
+        double ycoor2 = pt2y;
 
-      // Equation variables
-      // double x;
-      double y;
+        // Equation variables
+        // double x;
+        double y;
 
-      // Subtract the coordinate points from each other
-      //double delta_x = pt1x - pt2x;
-      double delta_x = subtract(pt1x, pt2x);
-      //double delta_y = pt1y - pt2y;
-      double delta_y = subtract(pt1y, pt2y);
-      //double slope = delta_y / delta_x; // The slope of the graph
-      double slope = divide(delta_y, delta_x);
+        // Subtract the coordinate points from each other
+        //double delta_x = pt1x - pt2x;
+        double delta_x = subtract(pt1x, pt2x);
+        //double delta_y = pt1y - pt2y;
+        double delta_y = subtract(pt1y, pt2y);
+        //double slope = delta_y / delta_x; // The slope of the graph
+        double slope = divide(delta_y, delta_x);
 
-      // Find the y-intercept
-      // (4, 10)
-      y = ycoor1;
-      //double mx = slope * xcoor1;
-      double mx = multiply(slope, xcoor1);
-      //double b = y - mx;
-      double b = subtract(y, mx);
+        // Find the y-intercept
+        // (4, 10)
+        y = ycoor1;
+        //double mx = slope * xcoor1;
+        double mx = multiply(slope, xcoor1);
+        //double b = y - mx;
+        double b = subtract(y, mx);
 
-      cout << "\nThe equation of this graph is y=" << slope << "x" << b << endl;
-      cout << "The slope of this graph is " << slope << endl;
-      cout << "The y-intercept of this graph is (0, " << b << ")" << endl;
-  }
+        cout << "\nThe equation of this graph is y=" << slope << "x" << b << endl;
+        cout << "The slope of this graph is " << slope << endl;
+        cout << "The y-intercept of this graph is (0, " << b << ")" << endl;
+      }
 
-  void slope(double xpt, double ypt, double slp) {
-    double xcoor = xpt;
-    double ycoor = ypt;
-    double slope = slp;
-    double y;
+      void slope(double xpt, double ypt, double slp) {
+        double xcoor = xpt;
+        double ycoor = ypt;
+        double slope = slp;
+        double y;
 
-    // Find the y-intercept using the slope and two points
-    y = ycoor;
-    //double mx = slope * xcoor1; // 2(4)+b
-    double mx = multiply(slope, xcoor);
-    //double b = y - mx;
-    double b = subtract(y, mx);
+        // Find the y-intercept using the slope and two points
+        y = ycoor;
+        //double mx = slope * xcoor1; // 2(4)+b
+        double mx = multiply(slope, xcoor);
+        //double b = y - mx;
+        double b = subtract(y, mx);
 
-    // Display the equation, y-intercept, and slope
-    cout << "\nThe equation of this graph is y=" << slope << "x" << b << endl;
-    cout << "The slope of this graph is " << slope << endl;
-    cout << "The y-intercept of this graph is (0, " << b << ")" << endl;
-  }
-}; 
+        // Display the equation, y-intercept, and slope
+        cout << "\nThe equation of this graph is y=" << slope << "x" << b << endl;
+        cout << "The slope of this graph is " << slope << endl;
+        cout << "The y-intercept of this graph is (0, " << b << ")" << endl;
+    }
+  };
 
-// Find the hypotenuse or a missing side length using the Pythagorean Theorem
-class Pythagorean {
-  public:
-    double hypotenuse(double side_a, double hyp) {
-     // Variables
-     double a = side_a; // 10^2
-     double b;
-     double h = hyp; // 20^2
+  // Find the hypotenuse or a missing side length using the Pythagorean Theorem
+  class Pythagorean {
+    public:
+      double hypotenuse(double side_a, double hyp) {
+       // Variables
+       double a = side_a; // 10^2
+       double b;
+       double h = hyp; // 20^2
 
-     // Square side A and the Hypotenuse
-     double a2 = exp(side_a, 2); // 100
-     double h2 = exp(h, 2); // 400
+       // Square side A and the Hypotenuse
+       double a2 = exp(side_a, 2); // 100
+       double h2 = exp(h, 2); // 400
 
-     double hyp_min_a = h2 - a2; // 300
+       double hyp_min_a = h2 - a2; // 300
 
-     // Sqaure root the result after subtracting side A from the Hypotenuse
-     double sqrt_hma = square_root(hyp_min_a); // 17.3
-     b = sqrt_hma;
+       // Sqaure root the result after subtracting side A from the Hypotenuse
+       double sqrt_hma = square_root(hyp_min_a); // 17.3
+       b = sqrt_hma;
 
-     cout << "Side B is equal to " << b;
-     return b;
-   }
-};
+       cout << "Side B is equal to " << b;
+       return b;
+     }
+  };
 
