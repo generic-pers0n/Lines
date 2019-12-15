@@ -14,14 +14,6 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
-/* Libcalc Core (libcalc.hpp)
- *
- * Part of Lines
- *
- * This file contains the core functionallity that powers Lines. For example, it
- * contains certain commands like the "clear" command.
- *
- **/
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -82,6 +74,24 @@ void clear() { // Clear command
     system("clear");
   }
 }
+
+void about() { // About command
+  clear();
+  cout << "====================================\n";
+  cout << "Lines v2.1.1\n";
+  cout << "====================================\n";
+  cout << "\nCopyright (C) 2019 Avery King\n";
+  cout << "Partially made during a Xoads live stream\n\n";
+
+  // About screen message
+  cout << "Thanks to everyone who supported me when I showed them this\n";
+  cout << "calculator.\nI would like to thank my friends, classmates, and my parents!\n";
+  cout << "THANK YOU SO MUCH!!!\n\n\n";
+
+  // Return to the main screen
+  main_screen("", "");
+}
+
 
 void help() { // Help command
   cout << "Available commands:\n\n";
