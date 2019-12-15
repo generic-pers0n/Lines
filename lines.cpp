@@ -13,6 +13,7 @@
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 #include "lines.hpp"
+#include "libs/liblines-util/libcalc.hpp"
 
 // Function declarations
 void OriginalLines::original_main();
@@ -26,7 +27,7 @@ int main(int argc, char *argv[]) {
     cout << "this screen again, use the \'classic\' command to get back to classic\n";
     cout << "mode\n\n";
 
-    OriginalLines::main();
+    OriginalLines::original_main();
   }
 
   else {
