@@ -13,9 +13,9 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 lines: lines.cpp
-	g++ -o lines lines.cpp -L./build -llines-util -llines -llines-util -g --std=c++17
+	g++ -o lines lines.cpp -L./build-libs -llines-util -llines -llines-util -g --std=c++17
 
 install: lines # Also requires liblines.so
 	install lines /bin
-	install liblines/liblines.so /lib64
+	install build-libs/liblines.so /lib64
 
