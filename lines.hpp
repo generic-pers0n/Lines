@@ -31,7 +31,7 @@ void main_screen(string custom_data, string prompt_type);
 void options(string option); // For use later on
 void clear();
 void help();
-void show_copyright();
+void show_copyright(bool program_start);
 string get_platform();
 
 
