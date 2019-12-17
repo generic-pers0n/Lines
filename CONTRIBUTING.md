@@ -2,7 +2,7 @@
 
 **NOTE: This is a work in progress. Not everything is completed.**
 
-With the availability of the source code of Lines on GitHub comes the opportunity to contribute to Lines. However, when you contribute, you agree to these guidelines. The following guidelines are shown below.
+Thank you for contributing to Lines! You're contributing to a revolution in desktop apps! Thanks for helping out! Just be sure to follow these guidelines when contributing to Lines.
 
 **NOTE: You do NOT need to know how to code in order for you to contribute to Lines.**
 
