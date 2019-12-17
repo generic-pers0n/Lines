@@ -17,6 +17,6 @@ liblines: liblines.cpp liblines.o
 	rm -rf liblines.o
 	mv liblines.so ../../build-libs
 
-install: liblines.so
+install: ../../build-libs/liblines.so
 	install liblines.so /lib64
 
