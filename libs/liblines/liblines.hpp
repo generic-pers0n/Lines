@@ -48,19 +48,28 @@ string get_platform() {
 }
 
 // Copyright command
-void show_copyright() {
-  cout << "The swiss army knife for linear graphs.\n\n";
-  cout << "Copyright (C) 2019  Avery King\n";
-  cout << "This program is free software: you can redistribute it and/or modify\n";
-  cout << "it under the terms of the GNU General Public License as published by\n";
-  cout << "the Free Software Foundation, either version 3 of the License, or\n";
-  cout << "(at your option) any later version.\n\n";
-  cout << "This program is distributed in the hope that it will be useful,\n";
-  cout << "but WITHOUT ANY WARRANTY; without even the implied warranty of\n";
-  cout << "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n";
-  cout << "GNU General Public License for more details.\n\n";
-  cout << "You should have received a copy of the GNU General Public License\n";
-  cout << "along with this program.  If not, see <https://www.gnu.org/licenses/>.\n\n";
+void show_copyright(bool program_start) {
+  if (program_start == true) {
+    cout << "Lines  Copyright (C) 2019  Avery King\n";
+    cout << "This program comes with ABSOLUTELY NO WARRANTY; for details type `copyright'.\n";
+    cout << "This is free software, and you are welcome to redistribute it\n";
+    cout << "under certain conditions; type `copyright' for details.\n";
+  }
+
+  else {
+    cout << "The swiss army knife for linear graphs.\n\n";
+    cout << "Copyright (C) 2019  Avery King\n";
+    cout << "This program is free software: you can redistribute it and/or modify\n";
+    cout << "it under the terms of the GNU General Public License as published by\n";
+    cout << "the Free Software Foundation, either version 3 of the License, or\n";
+    cout << "(at your option) any later version.\n\n";
+    cout << "This program is distributed in the hope that it will be useful,\n";
+    cout << "but WITHOUT ANY WARRANTY; without even the implied warranty of\n";
+    cout << "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n";
+    cout << "GNU General Public License for more details.\n\n";
+    cout << "You should have received a copy of the GNU General Public License\n";
+    cout << "along with this program.  If not, see <https://www.gnu.org/licenses/>.\n\n";
+  }
 }
 
 //////////////////////// Commands ////////////////////////
@@ -78,7 +87,7 @@ void clear() { // Clear command
 void about() { // About command
   clear();
   cout << "====================================\n";
-  cout << "Lines v2.1.1\n";
+  cout << "Lines v3.0 dev\n";
   cout << "====================================\n";
   cout << "\nCopyright (C) 2019 Avery King\n";
   cout << "Partially made during a Xoads live stream\n\n";
