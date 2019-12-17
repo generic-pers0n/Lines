@@ -48,7 +48,7 @@ string get_platform() {
 }
 
 // Copyright command
-void show_copyright(bool program_start) {
+void show_copyright(bool program_start = false) {
   if (program_start == true) {
     cout << "Lines  Copyright (C) 2019  Avery King\n";
     cout << "This program comes with ABSOLUTELY NO WARRANTY; for details type `copyright'.\n";
