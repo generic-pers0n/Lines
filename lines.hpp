@@ -34,6 +34,8 @@ void help();
 void show_copyright(bool program_start = false);
 string get_platform();
 
+// liblines-util
+void get_single_option(string option);
 
 // Global variables
 string answer;
@@ -41,20 +43,10 @@ string answer;
 void options(string option) {
   // Do an action based on the option
   if (option == "1") { // Find equation using two coordinate points
-    double xcoor1, ycoor1, xcoor2, ycoor2;
-
-    // Get the coordinate points from the user
-    cout << "Enter coordinate point 1: ";
-    cin >> xcoor1 >> ycoor1;
-
-    cout << "Enter coordinate point 2: ";
-    cin >> xcoor2 >> ycoor2;
-
-    // Calculate the equation and so with two coordinate points
-    coordinate(xcoor1, ycoor1, xcoor2, ycoor2);
-
-    // Return to the main screen
-    main_screen("", "");
+    // NOTE: Option 1 is effectively the "slope" command. It does not have its own
+    // funcitonality anymore. This is part of the migration process of moving any
+    // command-line functionality from Lines itself to liblines-util.
+    get_single_option("slope");
   }
 
   else if (option == "2") { // Find equation and related using slope and coordinate point
