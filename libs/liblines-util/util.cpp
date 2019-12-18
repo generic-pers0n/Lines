@@ -1,9 +1,6 @@
 #include <boost/algorithm/string.hpp>
+#includd <lines/lines.h>
 #include <lines/util.h>
-
-// Declarations (for liblines)
-void coordinate(double xcoor1, double ycoor1, double xcoor2, double ycoor2);
-void slope(double xcoor, double ycoor, double slope);
 
 namespace Util {
   ///////////////////// Get failsafe prompt option /////////////////////
