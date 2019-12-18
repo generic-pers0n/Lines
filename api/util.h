@@ -2,7 +2,7 @@
 #include <string>
 #include <fstream>
 #include <bits/stdc++.h>
-#define FAILESAFE 0 // false
+#define FAILSAFE false
 using namespace std;
 
 namespace Util {
