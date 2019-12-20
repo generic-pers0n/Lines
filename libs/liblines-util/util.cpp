@@ -1,4 +1,3 @@
-#include <boost/algorithm/string.hpp>
 #include <lines/lines.h>
 #include <lines/util.h>
 
