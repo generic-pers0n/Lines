@@ -3,7 +3,23 @@
 
 namespace Util {
   ///////////////////// Get failsafe prompt option /////////////////////
-  void failsafe_multi_options(vector<string> option);
+  void get_failsafe_option(vector<string> option) {
+
+  }
+
+  void get_failsafe_option_single(string option) {
+    if (option == "continue") {
+      cout << "Attempting to continue...\n";
+    }
+
+    else if (option == "exit") {
+      cout << "Exiting...";
+    }
+
+    else {
+      cerr << option << " is not a known command\n";
+    }
+  }
   //////////////////////////////////////////////////////////////////////
 
   void get_single_option(string option) {
