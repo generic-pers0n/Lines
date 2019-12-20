@@ -4,9 +4,6 @@
 namespace Util {
   ///////////////////// Get failsafe prompt option /////////////////////
   void failsafe_multi_options(vector<string> option);
-
-  void failsafe_option(string option) {
-  }
   //////////////////////////////////////////////////////////////////////
 
   void get_single_option(string option) {
