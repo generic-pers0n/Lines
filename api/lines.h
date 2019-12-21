@@ -49,7 +49,7 @@ namespace Lines {
     }
 
     void write(double slope, double y_int, int max, int start, string file) {
-      write(generated_points_to_file(slope, y_int, max, start, file);
+      write(write_generated_points_to_file(slope, y_int, max, start, file);
     }
   };
 
