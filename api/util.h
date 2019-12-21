@@ -25,15 +25,15 @@ namespace Util {
     cout << ">> ";
     getline(cin, input);
 
-    return option;
+    return commands;
   }
 
   string single_prompt() {
-    string option;
+    string command;
 
     cout << ">> ";
-    cin >> option;
-    return option;
+    cin >> command;
+    return command;
   }
 
   void failsafe(string prompt_type) {
