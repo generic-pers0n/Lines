@@ -44,12 +44,12 @@ namespace Util {
 
     if (prompt_type == "single") {
       string answer = single_prompt();
-      get_failsafe_option(answer);
+      get_failsafe_option_single(answer);
     }
 
     else if (prompt_type == "default") {
       vector<string> answer = prompt();
-      get_failsafe_option_single(answer);
+      get_failsafe_option(answer);
     }
   }
 }
