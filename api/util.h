@@ -17,14 +17,6 @@ namespace Util {
     cout << ">> ";
     getline(cin, input);
 
-
-  vector<string> prompt() {
-    vector<string> commands;
-    string input;
-
-    cout << ">> ";
-    getline(cin, input);
-
     return commands;
   }
 
