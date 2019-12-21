@@ -34,8 +34,8 @@ namespace Lines {
       coordinate(xcoor, ycoor, xcoor2, ycoor2);
     }
 
-    void calc_coor_pts_slope(double slope, double xcoor, double ycoor) {
-      slope(xcoor, ycoor, slope);
+    void calc_coor_pts_slope(double graph_slope, double xcoor, double ycoor) {
+      slope(xcoor, ycoor, graph_slope);
     }
   };
 
