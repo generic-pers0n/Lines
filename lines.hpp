@@ -13,11 +13,12 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
+#ifndef LINES_H
+#define LINES_H
 #include <iostream>
 #include <string>
 #include <cstdlib>
-#ifndef LINES_H
-#define LINES_H
+#include "libs/liblines-util/util.h"
 using namespace std;
 
 // Function declarations
@@ -34,7 +35,7 @@ void help();
 void show_copyright(bool program_start = false);
 string get_platform();
 
-// liblines-util
+// liblines-util delcarations
 void get_single_option(string option);
 
 // Global variables
