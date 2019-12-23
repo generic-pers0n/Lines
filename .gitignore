@@ -1,0 +1,7 @@
+# Ignore anything is .vscode
+#
+# Generally, I may use Visual Studio Code for developing Lines. I'll leave
+# this here in the project's root directory so tat anyone using VS Code can
+# do stuff anything related to VS Code. Also, I don't want to have anything
+# in this directory to be tracked.
+**/.vscode
