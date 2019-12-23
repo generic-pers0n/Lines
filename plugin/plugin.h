@@ -40,6 +40,12 @@ struct LpapiData {
   string lines_ver = "v3.0 dev";
 };
 
+struct PluginInfo {
+  string version;
+  string name;
+  string file;
+};
+
 namespace Plugin {
   void write(string data) {
     cout << "plugin: " << data;
