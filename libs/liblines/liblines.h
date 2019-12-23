@@ -14,6 +14,9 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
+#ifndef LIBLINES_H
+#define LIBLINES_H
+
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -139,3 +142,4 @@ void main_screen(string custom_data, string prompt_type) {
   options(option);
 }
 
+#endif // end liblines.h
