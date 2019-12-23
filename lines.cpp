@@ -30,7 +30,7 @@ int main(int argc, char *argv[]) {
     OriginalLines::original_main();
   }
 
-  else if (argv[0]) {
+  else if (!argv[1]) {
     main_screen("", "");
   }
 
