@@ -1,3 +1,4 @@
+#include <lines/liblines.h>
 #include <lines/util.h>
 
 namespace Util {
