@@ -1,4 +1,4 @@
-#include <lines/lpapi.h>
+#include <lines/plugin.h>
 #include <lines/util.h>
 
 if (FAILSAFE == 1) {
