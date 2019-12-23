@@ -38,6 +38,17 @@ string get_platform();
 // Global variables
 string answer;
 
+// Signal handler
+void handler(int sig_num) {
+  cout << "Signal " << sig_num << "received. Exiting...\n";
+
+  // Call a custom exit() function here, but it's unimplemented
+  // Something like unload() would be called
+
+  // Finally, exit
+  exit(sig_num);
+}
+
 void options(string option) {
   // Do an action based on the option
   if (option == "1") { // Find equation using two coordinate points

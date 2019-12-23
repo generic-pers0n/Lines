@@ -15,9 +15,12 @@
 #include "lines.hpp"
 #include "libs/liblines-util/libcalc.hpp"
 #include <getopt.h>
-
+#include <csignal>
 
 int main(int argc, char *argv[]) {
+  // Register SIGINT (interrupt) with handler()
+  signal(SIGINT, handler);
+
   if (argv[1] == "--classic") {
     cout << "You have implied the --classic flag\n\n";
     cout << "You will have the opportunity to use an older version of Lines.However,\n";
