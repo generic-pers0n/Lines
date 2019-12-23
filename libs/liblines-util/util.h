@@ -9,6 +9,7 @@ namespace Util {
   // Function declarations (internal only)
   void get_failsafe_option_single(string option);
   void get_failsafe_option(vector<string> option);
+  void get_single_option(string option);
 
   vector<string> prompt() {
     vector<string> commands;
