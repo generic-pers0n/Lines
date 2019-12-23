@@ -3,7 +3,11 @@ in this release:
 
   * Code cleanups
 
-  * Fixed about screen
+  * Removed numbered options
 
-  * Fixed "help" command
+  * Add new library: liblines-util
+
+  * Add support for command line arguments
+
+  * Add support for loading plugins
 
