@@ -1,4 +1,3 @@
-#include <lines/lines.h>
 #include <lines/util.h>
 
 namespace Util {
