@@ -21,7 +21,7 @@
  *
  * For crucial functionallity of Lines, see lines.hpp
  **/
-#include "liblines.hpp"
+#include "liblines.h"
 using namespace std;
 
 
