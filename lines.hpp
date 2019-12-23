@@ -35,9 +35,6 @@ void help();
 void show_copyright(bool program_start = false);
 string get_platform();
 
-// liblines-util delcarations
-void get_single_option(string option);
-
 // Global variables
 string answer;
 
@@ -47,7 +44,7 @@ void options(string option) {
     // NOTE: Option 1 is effectively the "slope" command. It does not have its own
     // funcitonality anymore. This is part of the migration process of moving any
     // command-line functionality from Lines itself to liblines-util.
-    get_single_option("slope");
+    Util::get_single_option("slope");
   }
 
   else if (option == "2") { // Find equation and related using slope and coordinate point
