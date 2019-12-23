@@ -18,7 +18,7 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
-#include "libs/liblines-util/util.h"
+#include <lines/util.h>
 using namespace std;
 
 // Function declarations
