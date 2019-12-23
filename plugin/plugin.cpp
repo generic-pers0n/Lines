@@ -2,7 +2,7 @@
 #include <lines/util.h>
 
 if (FAILSAFE == 1) {
-  cout << "WARNING: You are in failsafe mode. Plugin do not work in failsafe mode\n";
+  cout << "WARNING: You are in failsafe mode. Plugins don\'t work in failsafe mode.\n";
 }
 
 // Load plugin function (internal only)
