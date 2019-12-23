@@ -41,7 +41,7 @@ string answer;
 
 // Signal handler
 void handler(int sig_num) {
-  cout << "Signal " << sig_num << "received. Exiting...\n";
+  cout << "\nSignal " << sig_num << " received. Exiting...\n";
 
   // Call a custom exit() function here, but it's unimplemented
   // Something like unload() would be called
