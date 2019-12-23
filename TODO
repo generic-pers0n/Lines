@@ -1,8 +1,5 @@
 Lines:
-  * Add integrity check function
   * Add doc folder for documentation
 
 liblines:
-  * Phase out main screen
   * Add commands to replace main screen options
-
