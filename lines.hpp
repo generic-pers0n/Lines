@@ -19,6 +19,7 @@
 #include <string>
 #include <cstdlib>
 #include <lines/util.h>
+#include <csignal>
 using namespace std;
 
 // Function declarations
