@@ -63,7 +63,7 @@ namespace Util {
     else if (option == "about") {
       cout << "====================================\n";
       cout << "Lines v3.0 dev\n";
-      cout << "====================================\n";
+      cout << "====================================\n\n";
       
       cout << "Lines, the Swiss Army knife for Linear Graphs\n";
       cout << "Partially made during a Xoads live stream\n";
@@ -76,7 +76,7 @@ namespace Util {
       cout << "Lines  Copyright (C) 2019  Avery King\n";
       cout << "This program comes with ABSOLUTELY NO WARRANTY; for details type `copyright'.\n";
       cout << "This is free software, and you are welcome to redistribute it\n";
-      cout << "under certain conditions; type `copyright' for details.\n\n";
+      cout << "under certain conditions; type `copyright' for details.\n";
 
       // Return to the prompt (for single prompt)
       string option = single_prompt();
