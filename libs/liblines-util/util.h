@@ -1,7 +1,11 @@
+#ifndef UTIL_H
+#define UTIL_H // util.h
+
 #include <iostream>
 #include <string>
 #include <fstream>
 #include <bits/stdc++.h>
+#include <boost/algorithm/string.hpp>
 #define FAILSAFE false
 using namespace std;
 
@@ -17,6 +21,8 @@ namespace Util {
     cout << ">> ";
     getline(cin, input);
 
+    // Split the input and save it into 'commands'
+    boost::split(commands, input, boost::is_any_of(" "));
     return commands;
   }
 
@@ -49,3 +55,4 @@ namespace Util {
   }
 }
 
+#endif // end util.h
