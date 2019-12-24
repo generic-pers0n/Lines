@@ -35,7 +35,6 @@ using namespace Util; // liblines-util namespace "Util"
 using namespace std;
 
 // Function declarations
-void options(string option); // deprecated
 void main_screen(string custom_data, string prompt_type); // deprecated
 
 // Declarations in liblines.cpp
