@@ -35,10 +35,6 @@ namespace Util {
       get_failsafe_option(input);
     }
   }
-
-  void get_failsafe_option_single(string option) {
-
-  }
   //////////////////////////////////////////////////////////////////////
 
   void get_option(vector<string> option) {
