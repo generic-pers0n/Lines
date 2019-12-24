@@ -41,8 +41,8 @@ namespace Util {
   }
   //////////////////////////////////////////////////////////////////////
 
-  void get_single_option(string option) {
-    if (option == "slope") {
+  void get_option(vector<string> option) {
+    if (option[0] == "slope") { // Slope command
       double xcoor1, ycoor1, xcoor2, ycoor2;
 
       // Get the coordinate points from the user
@@ -60,7 +60,7 @@ namespace Util {
       get_single_option(option);
     }
 
-    else if (option == "about") {
+    else if (option[0] == "about") { // About command
       cout << "====================================\n";
       cout << "Lines v3.0 dev\n";
       cout << "====================================\n\n";
@@ -83,12 +83,11 @@ namespace Util {
       get_single_option(option);
     }
 
-    else {
-      cerr << option << " is not a command.\n";
+    else { // Unknown commands
+      cout << option[0] << " is not a command" << endl;
+      // Return to the prompt (for single prompt)
+      string option = single_prompt();
+      get_single_option(option);
     }
-  }
-
-  void get_option(vector<string> option) {
-
   }
 }
