@@ -134,19 +134,6 @@ void help() { // Help command (deprecated function)
 // The main screen is going away soon. Over time, as liblines-util
 // matures, main_screen() will eventually be removed.
 void main_screen(string custom_data, string prompt_type) {
-  // Variables
-  string option;
-
-  // Parameter checks
-  if (prompt_type == "prompt" && custom_data != "") {
-    clear();
-    // It's easier if we just detect "prompt". Any other value will be ignored
-    cout << custom_data << endl;
-    cout << ">> ";
-    getline(cin, option);
-    options(option);
-  }
-
   cout << "To see a list of commands, type \'help\'\n";
 
   // Prompt the user
