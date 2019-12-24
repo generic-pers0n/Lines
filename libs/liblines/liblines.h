@@ -23,6 +23,7 @@
 #include <cstdlib>
 #include <bits/stdc++.h>
 #include <lines/util.h>
+using namespace Util; // liblines-util namespace "Util"
 
 #ifdef _WIN32
   #define OS "win"
