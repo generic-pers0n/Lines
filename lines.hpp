@@ -50,16 +50,9 @@ void handler(int sig_num) {
   exit(sig_num);
 }
 
+// Deprecated
 void options(string option) {
-  // Do an action based on the option
-  if (option == "1") { // Find equation using two coordinate points
-    // NOTE: Option 1 is effectively the "slope" command. It does not have its own
-    // funcitonality anymore. This is part of the migration process of moving any
-    // command-line functionality from Lines itself to liblines-util.
-    Util::get_single_option("slope");
-  }
-
-  else if (option == "2") { // Find equation and related using slope and coordinate point
+  /* if (option == "2") { // Find equation and related using slope and coordinate point
     // Variables
     double xcoor, ycoor, slope_value;
 
@@ -202,7 +195,7 @@ void options(string option) {
 
   else {
     main_screen("Unknown command - " + option, "prompt");
-  }
+  }*/
 }
 
 #endif // end lines.hpp
