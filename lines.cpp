@@ -20,25 +20,6 @@ int main(int argc, char *argv[]) {
   // Register SIGINT (interrupt) with handler()
   signal(SIGINT, handler);
 
-  if (argv[1] == "--classic") {
-    cout << "You have implied the --classic flag\n\n";
-    cout << "You will have the opportunity to use an older version of Lines.However,\n";
-    cout << "You will be able to go back to this version of Lines. To get back to\n";
-    cout << "this screen again, use the \'classic\' command to get back to classic\n";
-    cout << "mode\n\n";
-
-    OriginalLines::original_main();
-  }
-
-  else if (!argv[1]) {
-    main_screen("", "");
-  }
-
-  else {
-    cerr << "Unknown argument: " << argv[1] << endl;
-    return -1;
-  }
-
   clear();
   main_screen("", "");
 }
