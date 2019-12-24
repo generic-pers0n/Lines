@@ -51,11 +51,11 @@ namespace Plugin {
     cout << "plugin: " << data;
   }
 
-  string fwrite(string file, string data) {
-    file.open(file);
+  string fwrite(string file_path, string data) {
+    file.open(file_path);
     file << data;
     file.close();
-    return file; // Return file location
+    return file_path; // Return file location
   }
 
   // Here I got some inspiration from the C library
