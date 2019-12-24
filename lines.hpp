@@ -171,20 +171,11 @@ void options(string option) {
 
   // "about" command
   else if (option == "about") {
-    clear();
-    cout << "====================================\n";
-    cout << "Lines v3.0 dev\n";
-    cout << "====================================\n";
-    cout << "\n2019 Avery King\n";
-    cout << "Partially made during a Xoads live stream\n\n";
-
-    // About screen message
-    cout << "Thanks to everyone who supported me when I showed them this \
-calculator.\nI would like to thank my friends, classmates, and my parents! \
-THANK YOU SO MUCH!!!\n\n\n";
-
-    // Return to the main screen
-    main_screen("", "");
+    // Note that the new command line is not 
+    // yet complete. Once the new command line
+    // is complete, the whole option() function
+    // will disappear completely.
+    Util::get_single_option("about");
   }
 
   else if (option == "clear") {
