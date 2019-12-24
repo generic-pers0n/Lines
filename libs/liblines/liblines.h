@@ -21,6 +21,8 @@
 #include <fstream>
 #include <string>
 #include <cstdlib>
+#include <bits/stdc++.h>
+#include <lines/util.h>
 
 #ifdef _WIN32
   #define OS "win"
@@ -32,8 +34,8 @@
 using namespace std;
 
 // Function declarations
-void options(string option);
-void main_screen(string custom_data, string prompt_type);
+void options(string option); // deprecated
+void main_screen(string custom_data, string prompt_type); // deprecated
 
 // Declarations in liblines.cpp
 void coordinate(double xcoor1, double ycoor1, double xcoor2, double ycoor2);
@@ -85,7 +87,6 @@ void show_copyright(bool program_start = false) {
 
 //////////////////////// Commands ////////////////////////
 void clear() { // Clear command
-  // Clear command
   if (OS == "win") { // Clear command for Windows (cls)
     system("cls");
   } else if (OS == "unix" || OS == "macos") { // Clear (clear) command for Unix and similar
@@ -95,7 +96,7 @@ void clear() { // Clear command
   }
 }
 
-void about() { // About command
+void about() { // About command (deprecated function)
   clear();
   cout << "====================================\n";
   cout << "Lines v3.0 dev\n";
@@ -113,7 +114,7 @@ void about() { // About command
 }
 
 
-void help() { // Help command
+void help() { // Help command (deprecated function)
   cout << "Available commands:\n\n";
   cout << "about - Shows the About screen\n";
   cout << "help - Displays this message\n";
@@ -128,7 +129,10 @@ void help() { // Help command
 
 //////////////////////////////////////////////////////////
 
-// Main screen
+// Main screen (deprecated)
+//
+// The main screen is going away soon. Over time, as liblines-util
+// matures, main_screen() will eventually be removed.
 void main_screen(string custom_data, string prompt_type) {
   // Variables
   string option;
@@ -145,9 +149,9 @@ void main_screen(string custom_data, string prompt_type) {
 
   cout << "To see a list of commands, type \'help\'\n";
 
-  cout << ">> ";
-  cin >> option;
-  options(option);
+  // Prompt the user
+  vector<string> command = prompt();
+  get_option(command);
 }
 
 #endif // end liblines.h
