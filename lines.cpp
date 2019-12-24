@@ -13,14 +13,15 @@
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 #include "lines.hpp"
-#include "libs/liblines-util/libcalc.hpp"
+#include <lines/util.h>
 #include <getopt.h>
 
 int main(int argc, char *argv[]) {
   // Register SIGINT (interrupt) with handler()
   signal(SIGINT, handler);
 
-  clear();
-  main_screen("", "");
+  // Prompt the user
+  vector<string> input = prompt();
+  get_option(input);
 }
 
