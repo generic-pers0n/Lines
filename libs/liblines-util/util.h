@@ -8,7 +8,7 @@ using namespace std;
 namespace Util {
   // Function declarations (internal only)
   void get_failsafe_option(vector<string> option);
-  void get_single_option(string option);
+  void get_option(vector<string> option);
 
   vector<string> prompt() {
     vector<string> commands;
@@ -18,14 +18,6 @@ namespace Util {
     getline(cin, input);
 
     return commands;
-  }
-
-  string single_prompt() {
-    string command;
-
-    cout << ">> ";
-    cin >> command;
-    return command;
   }
 
   void failsafe(string error) {
