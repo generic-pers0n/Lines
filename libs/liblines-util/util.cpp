@@ -52,8 +52,8 @@ namespace Util {
       coordinate(xcoor1, ycoor1, xcoor2, ycoor2);
 
       // Return to the prompt (for single prompt)
-      string option = single_prompt();
-      get_single_option(option);
+      vector<string> option = prompt();
+      get_option(option);
     }
 
     else if (option[0] == "about") { // About command
@@ -75,15 +75,16 @@ namespace Util {
       cout << "under certain conditions; type `copyright' for details.\n";
 
       // Return to the prompt (for single prompt)
-      string option = single_prompt();
-      get_single_option(option);
+      vector<string> option = prompt();
+      get_option(option);
     }
 
     else { // Unknown commands
       cout << option[0] << " is not a command" << endl;
+
       // Return to the prompt (for single prompt)
-      string option = single_prompt();
-      get_single_option(option);
+      vector<string> option = prompt();
+      get_option(option);
     }
   }
 }
