@@ -61,10 +61,14 @@ namespace Util {
     }
 
     else if (option == "about") {
+      cout << "====================================\n";
+      cout << "Lines v3.0 dev\n";
+      cout << "====================================\n";
       cout << "(C) 2019 Avery King\n";
       cout << "Lines, the Swiss Army knife for Linear Graphs\n";
       cout << "Partially made during a Xoads live stream\n";
       cout << "We miss you, Xoads!\n\n";
+
       cout << "Lines  Copyright (C) 2019  Avery King\n";
       cout << "This program comes with ABSOLUTELY NO WARRANTY; for details type `copyright'.\n";
       cout << "This is free software, and you are welcome to redistribute it\n";
