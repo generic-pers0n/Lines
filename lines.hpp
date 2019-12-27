@@ -112,20 +112,6 @@ void options(string option) {
     main_screen("", "");
   }
 
-  // "about" command
-  else if (option == "about") {
-    // Note that the new command line is not 
-    // yet complete. Once the new command line
-    // is complete, the whole option() function
-    // will disappear completely.
-    Util::get_single_option("about");
-  }
-
-  else if (option == "clear") {
-    clear();
-    main_screen("", "");
-  }
-
   // "help" command
   else if (option == "help") {
     // Run the help command
