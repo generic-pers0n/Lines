@@ -52,57 +52,7 @@ void handler(int sig_num) {
 
 // Deprecated
 void options(string option) {
-  /* if (option == "2") { // Find equation and related using slope and coordinate point
-    // Variables
-    double xcoor, ycoor, slope_value;
-
-    // Get the slope from the user
-    cout << "Enter the slope of the graph: ";
-    cin >> slope_value;
-
-    // Get the coordinate points from the user
-    cout << "Enter coordinate point x: ";
-    cin >> xcoor;
-
-    cout << "Enter coordinate point y: ";
-    cin >> ycoor;
-
-    // Calculate the equation
-    slope(xcoor, ycoor, slope_value);
-
-    // Return to the main screen
-    main_screen("", "");
-  }
-
-  else if (option == "3") { // Generate coordinate points
-    // Variables
-    double y_intercept;
-    double slope;
-
-    int max_number;
-    int starting_number;
-
-    // Get the y-intercept and slope
-    cout << "What is the slope? ";
-    cin >> slope;
-
-    cout << "What is the y-intercept? ";
-    cin >> y_intercept;
-
-    cout << "What number do you want to start at? ";
-    cin >> starting_number;
-
-    // Get the amount of coordinate points the user wants
-    cout << "What number should be the maximum generated (no decimals)? ";
-    cin >> max_number;
-
-    generate_points(slope, y_intercept, max_number, starting_number);
-
-    // Return to the main screen
-    main_screen("", "");
-  }
-
-  else if (option == "4") {
+  /*else if (option == "4") {
     // Variables
     double y_intercept;
     double slope;
