@@ -15,6 +15,7 @@
 #include "lines.hpp"
 #include <lines/util.h>
 #include <getopt.h>
+using namespace Util;
 
 int main(int argc, char *argv[]) {
   // Register SIGINT (interrupt) with handler()
