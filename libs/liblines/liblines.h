@@ -25,12 +25,6 @@
 #include <lines/util.h>
 using namespace Util; // liblines-util namespace "Util"
 
-#ifdef _WIN32
-  #define OS "win"
-#elif __unix__ || __APPLE__
-  #define OS "unix"
-#endif
-
 // Namespaces
 using namespace std;
 
