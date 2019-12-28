@@ -33,16 +33,24 @@ void coordinate(double xcoor1, double ycoor1, double xcoor2, double ycoor2) {
   double delta_y = ycoor1 - ycoor2;
 
   if (delta_x == 0 && delta_y == 0) {
-    cerr << "\nThere is a 0 / 0 case, and Lines cannot solve this.\n";
-    cerr << "This means that Lines cannot solve for the equation, y-intercept, and slope\n";
-    main_screen("", "");
+    cerr << "Delta X and delta Y are both zero. Lines cannot solve the slope.\n";
+    cerr << "Due to this, it\'s not possible to find the equation, slope, and\n";
+    cerr << "y-intercept. Please try another set of coordinate points.\n";
+
+    // Return to the main prompt
+    vector<string> input = prompt();
+    get_option(input);
   }
 
   double slope = delta_y / delta_x;
 
   // If the slope is 0, then give the user an error
   if (slope == 0) {
-    main_screen("This graph does not grow\nThe reason being is because the slope is 0;", "");
+    cerr << "This graph does not grow!\n";
+
+    // Return to the main prompt
+    vector<string> input = prompt();
+    get_option(input);
   }
 
   // Find the y-intercept
@@ -82,7 +90,9 @@ void coordinate(double xcoor1, double ycoor1, double xcoor2, double ycoor2) {
   cout << "The slope of this graph is " << slope << endl;
   cout << "The y-intercept of this graph is (0, " << y_intercept << ")" << "\n\n";
 
-  main_screen("", "");
+  // Return to the main prompt
+  vector<string> input = prompt();
+  get_option(input);
 }
 
 void slope(double xcoor, double ycoor, double slope) {
@@ -169,7 +179,10 @@ void write_generated_points_to_file(double slope, double y_intercept, int max_nu
 
   if (file_name == "") {
     cout << "A file name wasn't specified, so the coordinate points cannot be written to the file\n";
-    main_screen("", "");
+
+    // Return to the mian prompt
+    vector<string> input = prompt();
+    get_option(input);
   }
 
   file.open(file_name);
