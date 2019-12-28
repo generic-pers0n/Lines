@@ -21,7 +21,16 @@ int main(int argc, char *argv[]) {
   // Register SIGINT (interrupt) with handler()
   signal(SIGINT, handler);
 
-  // Prompt the user
+  // Copyright screen
+  cout << "Lines  Copyright (C) 2019  Avery King\n";
+  cout << "This program comes with ABSOLUTELY NO WARRANTY; for details type `copyright'.\n";
+  cout << "This is free software, and you are welcome to redistribute it\n";
+  cout << "under certain conditions; type `copyright' for details.\n\n";
+
+  // Welcome message
+  cout << "Welcome to Lines. For a list of commands, type \'help\'.\n";
+
+  // Main prompt
   vector<string> input = prompt();
   get_option(input);
 }
