@@ -38,7 +38,7 @@ namespace Util {
   //////////////////////////////////////////////////////////////////////
 
   void get_option(vector<string> option) {
-    if (option[0] == "slope") { // "slope" command
+    if (option[0] == "coordinate") { // "slope" command
       double xcoor1, ycoor1, xcoor2, ycoor2;
 
       // Get the coordinate points from the user
@@ -56,7 +56,7 @@ namespace Util {
       get_option(option);
     }
 
-    else if (option[0] == "coordinate") { // "coordinate" command
+    else if (option[0] == "slope") { // "coordinate" command
       // Variables
       double xcoor, ycoor, slope_value;
 
