@@ -108,6 +108,23 @@ namespace Util {
         get_option(option);
       }
 
+      else if (option[1] == "single") {
+        double slope;
+        double y_intercept;
+        double number;
+
+        // Get the slope
+        cout << "What is the slope and y-intercept? ";
+        cin >> slope >> y_intercept;
+
+        // Get the number the user wants to use for x
+        cout << "What is the number that x will be? ";
+        cin >> number;
+
+        // Generate a certain amount of coordinate points
+        generate_point(slope, y_intercept, number);
+      }
+
       else if (option[1] == "write") {
         // Get the and slope
         cout << "What is the slope and y-intercept? ";
@@ -135,6 +152,10 @@ namespace Util {
         // Return to the main prompt
         vector<string> option = prompt();
         get_option(option);
+      }
+
+      else {
+        cout << "Unknown option: " << option[1] << endl;
       }
     }
 
