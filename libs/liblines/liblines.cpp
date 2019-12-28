@@ -84,10 +84,6 @@ void coordinate(double xcoor1, double ycoor1, double xcoor2, double ycoor2) {
   // Print the slope and y-intercept of the graph
   cout << "The slope of this graph is " << slope << endl;
   cout << "The y-intercept of this graph is (0, " << y_intercept << ")" << "\n\n";
-
-  // Return to the main prompt
-  vector<string> input = prompt();
-  get_option(input);
 }
 
 void slope(double xcoor, double ycoor, double slope) {
