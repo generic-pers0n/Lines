@@ -40,10 +40,6 @@ void coordinate(double xcoor1, double ycoor1, double xcoor2, double ycoor2) {
     cerr << "The graph\'s slope is 0. Because of this, Lines cannot find the\n";
     cerr << "y-intercept and equation of this graph. Please try again with another\n";
     cerr << "set of coordinate points.\n";
-
-    // Return to the main prompt
-    vector<string> input = prompt();
-    get_option(input);
   }
 
   double slope = delta_y / delta_x;
