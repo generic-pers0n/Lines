@@ -22,6 +22,7 @@
  * For crucial functionallity of Lines, see lines.hpp
  **/
 #include "liblines.h"
+#include "../liblines-util/util.h" // libs/liblines-util/util.h
 using namespace std;
 
 
