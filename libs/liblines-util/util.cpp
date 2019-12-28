@@ -161,6 +161,25 @@ namespace Util {
       get_option(option);
     }
 
+    else if (option[0] == "copyright") { // "copyright command"
+      cout << "The swiss army knife for linear graphs.\n\n";
+      cout << "Copyright (C) 2019  Avery King\n";
+      cout << "This program is free software: you can redistribute it and/or modify\n";
+      cout << "it under the terms of the GNU General Public License as published by\n";
+      cout << "the Free Software Foundation, either version 3 of the License, or\n";
+      cout << "(at your option) any later version.\n\n";
+      cout << "This program is distributed in the hope that it will be useful,\n";
+      cout << "but WITHOUT ANY WARRANTY; without even the implied warranty of\n";
+      cout << "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n";
+      cout << "GNU General Public License for more details.\n\n";
+      cout << "You should have received a copy of the GNU General Public License\n";
+      cout << "along with this program.  If not, see <https://www.gnu.org/licenses/>.\n\n";
+
+      // Return to the main prompt
+      vector<string> option = prompt();
+      get_option(option);
+    }
+
     else if (option[0] == "exit") { // "exit" command
       // Stuff to clean up goes here.
       //
