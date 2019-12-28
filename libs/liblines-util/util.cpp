@@ -110,7 +110,7 @@ namespace Util {
 
       else if (option[1] == "write") {
         // Get the and slope
-        cout << "What is the slope and y-intercept";
+        cout << "What is the slope and y-intercept? ";
         cin >> slope >> y_intercept;
 
         // Get the number the user wants to start at
@@ -173,7 +173,7 @@ namespace Util {
       cout << "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n";
       cout << "GNU General Public License for more details.\n\n";
       cout << "You should have received a copy of the GNU General Public License\n";
-      cout << "along with this program.  If not, see <https://www.gnu.org/licenses/>.\n\n";
+      cout << "along with this program.  If not, see <https://www.gnu.org/licenses/>.\n";
 
       // Return to the main prompt
       vector<string> option = prompt();
@@ -185,7 +185,7 @@ namespace Util {
       //
       // Mainly, there should be an unload function here. That
       // function would unload any plugins, close things, etc.
-      cout << "Bye!";
+      cout << "Bye!\n";
       exit(0);
     }
 
@@ -195,7 +195,7 @@ namespace Util {
     }
 
     else { // Unknown commands
-      cout << option[0] << " is not a command" << endl;
+      cout << "'" << option[0] << "'" << " is not a command" << endl;
 
       // Return to the prompt (for single prompt)
       vector<string> option = prompt();
