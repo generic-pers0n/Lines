@@ -32,10 +32,14 @@ void coordinate(double xcoor1, double ycoor1, double xcoor2, double ycoor2) {
   double delta_x = xcoor1 - xcoor2;
   double delta_y = ycoor1 - ycoor2;
 
-  if (delta_x == 0 && delta_y == 0) {
-    cerr << "Delta X and delta Y are both zero. Lines cannot solve the slope.\n";
-    cerr << "Due to this, it\'s not possible to find the equation, slope, and\n";
-    cerr << "y-intercept. Please try another set of coordinate points.\n";
+  if (delta_x == 0 || delta_y == 0) {
+    /* Note that it's easier if we detect either delta X or delta Y as 0 rather
+       than to just detect both and then detect the slope later on. Because we
+       already know the slope is going to be 0, we don't need to repeat the
+       same process or do a similar process. It saves time and other resources. */
+    cerr << "The graph\'s slope is 0. Because of this, Lines cannot find the\n";
+    cerr << "y-intercept and equation of this graph. Please try again with another\n";
+    cerr << "set of coordinate points.\n";
 
     // Return to the main prompt
     vector<string> input = prompt();
@@ -43,15 +47,6 @@ void coordinate(double xcoor1, double ycoor1, double xcoor2, double ycoor2) {
   }
 
   double slope = delta_y / delta_x;
-
-  // If the slope is 0, then give the user an error
-  if (slope == 0) {
-    cerr << "This graph does not grow!\n";
-
-    // Return to the main prompt
-    vector<string> input = prompt();
-    get_option(input);
-  }
 
   // Find the y-intercept
   double slope_x_xcoor1 = slope * xcoor1;
