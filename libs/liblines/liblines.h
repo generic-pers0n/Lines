@@ -23,9 +23,9 @@
 #include <cstdlib>
 #include <bits/stdc++.h>
 #include <lines/util.h>
-using namespace Util; // liblines-util namespace "Util"
 
 // Namespaces
+using namespace Util; // liblines-util namespace "Util"
 using namespace std;
 
 // Declarations in liblines.cpp
@@ -34,17 +34,5 @@ void slope(double xcoor, double ycoor, double slope);
 void generate_points(double slope, double y_intercept, int max_number, int starting_number);
 void generate_point(double slope, double y_intercept, int number);
 void write_generated_points_to_file(double slope, double y_intercept, int max_number, int starting_number, string file_name);
-
-// Main screen (deprecated)
-//
-// The main screen is going away soon. Over time, as liblines-util
-// matures, main_screen() will eventually be removed.
-void main_screen(string custom_data, string prompt_type) {
-  cout << "To see a list of commands, type \'help\'\n";
-
-  // Prompt the user
-  vector<string> command = prompt();
-  get_option(command);
-}
 
 #endif // end liblines.h
