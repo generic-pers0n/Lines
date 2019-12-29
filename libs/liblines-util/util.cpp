@@ -182,8 +182,8 @@ namespace Util {
       get_option(option);
     }
 
-    else if (option[0] == "help") {
-      cout << "Available commands\n:";
+    else if (option[0] == "help") { // "help" command
+      cout << "Available commands:\n";
       cout << "\t* coordinate\n";
       cout << "\t* slope\n";
       cout << "\t* gencoor:\n";
