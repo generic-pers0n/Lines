@@ -182,6 +182,28 @@ namespace Util {
       get_option(option);
     }
 
+    else if (option[0] == "help") {
+      cout << "Available commands\n:";
+      cout << "\t* coordinate\n";
+      cout << "\t* slope\n";
+      cout << "\t* gencoor:\n";
+
+      cout << "\t\t- No option (default)\n";
+      cout << "\t\t- write\n";
+      cout << "\t\t- single\n";
+
+      cout << "\t* about\n";
+      cout << "\t* copyright\n";
+      cout << "\t* exit\n";
+
+      cout << "For more help on these commands, and for more help on Lines,\n";
+      cout << "please visit the Lines wiki\n";
+
+      // Return to the main prompt
+      vector<string> option = prompt();
+      get_option(option);
+    }
+
     else if (option[0] == "copyright") { // "copyright command"
       cout << "The swiss army knife for linear graphs.\n\n";
       cout << "Copyright (C) 2019  Avery King\n";
