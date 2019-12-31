@@ -35,17 +35,6 @@ using namespace std;
 ofstream file;
 char *error = dlerror();
 
-struct LpapiData {
-  string api_ver = "v3.0";
-  string lines_ver = "v3.0 dev";
-};
-
-struct PluginInfo {
-  string version;
-  string name;
-  string file;
-};
-
 namespace Plugin {
   void write(string data) {
     cout << "plugin: " << data;
