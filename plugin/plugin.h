@@ -1,4 +1,4 @@
-/* Lines Plugin API (LPAPI)
+/* Lines Plugin Manager
  *
  * Copyright (C) 2019 Avery King <avery98@pm.me>
  *
@@ -16,18 +16,25 @@
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  **/
 
+#ifndef LPM
+#define LPM
+
 #include <iostream>
 #include <string>
-#include <fstream>
 #include <cstdlib>
 #include <dlfcn.h>
-#include <lines/util.h>
+#ifdef __unix__ // unix API
+#include <unistd.h>
+#elif _WIN32 // windows API
+// We won't be using anything regarding the Windows API,
+// but we'll #include it for when the time comes for
+// adding Windows compatibility
+#include <windows.h>
+#endif
+#include <spawn.h>
 using namespace std;
 
-#ifdef _WIN32
-#error "The Lines Plugin Framework does not work on Windows"
-#endif
-
+<<<<<<< HEAD
 #ifndef LPAPI_H
 #define LPAPI_H
 
@@ -51,35 +58,52 @@ namespace Plugin {
   // functions 'malloc()' and 'free()'.
   void *allocate(size_t size) {
     void *data = malloc(size);
+=======
+class PluginInfo {
+  public:
+    PluginInfo(string n, string v) {
+      // n is name, v is version
+      if (n == "") { // When no name is provided
+        name = "";
+      }
 
-    // Whenever this function fails (if NULL), then Lines will go into
-    // a failsafe mode. First, the function will make sure Lines is not
-    // in a failsafe mode. If that's true, then allocate() will not work.
-    if (data == NULL) {
-        cout << "Error: Failed to allocate RAM";
-        Lines::failsafe("Error: Failed to deallocate RAM"); // Enter a failsafe mode
+      if (v == "") { // When no version is provided
+        version = "";
+      }
+    }
+>>>>>>> Rewrite everything
+
+    void setName(string new_name) {
+      name = new_name;
     }
 
-    return data; // Return memory location
-  }
-
-  void *deallocate(void *ptr) {
-    if (!ptr) {
-        cout << "Error: Could not deallocate RAM\n";
-        Lines::failsafe(); // Enter a failsafe mode
+    void setVer(string new_ver) {
+      version = new_ver;
     }
 
-    free(ptr); // Free allocated space
-  }
-
-  // Unload a plugin
-  void unload(void *plugin) {
-    dlclose(plugin);
-
-    if (error != NULL) {
-      cout << "Error: " << error << endl;
+    string getName() {
+      return name;
     }
-  }
-}
 
-#endif // end lpapi.h
+    string getVer() {
+      return version;
+    }
+
+  private:
+    string name;
+    string version;
+};
+
+class Plugin {
+  public:
+    void getPluginInfo(PluginInfo pinfo) {
+      plugin_name = pinfo.getName();
+      plugin_version = pinfo.getVer();
+    }
+
+  private:
+    string plugin_name;
+    string plugin_version;
+};
+
+#endif // end plugin.h
