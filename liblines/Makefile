@@ -4,4 +4,4 @@ liblines: liblines.cpp liblines.o
 	rm -rf liblines.o
 
 install: liblines.so
-	install liblines.so /lib64
+	install liblines.so /lib
