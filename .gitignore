@@ -11,5 +11,5 @@
 # What's in the build-libs/ directory is nothing source-wise. It's only
 # binaries that are non-existent unless the user builds Lines or any other
 # library
-build-libs/*.so
+build-libs/*.*
 
