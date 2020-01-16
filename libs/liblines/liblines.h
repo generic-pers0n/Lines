@@ -22,7 +22,7 @@
 #include <string>
 #include <cstdlib>
 #include <bits/stdc++.h>
-#include <lines/util.h>
+#include "../liblines-util/util.h"
 
 // Namespaces
 using namespace Util; // liblines-util namespace "Util"
