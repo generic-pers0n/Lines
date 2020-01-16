@@ -5,5 +5,5 @@ liblines-util: equation_calculator.cpp util.cpp
 	mv liblines-util.so ../../build-libs
 
 install: ../../build-libs/liblines-util.so
-	install ../../build-libs/liblines-util.so /lib64
+	install ../../build-libs/liblines-util.so /lib
 
