@@ -6,4 +6,5 @@ liblines: liblines.cpp liblines.o
 
 install: ../../build-libs/liblines.so
 	install ../../build-libs/liblines.so /lib64
+	install *.h /usr/include
 
