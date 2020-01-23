@@ -24,7 +24,6 @@
 #include "liblines.hpp"
 using namespace std;
 
-
 // Find a linear graph equation
 void coordinate(double xcoor1, double ycoor1, double xcoor2, double ycoor2) {
   // Find the slope of the graph
@@ -34,14 +33,19 @@ void coordinate(double xcoor1, double ycoor1, double xcoor2, double ycoor2) {
   if (delta_x == 0 && delta_y == 0) {
     cerr << "\nThere is a 0 / 0 case, and Lines cannot solve this.\n";
     cerr << "This means that Lines cannot solve for the equation, y-intercept, and slope\n";
-    main_screen("", "");
+
+    // Return to the prompt
+    vector<string> commands = prompt();
+    options(commands);
   }
 
   double slope = delta_y / delta_x;
 
   // If the slope is 0, then give the user an error
   if (slope == 0) {
-    main_screen("This graph does not grow\nThe reason being is because the slope is 0;", "");
+    // Return to the prompt
+    vector<string> commands = prompt();
+    options(commands);
   }
 
   // Find the y-intercept
@@ -66,7 +70,7 @@ void coordinate(double xcoor1, double ycoor1, double xcoor2, double ycoor2) {
   }
 
   else if (y_intercept == 0) {
-    cout << "\nThe equation of this graph is y=" << slope << "x";
+    cout << "\nThe equation of this graph is y=" << slope << "x" << endl;
   }
 
   else if (y_intercept < 0) { // If the y-intercept is negative
@@ -81,7 +85,9 @@ void coordinate(double xcoor1, double ycoor1, double xcoor2, double ycoor2) {
   cout << "The slope of this graph is " << slope << endl;
   cout << "The y-intercept of this graph is (0, " << y_intercept << ")" << "\n\n";
 
-  main_screen("", "");
+  // Return to the prompt
+  vector<string> commands = prompt();
+  options(commands);
 }
 
 void slope(double xcoor, double ycoor, double slope) {
@@ -168,7 +174,10 @@ void write_generated_points_to_file(double slope, double y_intercept, int max_nu
 
   if (file_name == "") {
     cout << "A file name wasn't specified, so the coordinate points cannot be written to the file\n";
-    main_screen("", "");
+
+    // Return to the prompt
+    vector<string> commands = prompt();
+    options(commands);
   }
 
   file.open(file_name);

@@ -12,22 +12,25 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
-/* Lines v2.0
- *
- * This is where the core application is. It contains the basic and
- * neccessary application functions. There are 4 options total:
- *  - Find a graph's equation, slope, and y-intercept using two coordinate points
- *  - Find a graph's equation and y-intercept using the slope and one coordinate point
- *  - Generate coordinate points and optionally save them to a file
- *  - Generate one coordinate point
- **/
 #include "lines.hpp"
 
 int main(int argc, char *argv[]) {
-  // Clear the screen before the screen
-  clear();
+  // Copyright screen
+  cout << "Lines  Copyright (C) 2019  Avery King\n";
+  cout << "This program comes with ABSOLUTELY NO WARRANTY; for details type `copyright'.\n";
+  cout << "This is free software, and you are welcome to redistribute it\n";
+  cout << "under certain conditions; type `copyright' for details.\n\n";
 
-  // Display the main screen
-  main_screen("", "");
+  // Welcome message and main prompt
+  cout << "Welcome to Lines. For a list of commands, type \'help\'.\n";
+
+  #ifdef PORT // portable macro
+  cout << "You\'re using a portable version of Lines\n";
+  #endif
+
+  // Return to the prompt
+  vector<string> commands = prompt();
+  options(commands);
 }
+
 

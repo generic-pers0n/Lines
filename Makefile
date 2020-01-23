@@ -13,9 +13,12 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #
 lines: lines.cpp
-	g++ -o lines lines.cpp -L. -llines -g --std=c++17
+	g++ -o lines lines.cpp -llines -g --std=c++17
+
+portable: lines.cpp
+	g++ -o lines-port lines.cpp -L./build-portable -llines -static -g -DPORT
+	mv lines-port build-libs
 
 install: lines # Also requires liblines.so
 	install lines /bin
-	install liblines/liblines.so /lib64
 

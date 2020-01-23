@@ -26,16 +26,10 @@
 #include <fstream>
 #include <string>
 #include <cstdlib>
-
-#ifdef _WIN32
-  #define OS "win"
-#elif __unix__ || __APPLE__
-  #define OS "unix"
-#endif
-
-// Namespaces
+#include <bits/stdc++.h>
 using namespace std;
 
+<<<<<<< HEAD
 // Function declarations
 void options(string option);
 void main_screen(string custom_data, string prompt_type);
@@ -143,9 +137,16 @@ void main_screen(string custom_data, string prompt_type) {
   cout << "(4) Generate coordinate points to a file\n";
   cout << "(5) Generate coordinate point with only one number\n\n";
   cout << "To see a list of commands, type \'help\'\n";
+=======
+// Function prototypes (for internal Lines functions)
+void options(vector<string> option);
+vector<string> prompt();
+>>>>>>> devel
 
-  cout << ">> ";
-  cin >> option;
-  options(option);
-}
+// Function prototypes (liblines)
+void coordinate(double xcoor1, double ycoor1, double xcoor2, double ycoor2);
+void slope(double xcoor, double ycoor, double slope);
+void generate_points(double slope, double y_intercept, int max_number, int starting_number);
+void generate_point(double slope, double y_intercept, int number);
+void write_generated_points_to_file(double slope, double y_intercept, int max_number, int starting_number, string file_name);
 
