@@ -14,19 +14,11 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
-/* Libcalc Core (libcalc.hpp)
- *
- * Part of Lines
- *
- * This file contains the core functionallity that powers Lines. For example, it
- * contains certain commands like the "clear" command.
- *
- **/
 #include <iostream>
 #include <fstream>
 #include <string>
 #include <cstdlib>
-#include <bits/stdc++.h>
+#include <vector>
 using namespace std;
 
 // Function prototypes (for internal Lines functions)
