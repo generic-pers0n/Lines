@@ -21,10 +21,6 @@
 #include <vector>
 using namespace std;
 
-// Function prototypes (for internal Lines functions)
-void options(vector<string> option);
-vector<string> prompt();
-
 // Function prototypes (liblines)
 void coordinate(double xcoor1, double ycoor1, double xcoor2, double ycoor2);
 void slope(double xcoor, double ycoor, double slope);
