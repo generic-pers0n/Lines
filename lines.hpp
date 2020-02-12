@@ -23,7 +23,7 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
-#include <bits/stdc++.h>
+#include <vector>
 #include <boost/algorithm/string.hpp>
 #include "liblines/liblines.hpp"
 using namespace std;
