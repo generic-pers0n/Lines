@@ -30,17 +30,15 @@ void coordinate(double xcoor1, double ycoor1, double xcoor2, double ycoor2) {
   double delta_x = xcoor1 - xcoor2;
   double delta_y = ycoor1 - ycoor2;
 
-  if (delta_x == 0 && delta_y == 0) {
-    cerr << "\nThere is a 0 / 0 case, and Lines cannot solve this.\n";
-    cerr << "This means that Lines cannot solve for the equation, y-intercept, and slope\n";
+  if (delta_y == 0) {
+    cerr << "!!  The slope will be 0, so the graph will not grow  !!";
+  } else if (delta_x == 0) {
+    cerr << "!!  Warning: division by 0 case, slope undefined\n";
   }
 
+  // Slope
   double slope = delta_y / delta_x;
 
-  // If the slope is 0, then give the user an error
-  if (slope == 0) {
-
-  }
 
   // Find the y-intercept
   double slope_x_xcoor1 = slope * xcoor1;
@@ -50,15 +48,15 @@ void coordinate(double xcoor1, double ycoor1, double xcoor2, double ycoor2) {
 
   // Print the equation of the graph (formatting)
   if (slope == 1) { // If the slope is just 1
-    if (y_intercept == 0) { // If the y-intercept is just 0
+    if (y_intercept == 0) { // If the y-intercept is just 0 (x = 0)
       cout << "\nThe equation of this graph is y=x" << endl;
     }
 
-    else if (y_intercept > 0) { // If the y-intercept is positive
+    else if (y_intercept > 0) { // If the y-intercept is positive (x > 0)
       cout << "\nThe equation of this graph is y=x+" << slope << endl;
     }
 
-    else { // If the y-intercept is negative
+    else { // If the y-intercept is negative (x < 0)
       cout << "\nThe equation of this graph is y=x" << slope << endl;
     }
   }
