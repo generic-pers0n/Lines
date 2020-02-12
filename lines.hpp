@@ -175,7 +175,7 @@ void options(vector<string> option) {
 
   else if (option[0] == "about") { // "about" command
     cout << "====================================\n";
-    cout << "\t  Lines v2.1.1\n";
+    cout << "\tLines v3.0 beta 2\n";
     cout << "====================================\n";
     cout << "  Copyright (C) 2019 Avery King\n";
     cout << "For more information about the copyright on Lines, type \'copyright\'\n\n";
@@ -191,17 +191,17 @@ void options(vector<string> option) {
 
   else if (option[0] == "help") { // "help" command
     cout << "Available commands:\n";
-    cout << "\t* coordinate\n";
-    cout << "\t* slope\n";
-    cout << "\t* gencoor:\n";
+    cout << "  * coordinate\n";
+    cout << "  * slope\n";
+    cout << "  * gencoor:\n";
 
-    cout << "\t\t- No option (default)\n";
-    cout << "\t\t- write\n";
-    cout << "\t\t- single\n";
+    cout << "    - No option (default)\n";
+    cout << "    - write\n";
+    cout << "    - single\n";
 
-    cout << "\t* about\n";
-    cout << "\t* copyright\n";
-    cout << "\t* exit\n";
+    cout << "  * about\n";
+    cout << "  * copyright\n";
+    cout << "  * exit\n";
 
     cout << "For more help on these commands, and for more help on Lines,\n";
     cout << "please visit the Lines wiki\n";
