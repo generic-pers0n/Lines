@@ -177,16 +177,12 @@ void options(vector<string> option) {
     cout << "====================================\n";
     cout << "\t  Lines v2.1.1\n";
     cout << "====================================\n";
-    cout << "  Copyright (C) 2019 Avery King\n\n";
+    cout << "  Copyright (C) 2019 Avery King\n";
+    cout << "For more information about the copyright on Lines, type \'copyright\'\n\n";
 
     cout << "Partially made during a Xoads live stream. Thanks to everyone who supported\n";
     cout << "me when I showed them this calculator. I would like to thank my friends,\n";
     cout << "classmates, and my parents! THANK YOU SO MUCH!!!\n\n";
-
-    cout << "Lines  Copyright (C) 2019  Avery King\n";
-    cout << "This program comes with ABSOLUTELY NO WARRANTY; for details type `copyright'.\n";
-    cout << "This is free software, and you are welcome to redistribute it\n";
-    cout << "under certain conditions; type `copyright' for details.\n";
 
     // Return to the prompt
     vector<string> commands = prompt();
