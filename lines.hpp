@@ -174,6 +174,10 @@ void options(vector<string> option) {
 
     else {
       cout << "Unknown option: " << option[1] << endl;
+
+      // Return to the prompt
+      vector<string> commands = prompt();
+      options(commands);
     }
   }
 
