@@ -16,7 +16,7 @@
 
 int main(int argc, char *argv[]) {
   // Copyright screen
-  cout << "Lines  Copyright (C) 2019  Avery King\n";
+  cout << "Lines  Copyright (C) 2019-2020  Avery King\n";
   cout << "This program comes with ABSOLUTELY NO WARRANTY; for details type `copyright'.\n";
   cout << "This is free software, and you are welcome to redistribute it\n";
   cout << "under certain conditions; type `copyright' for details.\n\n";
