@@ -31,6 +31,8 @@ int main(int argc, char *argv[]) {
   // Return to the prompt
   vector<string> commands = prompt();
   options(commands);
+
+  return 0;
 }
 
 
