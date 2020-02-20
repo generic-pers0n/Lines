@@ -183,9 +183,9 @@ void options(vector<string> option) {
 
   else if (option[0] == "about") { // "about" command
     cout << "====================================\n";
-    cout << "\tLines v3.0 beta 2\n";
+    cout << "\tLines v3.0\n";
     cout << "====================================\n";
-    cout << "  Copyright (C) 2019 Avery King\n";
+    cout << "Copyright (C) 2019-2020 Avery King\n";
     cout << "For more information about the copyright on Lines, type \'copyright\'\n\n";
 
     cout << "Partially made during a Xoads live stream. Thanks to everyone who supported\n";
@@ -203,7 +203,7 @@ void options(vector<string> option) {
     cout << "  * slope\n";
     cout << "  * gencoor:\n";
 
-    cout << "    - No option (default)\n";
+    cout << "    - default\n";
     cout << "    - write\n";
     cout << "    - single\n";
 
@@ -221,7 +221,7 @@ void options(vector<string> option) {
 
   else if (option[0] == "copyright") { // "copyright command"
     cout << "The swiss army knife for linear graphs.\n\n";
-    cout << "Copyright (C) 2019  Avery King\n";
+    cout << "Copyright (C) 2019-2020  Avery King\n";
     cout << "This program is free software: you can redistribute it and/or modify\n";
     cout << "it under the terms of the GNU General Public License as published by\n";
     cout << "the Free Software Foundation, either version 3 of the License, or\n";
