@@ -100,7 +100,7 @@ void options(vector<string> option) {
     int max_number;
     int starting_number;
 
-    if (option[1] == "") { // default option
+    if (option[1] == "default") { // default option (gencoor default)
       // Get the y-intercept and slope
       cout << "What is the slope? ";
       cin >> slope;
@@ -139,7 +139,11 @@ void options(vector<string> option) {
       generate_point(slope, y_intercept, number);
     }
 
-    else if (option[1] == "write") {
+    else if (option[1] == "write") { // NOTE: Disabled
+      cout << "There are a few problems with gencoor write. Currently, it is disabled.\n";
+      cout << "Hopefully one day, gencoor write can shine...\n";
+      exit(EXIT_SUCCESS);
+
       // Get the and slope
       cout << "What is the slope and y-intercept? ";
       cin >> slope >> y_intercept;
