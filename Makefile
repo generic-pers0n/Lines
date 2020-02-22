@@ -3,11 +3,7 @@ lines: lines.cpp
 
 portable: lines.cpp
 	g++ -o lines-port lines.cpp -L./build-portable -llines -static -g -DPORT
-<<<<<<< HEAD
-	mv lines-port build-portable
-=======
-	mv lines-port ./build-portable
->>>>>>> 4e3405cf51802ed502406baedec22f3c8e4aca05
+	mv lines-port build-portabe
 
 install: lines
 	install lines /bin
