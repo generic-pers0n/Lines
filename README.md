@@ -20,6 +20,7 @@ Lines is a basic calculator that calculates the slope, y-intercept, and equation
 * You can find a graph's equation, y-intercept, and slope using two coordinate points 
 * You can find a graph's equation and y-intercept using the slope and one coordinate point
 * You can generate coordinate points 3 different ways. More information is can be found at the Wiki.
+
 For more information on Lines, see the [Lines Wiki](https://github.com/generic-pers0n/lines/wiki). 
 
 # Contributing
