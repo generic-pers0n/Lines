@@ -161,10 +161,8 @@ void options(vector<string> option) {
 
       #ifdef __unix__
         write_generated_points_to_file(slope, y_intercept, max_number, starting_number, "~/Desktop/Coordinate Points.txt");
-        // system("mv \"Coordinate Points.txt\" ~/Desktop");
       #elif _WIN32
         write_generated_points_to_file(slope, y_intercept, max_number, starting_number, "%userprofile%\\Desktop\\Coordinate Points.txt");
-        // system("move \"Coordinate Points.txt\" %userprofile%\\Desktop");
       #endif
 
       // Return to the prompt
@@ -183,7 +181,11 @@ void options(vector<string> option) {
 
   else if (option[0] == "about") { // "about" command
     cout << "====================================\n";
+    #ifdef PORT
+    cout << "\tLines Portable v3.0\n";
+    #else
     cout << "\tLines v3.0\n";
+    #endif
     cout << "====================================\n";
     cout << "Copyright (C) 2019-2020 Avery King\n";
     cout << "For more information about the copyright on Lines, type \'copyright\'\n\n";
