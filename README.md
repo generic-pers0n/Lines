@@ -22,9 +22,6 @@ Lines is a basic calculator that calculates the slope, y-intercept, and equation
 * You can generate coordinate points (see the Notes below)   
 For more information on Lines, see the [Lines Wiki](https://github.com/generic-pers0n/lines/wiki). 
 
-# Notes 
-1. For generating coordinate points, you'll have 3 options. See the Lines Wiki for more details. 
-
 # Contributing
 For information on contributing, see [CONTRIBUTING.md](https://github.com/generic-pers0n/lines/blob/devel/CONTRIBUTING.md). 
 
