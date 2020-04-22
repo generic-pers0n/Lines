@@ -33,7 +33,7 @@ void coordinate(double xcoor1, double ycoor1, double xcoor2, double ycoor2) {
   if (delta_y == 0) {
     cerr << "!!  The slope will be 0, so the graph will not grow  !!";
   } else if (delta_x == 0) {
-    cerr << "!!  Warning: division by 0 case, slope undefined\n";
+    throw "Division by 0!";
   }
 
   // Slope
