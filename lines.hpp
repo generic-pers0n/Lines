@@ -66,7 +66,13 @@ void options(vector<string> option) {
     cin >> xcoor2 >> ycoor2;
 
     // Calculate the equation and so with two coordinate points
-    coordinate(xcoor1, ycoor1, xcoor2, ycoor2);
+    try {
+      coordinate(xcoor1, ycoor1, xcoor2, ycoor2);
+    } catch (const char* err) {
+      cout << *err << endl;
+      vector<string> commands = prompt();
+      options(commands);
+    }
 
     // Return to the prompt
     vector<string> commands = prompt();
