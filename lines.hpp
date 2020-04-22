@@ -69,7 +69,7 @@ void options(vector<string> option) {
     try {
       coordinate(xcoor1, ycoor1, xcoor2, ycoor2);
     } catch (const char* err) {
-      cout << *err << endl;
+      cout << err << endl;
       vector<string> commands = prompt();
       options(commands);
     }
