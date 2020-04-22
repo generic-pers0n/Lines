@@ -1,4 +1,4 @@
-/* Copyright (C) 2019 Avery King <avery98@pm.me>
+/* Copyright (C) 2019-2020 Avery King <avery98@pm.me>
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -12,11 +12,12 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
-/* liblines v2.0
+/* liblines
  *
- * This file contains functions for Lines. It contains the functions to
- * calculate a graph's slope, equation, and Y-Intercept. It also
- * contains many more functions, like a coordinate point generator.
+ * This file contains the overall core functions that Lines uses. You can
+ * also use this "library" in your application, provided you follow the
+ * GPL v3, or any later version (liblines was originally not meant to be
+ * used for other applications).
  *
  *
  * For crucial functionallity of Lines, see lines.hpp
@@ -24,7 +25,7 @@
 #include "liblines.hpp"
 using namespace std;
 
-// Find a linear graph equation
+// Find an equation using 2 coordinate points
 void coordinate(double xcoor1, double ycoor1, double xcoor2, double ycoor2) {
   // Find the slope of the graph
   double delta_x = xcoor1 - xcoor2;
@@ -78,6 +79,7 @@ void coordinate(double xcoor1, double ycoor1, double xcoor2, double ycoor2) {
   cout << "The y-intercept of this graph is (0, " << y_intercept << ")" << "\n\n";
 }
 
+// Find an equation using a slope and a coordinate point
 void slope(double xcoor, double ycoor, double slope) {
   // If the slope is NaN (not a number), then give the user an error
   if (slope == 0) {
@@ -123,14 +125,14 @@ void slope(double xcoor, double ycoor, double slope) {
   cout << "The y-intercept of this graph is (0, " << y_intercept << ")" << "\n\n";
 }
 
+// Generate multiple coordinate points 
 void generate_points(double slope, double y_intercept, int max_number, int starting_number) {
   int i = starting_number;
 
   while (true) {
-    double slope_x_number = slope * i; // I is X in this case
-    double final_result = slope_x_number + y_intercept;
+    double result = slope*i + y_intercept;
     // Display the final result
-    cout << "(" << i << ", " << final_result << ")\n";
+    cout << "(" << i << ", " << result << ")\n";
 
     i++;
     if (i == max_number + 1) {
@@ -145,44 +147,10 @@ void generate_points(double slope, double y_intercept, int max_number, int start
   }
 }
 
-// Generate a coordinate point using a number
+// Generate a coordinate point
 void generate_point(double slope, double y_intercept, int number) {
-  double slope_x_number = slope * number; // The variable "number" is x in this case
-  double final_result = slope_x_number + y_intercept;
+  double result = slope*number + y_intercept;
 
   // Display the final result
-  cout << "(" << number << ", " << final_result << ")\n";
-}
-
-// Write generated coordinate points to a file function
-void write_generated_points_to_file(double slope, double y_intercept, int max_number, int starting_number, string file_name) {
-  // Variables
-  int i = starting_number;
-  ofstream file; // File to save generated coordinate points in
-
-  if (file_name == "") {
-    cout << "A file name wasn't specified, so the coordinate points cannot be written to the file\n";
-  }
-
-  file.open(file_name);
-
-  while (true) {
-    double slope_x_number = slope * i; // I is X in this case
-    double final_result = slope_x_number + y_intercept;
-
-    // Write the coordinate points to the file
-    file << "(" << i << ", " << final_result << ")\n";
-
-    i++;
-    if (i == max_number + 1) {
-      break;
-      file.close(); // Close the file where the answers are stored
-    }
-
-    // (5, 20)
-    // y=2x+10      Equation
-    // y=2(5)+10    Multiply x (i) by the slope
-    // y=10+10      Add the product of slope * x with the y-intercept
-    //y=20          Final result
-  }
+  cout << "(" << number << ", " << result << ")\n";
 }
