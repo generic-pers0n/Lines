@@ -16,8 +16,7 @@
  *
  *
  * This file contains the basic functionallity of Lines. It includes
- * what to do if the user selects a certain option in the main screen,
- * if the user wants to go back to the main menu, etc.
+ * the command-line functionallity, what each command does, etc.
  *
  **/
 #include <iostream>
@@ -27,17 +26,6 @@
 #include <boost/algorithm/string.hpp>
 #include "liblines/liblines.hpp"
 using namespace std;
-
-// Function declarations
-/*void coordinate(double xcoor1, double ycoor1, double xcoor2, double ycoor2);
-void slope(double xcoor, double ycoor, double slope);
-void generate_points(double slope, double y_intercept, int max_number, int starting_number);
-void generate_point(double slope, double y_intercept, int number);
-void write_generated_points_to_file(double slope, double y_intercept, int max_number, int starting_number, string file_name);
-
-//void main_screen(string custom_data, string prompt_type);
-void options(vector<string> option); // For use later on
-*/
 
 // Global variables
 string answer;
@@ -148,28 +136,6 @@ void options(vector<string> option) {
     else if (option[1] == "write") { // NOTE: Disabled
       cout << "There are a few problems with gencoor write. Currently, it is disabled.\n";
       cout << "Hopefully one day, gencoor write can shine...\n";
-      exit(EXIT_SUCCESS);
-
-      // Get the and slope
-      cout << "What is the slope and y-intercept? ";
-      cin >> slope >> y_intercept;
-
-      // Get the number the user wants to start at
-      cout << "What number do you want to start at? ";
-      cin >> starting_number;
-
-      // Get the amount of coordinate points the user wants
-      cout << "What number should be the maximum generated (no decimals)? ";
-      cin >> max_number;
-
-      cout << "The file will be named Coordinate Points.txt\n";
-      cout << "It will be saved to your desktop\n\n";
-
-      #ifdef __unix__
-        write_generated_points_to_file(slope, y_intercept, max_number, starting_number, "~/Desktop/Coordinate Points.txt");
-      #elif _WIN32
-        write_generated_points_to_file(slope, y_intercept, max_number, starting_number, "%userprofile%\\Desktop\\Coordinate Points.txt");
-      #endif
 
       // Return to the prompt
       vector<string> commands = prompt();
@@ -196,8 +162,8 @@ void options(vector<string> option) {
     cout << "Copyright (C) 2019-2020 Avery King\n";
     cout << "For more information about the copyright on Lines, type \'copyright\'\n\n";
 
-    cout << "Partially made during a Xoads live stream. Thanks to everyone who supported\n";
-    cout << "me when I showed them this calculator. I would like to thank my friends,\n";
+    cout << "Partially made during a Xoads live stream (Xoads is my friend). Thanks to everyone who\n";
+    cout << "supported me when I showed them this calculator. I would like to thank my friends,\n";
     cout << "classmates, and my parents! THANK YOU SO MUCH!!!\n\n";
 
     // Return to the prompt
