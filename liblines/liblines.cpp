@@ -32,7 +32,7 @@ void coordinate(double xcoor1, double ycoor1, double xcoor2, double ycoor2) {
   double delta_y = ycoor1 - ycoor2;
 
   if (delta_y == 0) {
-    cerr << "!!  The slope will be 0, so the graph will not grow  !!";
+    throw "Slope equals 0!";
   } else if (delta_x == 0) {
     throw "Division by 0!";
   }
@@ -48,30 +48,28 @@ void coordinate(double xcoor1, double ycoor1, double xcoor2, double ycoor2) {
 
 
   // Print the equation of the graph (formatting)
-  if (slope == 1) { // If the slope is just 1
-    if (y_intercept == 0) { // If the y-intercept is just 0 (x = 0)
-      cout << "\nThe equation of this graph is y=x" << endl;
-    }
+  cout << "The equation of this graph is y=";
 
-    else if (y_intercept > 0) { // If the y-intercept is positive (x > 0)
-      cout << "\nThe equation of this graph is y=x+" << slope << endl;
-    }
-
-    else { // If the y-intercept is negative (x < 0)
-      cout << "\nThe equation of this graph is y=x" << slope << endl;
-    }
+  // Slope formatting
+  //
+  // Here, the slope can either be positive or negative. We
+  // don't need to be worrying about adding the proper sign
+  // in front of itv
+  if (slope == 1) { // If the slope is 1
+    cout << "x";
+  } else { // If the slope is positive or negative
+    cout << slope << "x";
   }
 
-  else if (y_intercept == 0) {
-    cout << "\nThe equation of this graph is y=" << slope << "x" << endl;
-  }
-
-  else if (y_intercept < 0) { // If the y-intercept is negative
-    cout << "\nThe equation of this graph is y=" << slope << "x" << y_intercept << endl;
-  }
-
-  else { // If the y-intercept is positive
-    cout << "\nThe equation of this graph is y=" << slope << "x+" << y_intercept << endl;
+  // Y-intercept formatting
+  //
+  // Unlike with the slope, we do need to add the proper sign
+  // in front of the y-intercept if it's positive. Else, then
+  // we can just leave it.
+  if (y_intercept > 0) { // If the y-intercept is positive
+    cout << "+" << y_intercept << endl;
+  } else { // If the y-intercept is negative
+    cout << y_intercept << endl;
   }
 
   // Print the slope and y-intercept of the graph
