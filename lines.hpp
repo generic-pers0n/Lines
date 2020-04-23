@@ -131,6 +131,10 @@ void options(vector<string> option) {
 
       // Generate a certain amount of coordinate points
       generate_point(slope, y_intercept, number);
+
+      // Return to the prompt
+      vector<string> commands = prompt();
+      options(commands);
     }
 
     else if (option[1] == "write") { // NOTE: Disabled
