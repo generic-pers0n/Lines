@@ -10,4 +10,3 @@ static: liblines.cpp
 
 install: liblines.so
 	install liblines.so /lib
-
