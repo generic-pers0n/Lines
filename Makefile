@@ -1,9 +1,8 @@
 lines: lines.cpp
-	g++ -o lines lines.cpp -llines -g --std=c++17
+	g++ -o lines lines.cpp -llines -g
 
 portable: lines.cpp
-	g++ -o lines-port lines.cpp -L./build-portable -llines -static -g -DPORT
-	mv lines-port build-portabe
+	g++ -o lines-port lines.cpp liblines/liblines.cpp -llines -static-libstdc++ -static-libgcc -g -DPORT
 
 install: lines
 	install lines /bin
