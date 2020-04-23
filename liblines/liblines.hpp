@@ -25,6 +25,5 @@ using namespace std;
 void coordinate(double xcoor1, double ycoor1, double xcoor2, double ycoor2);
 void slope(double xcoor, double ycoor, double slope);
 void generate_points(double slope, double y_intercept, int max_number, int starting_number);
-void generate_point(double slope, double y_intercept, int number);
+void generate_point(double slope, double y_intercept, double number);
 void write_generated_points_to_file(double slope, double y_intercept, int max_number, int starting_number, string file_name);
-
