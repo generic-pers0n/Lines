@@ -6,12 +6,6 @@ The Swiss Army Knife for linear graphs.
 Lines is a basic calculator that calculates the slope, y-intercept, and equation for a linear graph. However, Lines can do many more things too. 
 
 # System Requirements
-
-### v2.1.1 and below
-* Lines is guaranteed to work on Linux. Other systems may be trivial.
-* The binaries provided are 64-bit only
-
-### v3.0 and above
 * Lines is guaranteed to work on Linux **and** Windows
 * Lines could work on other systems, provided boost is installed
 * The binaries provided are 64-bit only 
