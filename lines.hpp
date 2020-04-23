@@ -79,8 +79,12 @@ void options(vector<string> option) {
     cout << "Enter the coordinate point to use: ";
     cin >> xcoor >> ycoor;
 
-    // Calculate the equation
-    slope(xcoor, ycoor, slope_value);
+    try {
+      // Calculate the equation
+      slope(xcoor, ycoor, slope_value);
+    } catch (const char* err) {
+      cout << err << endl;
+    }
 
     // Return to the prompt
     vector<string> commands = prompt();
