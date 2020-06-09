@@ -7,3 +7,6 @@ portable: lines.cpp
 install: lines
 	install lines /bin
 
+clean:
+	rm liblines/liblines.o
+	rm liblines/liblines.so
