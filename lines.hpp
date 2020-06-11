@@ -42,13 +42,28 @@ std::vector<string> prompt() {
 void options(std::vector<string> option) {
   if (option[0] == "coordinate") { // "coordinate" command
     double xcoor1, ycoor1, xcoor2, ycoor2; // Coordinate point variables
+    std::string xcoor1_str, ycoor1_str, xcoor2_str, ycoor2_str;
 
     // Get the coordinate points from the user
     std::cout << "Enter coordinate point 1: ";
-    std::cin >> xcoor1 >> ycoor1;
+    std::cin >> xcoor1_str >> ycoor1_str;
 
     std::cout << "Enter coordinate point 2: ";
-    std::cin >> xcoor2 >> ycoor2;
+    std::cin >> xcoor2_str >> ycoor2_str;
+
+    // Convert the input from a string to double
+    try {
+      xcoor1 = std::stod(xcoor1_str);
+      ycoor1 = std::stod(ycoor1_str);
+      xcoor2 = std::stod(xcoor2_str);
+      ycoor2 = std::stod(ycoor2_str);
+    } catch (std::invalid_argument err) {
+      // If, in the case anything fails, assign these variables 0
+      xcoor1 = 0, ycoor1 = 0, xcoor2 = 0, ycoor2 = 0;
+    } catch (std::out_of_range err) {
+      // If, in the case anything fails, assign these variables 0
+      xcoor1 = 0, ycoor1 = 0, xcoor2 = 0, ycoor2 = 0;
+    }
 
     // Calculate the equation and so with two coordinate points
     try {
