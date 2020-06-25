@@ -12,24 +12,25 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
+#include <iostream>
 #include "lines.hpp"
 
-int main(int argc, char *argv[]) {
+int main() {
   // Copyright screen
-  cout << "Lines  Copyright (C) 2019-2020  Avery King\n";
-  cout << "This program comes with ABSOLUTELY NO WARRANTY; for details type `copyright'.\n";
-  cout << "This is free software, and you are welcome to redistribute it\n";
-  cout << "under certain conditions; type `copyright' for details.\n\n";
+  std::cout << "Lines  Copyright (C) 2019-2020  Avery King\n";
+  std::cout << "This program comes with ABSOLUTELY NO WARRANTY; for details type `copyright'.\n";
+  std::cout << "This is free software, and you are welcome to redistribute it\n";
+  std::cout << "under certain conditions; type `copyright' for details.\n\n";
 
   // Welcome message and main prompt
-  cout << "Welcome to Lines. For a list of commands, type \'help\'.\n";
+  std::cout << "Welcome to Lines. For a list of commands, type \'help\'.\n";
 
   #ifdef PORT // portable macro
-  cout << "You\'re using a portable version of Lines\n";
+  std::cout << "You\'re using a portable version of Lines\n";
   #endif
 
   // Return to the prompt
-  vector<string> commands = prompt();
+  std::vector<string> commands = prompt();
   options(commands);
 
   return 0;
