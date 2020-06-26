@@ -18,7 +18,10 @@
  * This file contains the basic functionallity of Lines. It includes
  * the command-line functionallity, what each command does, etc.
  *
- **/
+ */
+#ifndef LINES_HPP
+#define LINES_HPP
+
 #include <iostream>
 #include <string>
 #include <cstdlib>
@@ -26,6 +29,7 @@
 #include <stdexcept>
 #include <boost/algorithm/string.hpp>
 #include "liblines/liblines.hpp"
+#include "frac.hpp"
 using namespace std;
 
 std::vector<string> prompt() {
@@ -247,4 +251,6 @@ void options(std::vector<string> option) {
     options(commands);
   }
 }
+
+#endif // end lines.hpp
 
