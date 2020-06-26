@@ -14,5 +14,7 @@ install: lines
 	install lines /bin
 
 clean:
-	rm liblines/liblines.o
-	rm liblines/liblines.so
+	rm -f lines
+	rm -f lines-debug
+	rm -f liblines/liblines.o
+	rm -f liblines/liblines.so
