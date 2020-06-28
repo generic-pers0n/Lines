@@ -1,14 +1,17 @@
+# Compiler flags (default)
+CPPFLAGS = -o lines lines.cpp -llines
+
 lines: lines.cpp
-	g++ -o lines lines.cpp -llines -fPIE
+	$(CXX) $(CPPFLAGS) -fPIE
 
 no-pie: lines.cpp
-	g++ -o lines lines.cpp -llines
+	$(CXX) $(CPPFLAGS) # No need to change any flags
 
 portable: lines.cpp
-	g++ -o lines-port lines.cpp liblines/liblines.cpp -llines -static-libstdc++ -static-libgcc -D PORT
+	$(CXX) $(CPPFLAGS) liblines/liblines.cpp -D PORT
 
 debug: lines.cpp
-	g++ -o lines-debug lines.cpp -D DEBUG -llines -g
+	$(CXX) $(CPPFLAGS) -D DEBUG -g
 
 install: lines
 	install lines /bin
