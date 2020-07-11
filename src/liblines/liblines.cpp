@@ -1,5 +1,5 @@
 /* Copyright (C) 2019-2020 Avery King <avery98@pm.me>
- * This program is free software: you can redistribute it and/or modify
+ * This program is free software: you can redistri`bute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
@@ -23,6 +23,7 @@
  * For crucial functionallity of Lines, see lines.hpp
  **/
 #include "liblines.hpp"
+#include <iostream>
 using namespace std;
 
 // Find an equation using 2 coordinate points
