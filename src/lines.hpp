@@ -30,6 +30,12 @@
 #include <boost/algorithm/string.hpp>
 #include "liblines/liblines.hpp"
 #include "frac.hpp"
+
+// Conditional includes
+#ifdef DEBUG
+#include <limits>
+#endif
+
 using namespace std;
 
 std::vector<string> prompt() {
@@ -62,7 +68,7 @@ void options(std::vector<string> option) {
       ycoor1 = frac(ycoor1_str);
       xcoor2 = frac(xcoor2_str);
       ycoor2 = frac(ycoor2_str);
-    } catch (std::logic_error err) {
+    } catch (std::logic_error& err) {
       std::cout << err.what() << ", setting all values to zero!\n";
       xcoor1 = 0, ycoor1 = 0, xcoor2 = 0, ycoor2 = 0;
     }
@@ -179,8 +185,31 @@ void options(std::vector<string> option) {
     std::cout << "\tLines v3.0\n";
     #endif
     std::cout << "====================================\n";
+
     std::cout << "Copyright (C) 2019-2020 Avery King\n";
     std::cout << "For more information about the copyright on Lines, type \'copyright\'\n\n";
+
+    // Debug information
+    #ifdef DEBUG
+    std::cout << "Build date: " << __DATE__ << " @ " __TIME__ << std::endl << std::endl;
+
+    // Sizes
+    std::cout << "Sizes of int and float types: \n\n";
+    std::cout << "int: " << sizeof(int) << std::endl;
+    std::cout << "long: " << sizeof(long) << std::endl;
+    std::cout << "long long: " << sizeof(long long) << std::endl;
+    std::cout << "double: " << sizeof(double) << std::endl;
+    std::cout << "long double: " << sizeof(long double) << std::endl << std::endl;
+
+    // Values
+    std::cout << "Possible ranges for int and float types: \n\n";
+    std::cout << "int: " << std::numeric_limits<int>::min() << " to " << std::numeric_limits<int>::max() << std::endl;
+    std::cout << "long: " << std::numeric_limits<long>::min() << " to " << std::numeric_limits<long>::max() << std::endl;
+    std::cout << "long long: " << std::numeric_limits<long>::min() << " to " << std::numeric_limits<long long>::max()<< std::endl;
+    std::cout << "double: " << std::numeric_limits<double>::min() << " to " << std::numeric_limits<double>::max() << std::endl;
+    std::cout << "long double: " << std::numeric_limits<long double>::min() << " to " << std::numeric_limits<long double>::max() << std::endl << std::endl;
+
+    #endif
 
     std::cout << "Partially made during a Xoads live stream (Xoads is my friend). Thanks to everyone who\n";
     std::cout << "supported me when I showed them this calculator. I would like to thank my friends,\n";
