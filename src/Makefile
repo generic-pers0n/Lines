@@ -5,7 +5,7 @@ INSTALL_DIR = /usr/local/bin
 CXXFLAGS = -o lines lines.cpp -llines -Wall
 
 lines: lines.cpp
-	$(CXX) $(CXXFLAGS) -fPIE -Wl, -z now, -z relro
+	$(CXX) $(CXXFLAGS) -fPIE -Wl,-z,now,-z,relro
 
 no-pie: lines.cpp
 	$(CXX) $(CXXFLAGS) # No need to change any flags
