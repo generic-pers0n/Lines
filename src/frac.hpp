@@ -26,49 +26,61 @@
 #include <string>
 using namespace std;
 
-// This function actually strips any whitespaces out from a
-// proper fraction. For example, 1 / 2 would be stripped
-// down to 1/2. NOTE: Unfinished
-std::string fix_frac(std::string str) {
-  std::size_t space = str.find(" ");
-  while (space != std::string::npos) {
-    str.erase(space);
-  }
-
-  return str;
-}
+namespace lines {
+namespace frac {
 
 // Take a string and convert it to a fraction. Then, return the result after
 // converting it from the string.
 double frac(std::string str) {
-  std::size_t separator = str.find("/"); // Position of the fraction seperator
+  std::size_t separator, space;
   std::string fraction[2]; // Temporary array for our string
 
-  // If the fraction is invalid, e.g. a regular number, then we can just convert
-  // the string to a number and return it. No extra work necessary.
-  if (separator == std::string::npos) {
-    double num = stod(str);
-    return num;
+  while ((space = str.find(' ')) !=std::string::npos)
+  {
+    str.erase(str.begin() + space);
   }
 
-  // Try to ind a whitespace between the numerator, denominator and separator.
-  // If one is found, erase it
-  if (str.find(" ") != std::string::npos) {
-    str.erase(str.begin() + (separator - 1)); // Numerator
-    str.erase(str.begin() + (separator + 1)); // Denominator
+  separator = str.find('/');
+
+  // Try to convert the fraction to a regular number if no separator is found
+  if (separator == std::string::npos)
+  {
+    double num;
+    try
+    {
+      num = stod(str);
+    } catch (...)
+    {
+      num = 0;
+    }
+
+    return num;
   }
 
   fraction[0] = str.substr(0, separator) ; // Get the numerator ([1]/2)
   fraction[1] = str.substr(separator + 1); // Get the denominator (1/[2])
 
   // Convert the fraction from its string counterpart to an actual number
-  double numerator = stod(fraction[0]), denominator = stod(fraction[1]);
+  double numerator, denominator;
+  try
+  {
+    numerator = stod(fraction[0]);
+    denominator = stod(fraction[1]);
+  } catch (...)
+  {
+    numerator = 0;
+    denominator = 1; // set to 1 to prevent exceptions
+  }
 
-  if (denominator == 0) { // Division by zero attempt
+  if (denominator == 0) // Division by zero attempt
+  {
     throw std::logic_error("Division by zero attempt");
   }
 
   return numerator / denominator; // Returns a fully-converted fraction
 }
+
+} // namespace frac
+} // namespace lines
 
 #endif // end frac.hpp
