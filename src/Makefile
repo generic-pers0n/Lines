@@ -17,7 +17,7 @@ debug: lines.cpp
 	$(CXX) $(CXXFLAGS) -D DEBUG -g
 
 install: lines
-	install lines $(BIN_INSTALL_DIR)
+	install lines $(INSTALL_DIR)
 
 clean:
 	rm -f lines
