@@ -24,9 +24,13 @@
 
 #include <iostream>
 #include <string>
-#include <cstdlib>
 #include <vector>
 #include <stdexcept>
+
+// C headers
+#include <cstdlib>
+
+// Third-party dependencies
 #include <boost/algorithm/string.hpp>
 #include "liblines/liblines.hpp"
 #include "frac.hpp"
@@ -44,6 +48,12 @@ std::vector<string> prompt() {
 
   std::cout << ">> ";
   std::getline(std::cin, usr_input);
+
+  if (std::cin.eof())
+  {
+    std::cout << "\nEnd of file reached on stdin.\n";
+    std::exit(EXIT_SUCCESS);
+  }
 
   // Split the input and save it into 'commands'
   boost::split(commands, usr_input, boost::is_any_of(" "));
