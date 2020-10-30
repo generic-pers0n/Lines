@@ -64,10 +64,10 @@ void options(std::vector<string> option) {
 
     // Convert the input from a string to a fraction
     try {
-      xcoor1 = frac(xcoor1_str);
-      ycoor1 = frac(ycoor1_str);
-      xcoor2 = frac(xcoor2_str);
-      ycoor2 = frac(ycoor2_str);
+      xcoor1 = lines::frac::frac(xcoor1_str);
+      ycoor1 = lines::frac::frac(ycoor1_str);
+      xcoor2 = lines::frac::frac(xcoor2_str);
+      ycoor2 = lines::frac::frac(ycoor2_str);
     } catch (std::logic_error& err) {
       std::cout << err.what() << ", setting all values to zero!\n";
       xcoor1 = 0, ycoor1 = 0, xcoor2 = 0, ycoor2 = 0;
