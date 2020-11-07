@@ -23,6 +23,7 @@
  * For crucial functionallity of Lines, see lines.hpp
  **/
 #include "liblines.hpp"
+#include <iostream>
 using namespace std;
 
 // Find an equation using 2 coordinate points

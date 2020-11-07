@@ -14,16 +14,13 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <cstdlib>
-#include <vector>
-using namespace std;
+#ifndef LIBLINES_HPP
+#define LIBLINES_HPP
 
 // Function prototypes (liblines)
 void coordinate(double xcoor1, double ycoor1, double xcoor2, double ycoor2);
 void slope(double xcoor, double ycoor, double slope);
 void generate_points(double slope, double y_intercept, int max_number, int starting_number);
 void generate_point(double slope, double y_intercept, double number);
-void write_generated_points_to_file(double slope, double y_intercept, int max_number, int starting_number, string file_name);
+
+#endif
