@@ -10,8 +10,8 @@ lines: lines.cpp
 no-pie: lines.cpp
 	$(CXX) $(CXXFLAGS) # No need to change any flags
 
-portable: lines.cpp
-	$(CXX) $(CXXFLAGS) liblines/liblines.cpp -D PORT
+single: lines.cpp
+	$(CXX) $(CXXFLAGS) liblines/liblines.cpp
 
 debug: lines.cpp
 	$(CXX) $(CXXFLAGS) -D DEBUG -g
