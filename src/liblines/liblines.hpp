@@ -17,6 +17,10 @@
 #ifndef LIBLINES_HPP
 #define LIBLINES_HPP
 
+#define LIBLINES_MAJOR_VER 3
+#define LIBLINES_MINOR_VER 1
+#define LIBLINES_PATCH_VER 0
+
 // Function prototypes (liblines)
 void coordinate(double xcoor1, double ycoor1, double xcoor2, double ycoor2);
 void slope(double xcoor, double ycoor, double slope);
