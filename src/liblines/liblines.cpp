@@ -24,17 +24,19 @@
  **/
 #include "liblines.hpp"
 #include <iostream>
-using namespace std;
 
 // Find an equation using 2 coordinate points
-void coordinate(double xcoor1, double ycoor1, double xcoor2, double ycoor2) {
+void coordinate(double xcoor1, double ycoor1, double xcoor2, double ycoor2)
+{
   // Find the slope of the graph
   double delta_x = xcoor1 - xcoor2;
   double delta_y = ycoor1 - ycoor2;
 
-  if (delta_y == 0) {
+  if (delta_y == 0)
+  {
     throw "Slope equals 0!";
-  } else if (delta_x == 0) {
+  } else if (delta_x == 0)
+  {
     throw "Division by 0!";
   }
 
@@ -46,88 +48,78 @@ void coordinate(double xcoor1, double ycoor1, double xcoor2, double ycoor2) {
 
 
   // Print the equation of the graph (formatting)
-  cout << "The equation of this graph is y=";
+  std::cout << "The equation of this graph is y=";
 
-  // Slope formatting
-  //
-  // Here, the slope can either be positive or negative. We
-  // don't need to be worrying about adding the proper sign
-  // in front of itv
-  if (slope == 1) { // If the slope is 1
-    cout << "x";
-  } else { // If the slope is positive or negative
-    cout << slope << "x";
+  if (slope == 1) // If the slope is 1
+  {
+    std::cout << "x";
+  } else // If the slope is positive or negative
+  {
+    std::cout << slope << "x";
   }
 
-  // Y-intercept formatting
-  //
-  // Unlike with the slope, we do need to add the proper sign
-  // in front of the y-intercept if it's positive. Else, then
-  // we can just leave it.
-  if (y_intercept > 0) { // If the y-intercept is positive
-    cout << "+" << y_intercept << endl;
-  } else { // If the y-intercept is negative
-    cout << y_intercept << endl;
+  if (y_intercept > 0) // If the y-intercept is positive
+  {
+    std::cout << "+" << y_intercept << std::endl;
+  } else if (y_intercept < 0) // If the y-intercept is negative
+  {
+    std::cout << y_intercept << std::endl;
+  } else
+  {
+    std::cout << std::endl; // No need to display the y-intercept
   }
 
   // Print the slope and y-intercept of the graph
-  cout << "The slope of this graph is " << slope << endl;
-  cout << "The y-intercept of this graph is (0, " << y_intercept << ")" << "\n\n";
+  std::cout << "The slope of this graph is " << slope << std::endl;
+  std::cout << "The y-intercept of this graph is (0, " << y_intercept << ")" << "\n\n";
 }
 
-// Find an equation using a slope and a coordinate point
-void slope(double xcoor, double ycoor, double slope) {
+/** Find an equation using a slope and a coordinate point
+ *
+ * Note that this function is literally coordinate() but with a few
+ * changes. It's pretty much the same thing anyways...
+ **/
+void slope(double xcoor, double ycoor, double slope)
+{
   // Throw an exception if the slope is 0
-  if (slope == 0) {
+  if (slope == 0)
+  {
     throw "This graph does not grow!";
   }
 
   // Find the y-intercept
   double y_intercept = ycoor - slope * xcoor;
 
+  std::cout << "The equation of this graph is y=";
 
-  cout << "The equation of this graph is y=";
-
-  // Slope formatting
-  //
-  // Here, the slope can either be positive or negative. We
-  // don't need to be worrying about adding the proper sign
-  // in front of itv
-  if (slope == 1) { // If the slope is 1
-    cout << "x";
-  } else { // If the slope is positive or negative
-    cout << slope << "x";
+  if (slope == 1) // If the slope is 1
+  {
+    std::cout << "x";
+  } else // If the slope is positive or negative
+  {
+    std::cout << slope << "x";
   }
 
-  // Y-intercept formatting
-  //
-  // Unlike with the slope, we do need to add the proper sign
-  // in front of the y-intercept if it's positive. Else, then
-  // we can just leave it.
-  if (y_intercept > 0) { // If the y-intercept is positive
-    cout << "+" << y_intercept << endl;
-  } else { // If the y-intercept is negative
-    cout << y_intercept << endl;
+  if (y_intercept > 0) // If the y-intercept is positive
+  {
+    std::cout << "+" << y_intercept;
+  } else if (y_intercept < 0) // If the y-intercept is negative
+  {
+    std::cout << y_intercept;
   }
 
   // Print the slope and y-intercept of the graph
-  cout << "The slope of this graph is " << slope << endl;
-  cout << "The y-intercept of this graph is (0, " << y_intercept << ")" << "\n\n";
+  std::cout << "\nThe slope of this graph is " << slope << std::endl;
+  std::cout << "The y-intercept of this graph is (0, " << y_intercept << ")" << "\n\n";
 }
 
 // Generate multiple coordinate points 
-void generate_points(double slope, double y_intercept, int max_number, int starting_number) {
-  int i = starting_number;
-
-  while (true) {
-    double result = slope*i + y_intercept;
-    // Display the final result
-    cout << "(" << i << ", " << result << ")\n";
-
-    i++;
-    if (i == max_number + 1) {
-      break;
-    }
+void generate_points(double slope, double y_intercept, int start, int end)
+{
+  for (int i = start; i  < end + 1; i++)
+  {
+    double result = (slope * i) + y_intercept;
+    std::cout << "(" << i << ", " << result << ")\n";
 
     // (5, 20)
     // y=2x+10      Equation
@@ -138,9 +130,10 @@ void generate_points(double slope, double y_intercept, int max_number, int start
 }
 
 // Generate a coordinate point
-void generate_point(double slope, double y_intercept, double number) {
+void generate_point(double slope, double y_intercept, double number)
+{
   double result = slope * number + y_intercept;
 
   // Display the final result
-  cout << "(" << number << ", " << result << ")\n";
+  std::cout << "(" << number << ", " << result << ")\n";
 }
