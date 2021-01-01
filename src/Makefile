@@ -2,7 +2,7 @@
 INSTALL_DIR = /usr/local/bin
 
 # Flags
-CXXFLAGS = -o lines lines.cpp -llines -Wall
+CXXFLAGS = -o lines opts.cpp lines.cpp lcl/lcl_interpret.cpp -llines -Wall -std=c++14
 
 lines: lines.cpp
 	$(CXX) $(CXXFLAGS) -fPIE -Wl,-z,now,-z,relro
@@ -20,6 +20,6 @@ install: lines
 	install lines $(INSTALL_DIR)
 
 clean:
-	rm -f lines
-	rm -f liblines/liblines.o
-	rm -f liblines/liblines.so
+	$(RM) lines
+	$(RM) liblines/liblines.o
+	$(RM) liblines/liblines.so

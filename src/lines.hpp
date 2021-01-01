@@ -1,4 +1,4 @@
-/* Copyright (C) 2019-2020 Avery King <avery98@pm.me>
+/* Copyright (C) 2019-2021 Avery King <avery98@pm.me>
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -30,76 +30,152 @@
 // C headers
 #include <cstdlib>
 
-// Third-party dependencies
-#include <boost/algorithm/string.hpp>
 #include "liblines/liblines.hpp"
-#include "frac.hpp"
+#include "lcl/lcl_interpret.hpp" // Interpreting funcitons
+#include "opts.hpp"  // Option functions
 
 // Conditional includes
 #ifdef DEBUG
 #include <limits>
 #endif
+using namespace lines;
+/**
+ * A function that brings up the main prompt
+ *
+ * This function gets a line of input and splits the input up, into various
+ * strings.
+ *
+ * Note that this function is likely to be removed. Instead, all functionality
+ * may go to main() instead. This will depend.
+ *
+ * @return Returns a vector (of std::string) containing the split input.
+ * @see main()
+ **/
 
-using namespace std;
+namespace lines {
 
-std::vector<string> prompt() {
-  std::vector<string> commands;
-  std::string usr_input;
+opts::opt_t prompt()
+{
+  opts::opt_t command;
+  std::string raw_input;
+  std::string main_opt;
+  std::size_t whitespace;
 
   std::cout << ">> ";
-  std::getline(std::cin, usr_input);
+  std::getline(std::cin, raw_input);
+
+  whitespace = raw_input.find(' ');
 
   if (std::cin.eof())
   {
-    std::cout << "\nEnd of file reached on stdin.\n";
-    std::exit(EXIT_SUCCESS);
+    std::exit(EXIT_FAILURE);
   }
 
-  // Split the input and save it into 'commands'
-  boost::split(commands, usr_input, boost::is_any_of(" "));
-  return commands;
+  if (whitespace == std::string::npos)
+  {
+    command.set_name(raw_input);
+    return command;
+  } else
+  {
+    main_opt = raw_input.substr(0, whitespace + 1);
+    size_t _space = main_opt.find(' ');
+
+    while (_space != std::string::npos)
+    {
+      main_opt.erase(_space, main_opt.find(' '));
+	  _space = main_opt.find(' ');
+    }
+
+    command.set_name(main_opt);
+  }
+
+  // Erase the main option
+  raw_input.erase(0, whitespace + 1);
+
+  ////////////////////////////////////////////////////////
+  // Heyo! I'm a code block                             //
+  //                                                    //
+  // This block down here is for finding and splitting  //
+  // arguments.                                         //
+  ////////////////////////////////////////////////////////
+  {
+    std::size_t __space = raw_input.find(' ');
+    std::size_t __begin = 0; // Essentially this will stay constant
+    std::string __tmp_str;
+
+    for (std::size_t i = 0; i < raw_input.size(); i++)
+    {
+      __space = raw_input.find(' ');
+      if (__space != std::string::npos)
+      {
+        __tmp_str = raw_input.substr(__begin, __space + 1);
+
+        raw_input.erase(__begin, __space); // We eventually modify this string
+      } else
+      {
+        __tmp_str = raw_input;
+        command.add_arg(__tmp_str);
+      }
+    }
+  }
+
+  return command;
 }
 
-void options(std::vector<string> option) {
-  if (option[0] == "coordinate") { // "coordinate" command
-    double xcoor1, ycoor1, xcoor2, ycoor2; // Coordinate point variables
-    std::string xcoor1_str, ycoor1_str, xcoor2_str, ycoor2_str; // Coordinate point input variables
+/**
+ * The function that executes the primary options in Lines.
+ *
+ * Simply put, this function is essentially the LCL right here. However, this
+ * only executes unaliased options in Lines. If an option is aliased, then this
+ * function will not recognize it.
+ *
+ * @return Returns 0 if an option was valid. Otherwise, -1 is returned.
+ **/
+void exec_builtin_opt(opts::opt_t command)
+{
+  if (command.get_name() == "coordinate") // "coordinate" comman
+  {
+    std::string coor1_str, coor2_str;
+    lcl_intr::coorpt coor1, coor2;
 
     // Get the coordinate points from the user
     std::cout << "Enter coordinate point 1: ";
-    std::cin >> xcoor1_str >> ycoor1_str;
+    std::getline(std::cin, coor1_str);
 
     std::cout << "Enter coordinate point 2: ";
-    std::cin >> xcoor2_str >> ycoor2_str;
+    std::getline(std::cin, coor2_str);
 
     // Convert the input from a string to a fraction
-    try {
-      xcoor1 = lines::frac::frac(xcoor1_str);
-      ycoor1 = lines::frac::frac(ycoor1_str);
-      xcoor2 = lines::frac::frac(xcoor2_str);
-      ycoor2 = lines::frac::frac(ycoor2_str);
-    } catch (std::logic_error& err) {
-      std::cout << err.what() << ", setting all values to zero!\n";
-      xcoor1 = 0, ycoor1 = 0, xcoor2 = 0, ycoor2 = 0;
+    try
+    {
+      coor1 = lcl_intr::mkcoorpt(coor1_str);
+      coor2 = lcl_intr::mkcoorpt(coor2_str);
+    } catch (std::invalid_argument& err)
+    {
+      std::cout << "Invalid coordinate points entered (most likely), using default values\n";
+
+      coor1.x = coor1.y = 1;
+      coor2.x = coor2.y = 2;
     }
 
     // Calculate the equation and so with two coordinate points
-    try {
-      coordinate(xcoor1, ycoor1, xcoor2, ycoor2);
-    } catch (const char* err) {
-      std::cout << err << endl;
-      std::vector<string> commands = prompt();
-      options(commands);
+    try
+    {
+      coordinate(coor1.x, coor1.y, coor2.x, coor2.y);
+    } catch (const char* err) // Yes, this (and others like it) will be changed in liblines v4.0
+    {
+      std::cout << err << std::endl;
+      return;
     }
 
-    // Return to the prompt
-    std::vector<string> commands = prompt();
-    options(commands);
+    return;
   }
 
-  else if (option[0] == "slope") { // "slope" command
+  else if (command.get_name() == "slope") // "slope" command
+  {
     // Variables
-    double xcoor, ycoor, slope_value;
+    double slope_value;
+    double coor[2];
 
     // Get the slope from the user
     std::cout << "Enter the slope of the graph: ";
@@ -107,101 +183,132 @@ void options(std::vector<string> option) {
 
     // Get the coordinate points from the user
     std::cout << "Enter the coordinate point to use: ";
-    std::cin >> xcoor >> ycoor;
+    std::cin >> coor[0] >> coor[1];
 
     try {
       // Calculate the equation
-      slope(xcoor, ycoor, slope_value);
+      slope(coor[0], coor[1], slope_value);
     } catch (const char* err) {
-      std::cout << err << endl;
+      std::cout << err << std::endl;
     }
 
-    // Return to the prompt
-    std::vector<string> commands = prompt();
-    options(commands);
+    return;
   }
 
-  else if (option[0] == "gencoor") { // "gencoor" command
+  else if (command.get_name() == "gencoor") // "gencoor" command
+  {
     // Variables
-    double slope, y_intercept;
-    int starting_number, max_number; // For ranges
+    double slope, y_intercept, input;
+    int start, end; // For ranges
 
     // Find the subcommands in the vector
-    // Note: the 'write' subcommand has been removed, and we're still
-    // keeping the 'default' subcommand until v4.0, maybe earlier
-    std::vector<string>::iterator single_subcmd = std::find(option.begin(), option.end(), "single");
-    std::vector<string>::iterator default_subcmd = std::find(option.begin(), option.end(), "default");
+    // Note: we're still keeping the 'default' subcommand until v4.0 or something
+    std::vector<std::string> cmd_args = command.get_args();
+    auto arg = cmd_args.begin();
 
-    if (single_subcmd == option.end() && default_subcmd == option.end()) { // Default action, where there's no subcommand
+    if (arg == cmd_args.end())
+    {
+      std::cout << "What is the slope and y-intercept? ";
+      std::cin >> slope >> y_intercept;
+
+      std::cout << "What is the range you want to use (no decimals)? ";
+      std::cin >> start >> end;
+
+      generate_points(slope, y_intercept, start, end);
+      return;
+    }
+
+    else if (*arg == "") // Default action, where there's no subcommand
+    {
       // Get the y-intercept and slope
       std::cout << "What is the slope and y-intercept of your equation? ";
       std::cin >> slope >> y_intercept;
 
       std::cout << "Enter your desired range (no decimals): ";
-      std::cin >> starting_number >> max_number;
+      std::cin >> start >> end;
 
-      generate_points(slope, y_intercept, max_number, starting_number);
+      generate_points(slope, y_intercept, start, end);
+    }
 
-      // Return to the prompt
-      std::vector<string> commands = prompt();
-      options(commands);
-    } else if (single_subcmd != option.end()) { // Found 'gencoor single'
-      double number; // We're redeclaring this because we can take advantage of this type
-
+    else if (*arg == "single") // Found 'gencoor single'
+    {
       // Get the slope
       std::cout << "What is the slope and y-intercept? ";
       std::cin >> slope >> y_intercept;
 
       // Get the number the user wants to use for x
       std::cout << "What is the number that x will be? ";
-      std::cin >> number;
+      std::cin >> input;
 
       // Generate a certain amount of coordinate points
-      generate_point(slope, y_intercept, number);
+      generate_point(slope, y_intercept, input);
+    }
 
-      // Return to the prompt
-      std::vector<string> commands = prompt();
-      options(commands);
-    } else if (default_subcmd != option.end()) { // Found 'gencoor default'
+    else if (*arg == "default") // Found 'gencoor default'
+    {
       // Deprecation warning
-      std::cout << "Note: this command is DEPRECATED! Use gencoor (without any subcommands) instead.\n\n";
-      std::cout << "Tip of the day: in Lines v3.0, gencoor had a bug in which if you were to run it without\n";
-      std::cout << "any subcommands, then Lines would crash with a segmentation fault error (on Windows you\n";
-      std::cout << "wouldn\'t see anything). To circumvent this \'gencoor default\' was born, but now, obviously,\n";
-      std::cout << "this has been fixed...\n";
+      std::cout << "Note: this argument is DEPRECATED! Use gencoor (without any subcommands) instead.\n\n";
+
+      /* Tip of the day: in Lines v3.0, gencoor had a bug in which if you were to run it without
+       * any subcommands, then Lines would crash with a segmentation fault error. To circumvent
+       * this, gencoor default was born. Now, obviously, this has been fixed...
+       * 
+       * Yes, I know that having a 'default' option was obviously a bad way to deal with things
+       * back then, but now I know better...
+       */
 
       // Get the y-intercept and slope
-      cout << "What is the slope and y-intercept? ";
-      cin >> slope >> y_intercept;
+      std::cout << "What is the slope and y-intercept? ";
+      std::cin >> slope >> y_intercept;
 
-      cout << "What is the range you want to use (no decimals)? ";
-      cin >> starting_number >> max_number;
+      std::cout << "What is the range you want to use (no decimals)? ";
+      std::cin >> start >> end;
 
-      generate_points(slope, y_intercept, max_number, starting_number);
+      generate_points(slope, y_intercept, start, end);
+    } else if (arg == cmd_args.end()) // No args
+    {
 
-      // Return to the prompt
-      std::vector<string> commands = prompt();
-      options(commands);
+      std::cout << "What is the slope and y-intercept? ";
+      std::cin >> slope >> y_intercept;
+
+      std::cout << "What is the range you want to use (no decimals)? ";
+      std::cin >> start >> end;
+
+      generate_points(slope, y_intercept, start, end);
     }
+
+    else
+    {
+      std::cout << "unknown argument: \'" << *arg << "\'\n";
+      std::cout << "usage: gencoor [option]\n";
+      std::cout << "Whereas \'option\' (optional) can be single or default (deprecated)\n";
+    }
+
+    return;
   }
 
-  else if (option[0] == "about") { // "about" command
+  else if (command.get_name() == "about") // "about" command
+  {
     std::cout << "====================================\n";
-    #ifdef PORT
-    std::cout << "\tLines Portable v3.0\n";
-    #elif defined(DEBUG)
-    std::cout << "\tLines v3.0-debug\n"; // Technically v3.1-dev2-debug, but we'll leave it for now
-    #else // Should no other macro be defined
-    std::cout << "\tLines v3.0\n";
-    #endif
+    std::cout << "\tLines v3.1b1\n";
     std::cout << "====================================\n";
+    std::cout << "Built date: " << __DATE__ << " @ " << __TIME__ << std::endl << std::endl;    
 
-    std::cout << "Copyright (C) 2019-2020 Avery King\n";
-    std::cout << "For more information about the copyright on Lines, type \'copyright\'\n\n";
+    std::cout << "Copyright (C) 2019-2021  Avery King\n\n";
+
+    std::cout << "This program is free software: you can redistribute it and/or modify\n";
+    std::cout << "it under the terms of the GNU General Public License as published by\n";
+    std::cout << "the Free Software Foundation, either version 3 of the License, or\n";
+    std::cout << "(at your option) any later version.\n\n";
+    std::cout << "This program is distributed in the hope that it will be useful,\n";
+    std::cout << "but WITHOUT ANY WARRANTY; without even the implied warranty of\n";
+    std::cout << "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n";
+    std::cout << "GNU General Public License for more details.\n\n";
+    std::cout << "You should have received a copy of the GNU General Public License\n";
+    std::cout << "along with this program.  If not, see <https://www.gnu.org/licenses/>.\n";
 
     // Debug information
     #ifdef DEBUG
-    std::cout << "Build date: " << __DATE__ << " @ " __TIME__ << std::endl << std::endl;
 
     // Sizes
     std::cout << "Sizes of int and float types: \n\n";
@@ -224,72 +331,44 @@ void options(std::vector<string> option) {
     std::cout << "Partially made during a Xoads live stream (Xoads is my friend). Thanks to everyone who\n";
     std::cout << "supported me when I showed them this calculator. I would like to thank my friends,\n";
     std::cout << "classmates, and my parents! THANK YOU SO MUCH!!!\n\n";
-
-    // Return to the prompt
-    std::vector<string> commands = prompt();
-    options(commands);
   }
 
-  else if (option[0] == "help") { // "help" command
+  else if (command.get_name() == "help") // "help" command
+  {
     std::cout << "Available commands:\n";
     std::cout << "  * coordinate\n";
     std::cout << "  * slope\n";
     std::cout << "  * gencoor:\n";
 
-    std::cout << "    - default\n";
+    std::cout << "    - default (deprecated)\n";
     std::cout << "    - write\n";
     std::cout << "    - single\n";
 
     std::cout << "  * about\n";
-    std::cout << "  * copyright\n";
     std::cout << "  * exit\n";
 
     std::cout << "For more help on these commands, and for more help on Lines,\n";
     std::cout << "please visit the Lines wiki\n";
 
-    // Return to the prompt
-    std::vector<string> commands = prompt();
-    options(commands);
+    return;
   }
 
-  else if (option[0] == "copyright") { // "copyright command"
-    std::cout << "The swiss army knife for linear graphs.\n\n";
-    std::cout << "Copyright (C) 2019-2020  Avery King\n";
-    std::cout << "This program is free software: you can redistribute it and/or modify\n";
-    std::cout << "it under the terms of the GNU General Public License as published by\n";
-    std::cout << "the Free Software Foundation, either version 3 of the License, or\n";
-    std::cout << "(at your option) any later version.\n\n";
-    std::cout << "This program is distributed in the hope that it will be useful,\n";
-    std::cout << "but WITHOUT ANY WARRANTY; without even the implied warranty of\n";
-    std::cout << "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n";
-    std::cout << "GNU General Public License for more details.\n\n";
-    std::cout << "You should have received a copy of the GNU General Public License\n";
-    std::cout << "along with this program.  If not, see <https://www.gnu.org/licenses/>.\n";
-
-    // Return to the prompt
-    std::vector<string> commands = prompt();
-    options(commands);
-  }
-
-  else if (option[0] == "exit") { // "exit" command
+  else if (command.get_name() == "exit") { // "exit" command
     std::cout << "Bye!\n";
-    exit(0);
+    std::exit(0);
   }
 
-  else if (option[0] == "") { // If nothing was entered
-    // Return to the prompt
-    std::vector<string> commands = prompt();
-    options(commands);
+  else if (command.get_name() == "")
+  {
+    return;
   }
 
   else { // Unknown commands
-    std::cout << "'" << option[0] << "'" << " is not a command" << endl;
-
-    // Return to the prompt
-    std::vector<string> commands = prompt();
-    options(commands);
+    std::cout << "Unknown command: \'" << command.get_name() << "\'" << std::endl;
+    return;
   }
 }
 
-#endif // end lines.hpp
+} // namespace lines
+#endif // end LINES_HPP
 
