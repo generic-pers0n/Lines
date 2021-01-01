@@ -8,8 +8,9 @@ Lines is a basic calculator that calculates the slope, y-intercept, and equation
 
 # System Requirements
 * Lines is guaranteed to work on Linux **and** Windows
-* Lines could work on other systems, provided boost is installed
 * The binaries provided are 64-bit only 
+## Compiling
+* Prior to Lines v3.1b1, you need `boost` installed for building Lines.
 
 # Features
 * You can find a graph's equation, y-intercept, and slope using two coordinate points 
