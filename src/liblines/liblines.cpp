@@ -48,7 +48,7 @@ void coordinate(double xcoor1, double ycoor1, double xcoor2, double ycoor2)
 
 
   // Print the equation of the graph (formatting)
-  std::cout << "The equation of this graph is y=";
+  std::cout << "\nThe equation of this graph is y=";
 
   if (slope == 1) // If the slope is 1
   {
@@ -125,7 +125,7 @@ void generate_points(double slope, double y_intercept, int start, int end)
     // y=2x+10      Equation
     // y=2(5)+10    Multiply x (i) by the slope
     // y=10+10      Add the product of slope * x with the y-intercept
-    //y=20          Final result
+    // y=20          Final result
   }
 }
 
@@ -137,3 +137,4 @@ void generate_point(double slope, double y_intercept, double number)
   // Display the final result
   std::cout << "(" << number << ", " << result << ")\n";
 }
+

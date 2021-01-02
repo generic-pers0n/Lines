@@ -21,10 +21,18 @@
 #define LIBLINES_MINOR_VER 1
 #define LIBLINES_PATCH_VER 0
 
-// Function prototypes (liblines)
+/* TODO: Add a namespace to liblines (named 'liblines'). Planed for 4.0
+   Yes, I know having a namespace is a good idea, and I want to add one.
+   However, this will (unfortunately) have to wait until Lines v4.0 because
+   this will case incompatible changes with older versions of Lines. I
+   don't want that to happen because that technically means Lines 4.0 will
+   arrive WAY to early. In the mean time, we must unfortunately suffer).
+*/
+
+// Function prototypes
 void coordinate(double xcoor1, double ycoor1, double xcoor2, double ycoor2);
 void slope(double xcoor, double ycoor, double slope);
 void generate_points(double slope, double y_intercept, int max_number, int starting_number);
 void generate_point(double slope, double y_intercept, double number);
 
-#endif
+#endif // end liblines.hpp
