@@ -1,12 +1,18 @@
 liblines: liblines.cpp liblines.o
-	g++ -fPIC -g -c liblines.cpp
-	g++ -shared -fPIC -g liblines.o -o liblines.so
-	rm -rf liblines.o
+	$(CXX) -fPIC -Wall -c liblines.cpp
+	$(CXX) -shared -Wall liblines.o -o liblines.so
+
+debug: liblines.cpp liblines.o
+	$(CXX) -fPIC -g -Wall -c liblines.cpp
+	$(CXX) -shared -Wall -fPIC liblines.o -o liblines.so
 
 static: liblines.cpp
-	g++ -g -c liblines.cpp
-	ar rvs liblines.a liblines.o
-	rm -rf liblines.o
+	$(CXX) -c liblines.cpp
+	$(AR) rvs liblines.a liblines.o
+
+staticdebug: liblines.cpp
+	$(CXX) -g -c liblines.cpp
+	$(AR) rvs liblines.a liblines.o
 
 install: liblines.so
-	install liblines.so /lib
+	install liblines.so /usr/lib

@@ -1,4 +1,4 @@
-/* Copyright (C) 2019-2020 Avery King <avery98@pm.me>
+/* Copyright (C) 2019-2021 Avery King <avery98@pm.me>
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -14,24 +14,22 @@
 */
 #include <iostream>
 #include "lines.hpp"
+#include "opts.hpp"
 
-int main() {
-  // Copyright screen
-  std::cout << "Lines  Copyright (C) 2019-2020  Avery King\n";
-  std::cout << "This program comes with ABSOLUTELY NO WARRANTY; for details type `copyright'.\n";
+int main()
+{
+  std::cout << "Lines  Copyright (C) 2019-2021  Avery King\n";
+  std::cout << "This program comes with ABSOLUTELY NO WARRANTY; for details type `about\'.\n";
   std::cout << "This is free software, and you are welcome to redistribute it\n";
-  std::cout << "under certain conditions; type `copyright' for details.\n\n";
-
-  // Welcome message and main prompt
+  std::cout << "under certain conditions; type `about' for details.\n\n";
   std::cout << "Welcome to Lines. For a list of commands, type \'help\'.\n";
 
-  #ifdef PORT // portable macro
-  std::cout << "You\'re using a portable version of Lines\n";
-  #endif
-
   // Return to the prompt
-  std::vector<string> commands = prompt();
-  options(commands);
+  while (true)
+  {
+    lines::opts::opt_t commands = prompt();
+    exec_builtin_opt(commands);
+  }
 
   return 0;
 }

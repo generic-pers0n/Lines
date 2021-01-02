@@ -24,17 +24,19 @@
  **/
 #include "liblines.hpp"
 #include <iostream>
-using namespace std;
 
 // Find an equation using 2 coordinate points
-void coordinate(double xcoor1, double ycoor1, double xcoor2, double ycoor2) {
+void coordinate(double xcoor1, double ycoor1, double xcoor2, double ycoor2)
+{
   // Find the slope of the graph
   double delta_x = xcoor1 - xcoor2;
   double delta_y = ycoor1 - ycoor2;
 
-  if (delta_y == 0) {
+  if (delta_y == 0)
+  {
     throw "Slope equals 0!";
-  } else if (delta_x == 0) {
+  } else if (delta_x == 0)
+  {
     throw "Division by 0!";
   }
 
@@ -48,32 +50,40 @@ void coordinate(double xcoor1, double ycoor1, double xcoor2, double ycoor2) {
   // Print the equation of the graph (formatting)
   std::cout << "\nThe equation of this graph is y=";
 
-  // Slope formatting
-  if (slope == 1) { // If the slope is 1
+  if (slope == 1) // If the slope is 1
+  {
     std::cout << "x";
-  } else { // If the slope is positive or negative
+  } else // If the slope is positive or negative
+  {
     std::cout << slope << "x";
   }
 
-  // y-intercept formatting
-  // Note: we only print the y-intercept if it's not zero (0)
-  if (y_intercept != 0) { // If the y-intercept is not 0
-    if (y_intercept > 0) { // If the y-intercept is positive
-      std::cout << "+" << y_intercept << std::endl;
-    } else { // If the y-intercept is negative
-      std::cout << y_intercept << std::endl;
-    }
+  if (y_intercept > 0) // If the y-intercept is positive
+  {
+    std::cout << "+" << y_intercept << std::endl;
+  } else if (y_intercept < 0) // If the y-intercept is negative
+  {
+    std::cout << y_intercept << std::endl;
+  } else
+  {
+    std::cout << std::endl; // No need to display the y-intercept
   }
 
   // Print the slope and y-intercept of the graph
-  std::cout << "Y-intercept: (0, " << y_intercept << ")" << std::endl;
-  std::cout << "Slope: " << slope << "\n\n";
+  std::cout << "The slope of this graph is " << slope << std::endl;
+  std::cout << "The y-intercept of this graph is (0, " << y_intercept << ")" << "\n\n";
 }
 
-// Find an equation using a slope and a coordinate point
-void slope(double xcoor, double ycoor, double slope) {
+/** Find an equation using a slope and a coordinate point
+ *
+ * Note that this function is literally coordinate() but with a few
+ * changes. It's pretty much the same thing anyways...
+ **/
+void slope(double xcoor, double ycoor, double slope)
+{
   // Throw an exception if the slope is 0
-  if (slope == 0) {
+  if (slope == 0)
+  {
     throw "This graph does not grow!";
   }
 
@@ -82,40 +92,37 @@ void slope(double xcoor, double ycoor, double slope) {
 
   std::cout << "The equation of this graph is y=";
 
-  // Slope formatting
-  if (slope == 1) { // If the slope is 1
+  if (slope == 1) // If the slope is 1
+  {
     std::cout << "x";
-  } else { // If the slope is positive or negative
+  } else // If the slope is positive or negative
+  {
     std::cout << slope << "x";
   }
 
-  // y-intercept formatting
-  // Note: we only print the y-intercept if it's not zero (0)
-  if (y_intercept != 0) { // If the y-intercept is not 0
-    if (y_intercept > 0) { // If the y-intercept is positive
-      std::cout << "+" << y_intercept << std::endl;
-    } else { // If the y-intercept is negative
-      std::cout << y_intercept << std::endl;
-    }
+  if (y_intercept > 0) // If the y-intercept is positive
+  {
+    std::cout << "+" << y_intercept;
+  } else if (y_intercept < 0) // If the y-intercept is negative
+  {
+    std::cout << y_intercept;
   }
 
-
   // Print the slope and y-intercept of the graph
-  std::cout << "Slope: " << slope << std::endl;
-  std::cout << "Y-intercept: (0, " << y_intercept << ")" << "\n\n";
+  std::cout << "\nThe slope of this graph is " << slope << std::endl;
+  std::cout << "The y-intercept of this graph is (0, " << y_intercept << ")" << "\n\n";
 }
 
-// Generate multiple coordinate points
-// Note: In Lines v4.0, this function will return an array (maybe a vector, even) of
-// a custom data type that holds a coordinate point.
-void generate_points(double slope, double y_intercept, int max_number, int starting_number) {
-  for (int i = starting_number; i <= max_number; i++) {
-    // Display the final result
-    std::cout << "(" << i << ", " << slope * i + y_intercept << ")\n";
+// Generate multiple coordinate points 
+void generate_points(double slope, double y_intercept, int start, int end)
+{
+  for (int i = start; i  < end + 1; i++)
+  {
+    double result = (slope * i) + y_intercept;
+    std::cout << "(" << i << ", " << result << ")\n";
 
-    // Example:
-    // (5, 20)      Coordinate point to use
-    // y=2x+10      Equation to use
+    // (5, 20)
+    // y=2x+10      Equation
     // y=2(5)+10    Multiply x (i) by the slope
     // y=10+10      Add the product of slope * x with the y-intercept
     // y=20          Final result
@@ -123,9 +130,11 @@ void generate_points(double slope, double y_intercept, int max_number, int start
 }
 
 // Generate a coordinate point
-// I'm pretty tempted to change this in fact. Therefore, in Lines v4.0, this function
-// will be inlined and will return (type: double).
-void generate_point(double slope, double y_intercept, double number) {
-  std::cout << "(" << number << ", " << slope * number + y_intercept << ")\n";
+void generate_point(double slope, double y_intercept, double number)
+{
+  double result = slope * number + y_intercept;
+
+  // Display the final result
+  std::cout << "(" << number << ", " << result << ")\n";
 }
 

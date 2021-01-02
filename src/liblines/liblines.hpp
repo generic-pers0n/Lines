@@ -17,6 +17,10 @@
 #ifndef LIBLINES_HPP
 #define LIBLINES_HPP
 
+#define LIBLINES_MAJOR_VER 3
+#define LIBLINES_MINOR_VER 1
+#define LIBLINES_PATCH_VER 0
+
 /* TODO: Add a namespace to liblines (named 'liblines'). Planed for 4.0
    Yes, I know having a namespace is a good idea, and I want to add one.
    However, this will (unfortunately) have to wait until Lines v4.0 because
@@ -32,4 +36,3 @@ void generate_points(double slope, double y_intercept, int max_number, int start
 void generate_point(double slope, double y_intercept, double number);
 
 #endif // end liblines.hpp
-

@@ -1,23 +1,25 @@
-# Compiler flags (default)
-CPPFLAGS = -o lines lines.cpp -llines
+# Install directory
+INSTALL_DIR = /usr/local/bin
+
+# Flags
+CXXFLAGS = -o lines opts.cpp lines.cpp lcl/lcl_interpret.cpp -llines -Wall -std=c++14
 
 lines: lines.cpp
-	$(CXX) $(CPPFLAGS) -fPIE
+	$(CXX) $(CXXFLAGS) -fPIE -Wl,-z,now,-z,relro
 
 no-pie: lines.cpp
-	$(CXX) $(CPPFLAGS) # No need to change any flags
+	$(CXX) $(CXXFLAGS) # No need to change any flags
 
-portable: lines.cpp
-	$(CXX) $(CPPFLAGS) liblines/liblines.cpp -D PORT
+single: lines.cpp
+	$(CXX) $(CXXFLAGS) liblines/liblines.cpp
 
 debug: lines.cpp
-	$(CXX) $(CPPFLAGS) -D DEBUG -g
+	$(CXX) $(CXXFLAGS) -D DEBUG -g
 
 install: lines
-	install lines /bin
+	install lines $(INSTALL_DIR)
 
 clean:
-	rm -f lines
-	rm -f lines-debug
-	rm -f liblines/liblines.o
-	rm -f liblines/liblines.so
+	$(RM) lines
+	$(RM) liblines/liblines.o
+	$(RM) liblines/liblines.so
