@@ -45,8 +45,8 @@ int main()
   // Return to the prompt
   while (true)
   {
-    lines::opts::opt_t commands = prompt();
-    exec_builtin_opt(commands);
+    lines::opts::opt_t commands = lines::prompt();
+    lines::exec_builtin_opt(commands);
   }
 
   return 0;
