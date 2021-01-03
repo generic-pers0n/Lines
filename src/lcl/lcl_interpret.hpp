@@ -14,8 +14,10 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-/** LCL Functions
- * 
+/** @file lcl_interpret.hpp
+ *
+ * Definitions for  various LCL functions
+ *  
  * This file contains the necessary funcitons for dealing with fractions,
  * coordinate points, and various other things. This also includes various
  * data types and such.

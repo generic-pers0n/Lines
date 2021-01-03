@@ -1,26 +1,28 @@
 /** @file opts.cpp
  *
- * Contains the implementation of
- */
+ * Contains the implementation of things defined in opts.hpp
+ **/
 
 #include "opts.hpp"
 #include <iostream>
 #include <algorithm>
 #include <cassert>
 
-/** \brief The Lines namespace.
+/** \namespace lines
  *
- * This namespace mainly consists of other namespaces. All other components
- * of Lines have their own namespace under this whole namespace. Anything
- * that is under this namespace that isn't another namespace is used for
- * the core of Lines.
+ * A group of namespaces for the internal components of Lines. All other components
+ * of Lines have their own namespace under this whole namespace. Anything that is
+ * under this namespace that isn't another namespace is used for the core of Lines.
  *
  * @see lines.hpp
  * @see lines.cpp
- */
+ * 
+ **/
 namespace lines {
 
-/** \brief The namespace for the Option Handling component of Lines.
+/** \namespace opts
+ *
+ * The namespace for the Option Handling component of Lines.
  *
  * This namespace mainly contains various things related to handling options
  * on the LCL. This does not have any other dependency on any other component
@@ -37,6 +39,7 @@ namespace lines {
  * @see opts.cpp
  */
 namespace opts {
+
 std::vector<alias_t> lcl_aliases; //!< A vector to store any aliases in the LCL. This vector does NOT contain any unaliased options in Lines!
 
 ////////////////////////////////////////////////////////

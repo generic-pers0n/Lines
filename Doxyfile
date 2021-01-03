@@ -851,8 +851,7 @@ INPUT_ENCODING         = UTF-8
 # *.vhdl, *.ucf, *.qsf and *.ice.
 
 FILE_PATTERNS          = *.cpp \
-                         *.hpp \
-                         #*.md \
+                         *.hpp
 
 # The RECURSIVE tag can be used to specify whether or not subdirectories should
 # be searched for input files as well.
@@ -1299,7 +1298,7 @@ GENERATE_DOCSET        = NO
 # The default value is: Doxygen generated docs.
 # This tag requires that the tag GENERATE_DOCSET is set to YES.
 
-DOCSET_FEEDNAME        = "Doxygen generated docs"
+DOCSET_FEEDNAME        = "Lines internal documentation"
 
 # This tag specifies a string that should uniquely identify the documentation
 # set bundle. This should be a reverse domain-name style string, e.g.
@@ -1307,7 +1306,7 @@ DOCSET_FEEDNAME        = "Doxygen generated docs"
 # The default value is: org.doxygen.Project.
 # This tag requires that the tag GENERATE_DOCSET is set to YES.
 
-DOCSET_BUNDLE_ID       = org.doxygen.Project
+DOCSET_BUNDLE_ID       = io.generic_pers0n.Lines
 
 # The DOCSET_PUBLISHER_ID tag specifies a string that should uniquely identify
 # the documentation publisher. This should be a reverse domain-name style
@@ -1315,13 +1314,13 @@ DOCSET_BUNDLE_ID       = org.doxygen.Project
 # The default value is: org.doxygen.Publisher.
 # This tag requires that the tag GENERATE_DOCSET is set to YES.
 
-DOCSET_PUBLISHER_ID    = org.doxygen.Publisher
+DOCSET_PUBLISHER_ID    = io.generic_pers0n.LinesDevTeam
 
 # The DOCSET_PUBLISHER_NAME tag identifies the documentation publisher.
 # The default value is: Publisher.
 # This tag requires that the tag GENERATE_DOCSET is set to YES.
 
-DOCSET_PUBLISHER_NAME  = Publisher
+DOCSET_PUBLISHER_NAME  = The Lines Development Team
 
 # If the GENERATE_HTMLHELP tag is set to YES then doxygen generates three
 # additional HTML index files: index.hhp, index.hhc, and index.hhk. The
@@ -1993,40 +1992,6 @@ MAN_SUBDIR             =
 MAN_LINKS              = NO
 
 #---------------------------------------------------------------------------
-# Configuration options related to the XML output
-#---------------------------------------------------------------------------
-
-# If the GENERATE_XML tag is set to YES, doxygen will generate an XML file that
-# captures the structure of the code including all documentation.
-# The default value is: NO.
-
-GENERATE_XML           = NO
-
-# The XML_OUTPUT tag is used to specify where the XML pages will be put. If a
-# relative path is entered the value of OUTPUT_DIRECTORY will be put in front of
-# it.
-# The default directory is: xml.
-# This tag requires that the tag GENERATE_XML is set to YES.
-
-XML_OUTPUT             = xml
-
-# If the XML_PROGRAMLISTING tag is set to YES, doxygen will dump the program
-# listings (including syntax highlighting and cross-referencing information) to
-# the XML output. Note that enabling this will significantly increase the size
-# of the XML output.
-# The default value is: YES.
-# This tag requires that the tag GENERATE_XML is set to YES.
-
-XML_PROGRAMLISTING     = YES
-
-# If the XML_NS_MEMB_FILE_SCOPE tag is set to YES, doxygen will include
-# namespace members in file scope as well, matching the HTML output.
-# The default value is: NO.
-# This tag requires that the tag GENERATE_XML is set to YES.
-
-XML_NS_MEMB_FILE_SCOPE = NO
-
-#---------------------------------------------------------------------------
 # Configuration options related to the DOCBOOK output
 #---------------------------------------------------------------------------
 
@@ -2052,18 +2017,6 @@ DOCBOOK_OUTPUT         = docbook
 # This tag requires that the tag GENERATE_DOCBOOK is set to YES.
 
 DOCBOOK_PROGRAMLISTING = NO
-
-#---------------------------------------------------------------------------
-# Configuration options for the AutoGen Definitions output
-#---------------------------------------------------------------------------
-
-# If the GENERATE_AUTOGEN_DEF tag is set to YES, doxygen will generate an
-# AutoGen Definitions (see http://autogen.sourceforge.net/) file that captures
-# the structure of the code including all documentation. Note that this feature
-# is still experimental and incomplete at the moment.
-# The default value is: NO.
-
-GENERATE_AUTOGEN_DEF   = NO
 
 #---------------------------------------------------------------------------
 # Configuration options related to the Perl module output

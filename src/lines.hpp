@@ -38,22 +38,23 @@
 #ifdef DEBUG
 #include <limits>
 #endif
-using namespace lines;
-/**
- * A function that brings up the main prompt
- *
- * This function gets a line of input and splits the input up, into various
- * strings.
- *
- * Note that this function is likely to be removed. Instead, all functionality
- * may go to main() instead. This will depend.
- *
- * @return Returns a vector (of std::string) containing the split input.
- * @see main()
- **/
 
 namespace lines {
 
+/**
+ * A function that brings up the main prompt
+ * 
+ * This function gets a line of input and splits the input up into a string
+ * (the 1st argument or the option in other words) and a vector (of std::string,
+ * for any arguments).
+ *
+ * Note that most likely there are a few things that I do want to do to make
+ * things perhaps a bit easier to comprehend (or something). However, the overall
+ * behavior won't be changed and everything will still be the same.
+ * 
+ * @return Returns a vector (of std::string) containing the split input.
+ * @see main()
+ **/
 opts::opt_t prompt()
 {
   opts::opt_t command;
@@ -99,6 +100,12 @@ opts::opt_t prompt()
   // arguments.                                         //
   ////////////////////////////////////////////////////////
   {
+    /**
+     * This area here is what I want to refactor. I'm wanting to use
+     * iterators instead of what we're already doing instead, or maybe
+     * a hybrid (but more emphasism on iterators, if you know what I
+     * mean).
+     **/
     std::size_t __space = raw_input.find(' ');
     std::size_t __begin = 0; // Essentially this will stay constant
     std::string __tmp_str;
@@ -122,8 +129,7 @@ opts::opt_t prompt()
   return command;
 }
 
-/**
- * The function that executes the primary options in Lines.
+/**  The function that executes the primary options in Lines.
  *
  * Simply put, this function is essentially the LCL right here. However, this
  * only executes unaliased options in Lines. If an option is aliased, then this

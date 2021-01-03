@@ -4,9 +4,7 @@
  * of Lines.
  *
  * @see opt_t
- *
- *
- */
+ **/
 #ifndef LINES_OPTS
 #define LINES_OPTS
 
