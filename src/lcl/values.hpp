@@ -3,7 +3,10 @@
 
 #include <string>
 
-namespace lines {
+namespace lcl {
+
+// Types
+typedef long double ldouble;
 
 enum class lcl_value
 {
@@ -13,8 +16,6 @@ enum class lcl_value
   STRING,   // Strings
   UNDEFINED // Any undefined values
 };
-
-namespace lcl { 
 
 bool is_valid_value(std::string& str);
 lcl_values determine_value(std::string& str);
