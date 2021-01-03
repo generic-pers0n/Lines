@@ -30,13 +30,13 @@
 bool is_valid_value(std::string str)
 {
   // Erase any whitespaces
-  std::size_t wspace = str.find(' ');
+  /*std::size_t wspace = str.find(' ');
   std::size_t previous_wspace = 0;
   while ((wspace = str.find(' ')) != std::string::npos)
   {
     str.erase(previous_wspace, wspace);
     previous_wspace = wspace;
-  }
+  }*/
 
   // Is the value a boolean?
   //
