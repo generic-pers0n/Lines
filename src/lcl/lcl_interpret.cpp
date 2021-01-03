@@ -14,7 +14,9 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
-/** The implementation of things defined in lcl_interpret.hpp
+/** @file lcl_interpret.cpp
+ *
+ * The implementation of things defined in lcl_interpret.hpp
  *
  * Note that we're keeping this file and such here for now. In Lines 4.0
  * or something, coorpt will be moved into liblines (but not any related
