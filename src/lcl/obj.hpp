@@ -3,6 +3,7 @@
 
 #include <string>
 #include "values.hpp"
+#include "data.hpp"
 
 namespace lcl {
 namespace obj {
@@ -18,8 +19,7 @@ class lcl_obj
 {
   private:
     lcl_obj_types __obj_type;
-    lcl_value __value;
-    std::string* __data = nullptr;
+    lcl::data __data = nullptr;
 
   public:
     // Constructors
