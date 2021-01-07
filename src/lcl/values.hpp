@@ -6,7 +6,13 @@
 namespace lcl {
 
 // Types
+//// Signed
 typedef long double ldouble;
+typedef long long llong;
+
+//// Unsigned
+typedef unsigned long long ullong;
+typedef unsigned char uchar;
 
 enum class lcl_value
 {
