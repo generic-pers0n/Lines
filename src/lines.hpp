@@ -275,7 +275,7 @@ void exec_builtin_opt(opts::opt_t& command)
 
     else
     {
-      std::cout << "unknown argument: \'" << *arg << "\'\n";
+      std::cout << "Unknown argument.\n";
       std::cout << "usage: gencoor [option]\n";
       std::cout << "Whereas \'option\' (optional) can be single or default (deprecated)\n";
     }
