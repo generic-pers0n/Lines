@@ -137,7 +137,7 @@ opts::opt_t prompt()
  *
  * @return Returns 0 if an option was valid. Otherwise, -1 is returned.
  **/
-void exec_builtin_opt(opts::opt_t command)
+void exec_builtin_opt(opts::opt_t& command)
 {
   if (command.get_name() == "coordinate") // "coordinate" comman
   {
@@ -209,22 +209,22 @@ void exec_builtin_opt(opts::opt_t command)
 
     // Find the subcommands in the vector
     // Note: we're still keeping the 'default' subcommand until v4.0 or something
-    std::vector<std::string> cmd_args = command.get_args();
-    auto arg = cmd_args.begin();
+    // std::vector<std::string> cmd_args = command.get_args();
+    // auto arg = cmd_args.begin();
 
-    if (arg == cmd_args.end())
+    if (command.has_args() != true)
     {
       std::cout << "What is the slope and y-intercept? ";
       std::cin >> slope >> y_intercept;
 
-      std::cout << "What is the range you want to use (no decimals)? ";
+      std::cout << "Enter your desired range (no decimals): ";
       std::cin >> start >> end;
 
       generate_points(slope, y_intercept, start, end);
       return;
     }
 
-    else if (*arg == "") // Default action, where there's no subcommand
+    /*else if (*arg == "") // Default action, where there's no subcommand
     {
       // Get the y-intercept and slope
       std::cout << "What is the slope and y-intercept of your equation? ";
@@ -234,9 +234,9 @@ void exec_builtin_opt(opts::opt_t command)
       std::cin >> start >> end;
 
       generate_points(slope, y_intercept, start, end);
-    }
+    }*/
 
-    else if (*arg == "single") // Found 'gencoor single'
+    else if (command.has_arg("single")) // Found 'gencoor single'
     {
       // Get the slope
       std::cout << "What is the slope and y-intercept? ";
@@ -250,7 +250,7 @@ void exec_builtin_opt(opts::opt_t command)
       generate_point(slope, y_intercept, input);
     }
 
-    else if (*arg == "default") // Found 'gencoor default'
+    else if (command.has_arg("default")) // Found 'gencoor default'
     {
       // Deprecation warning
       std::cout << "Note: this argument is DEPRECATED! Use gencoor (without any subcommands) instead.\n\n";
@@ -267,17 +267,7 @@ void exec_builtin_opt(opts::opt_t command)
       std::cout << "What is the slope and y-intercept? ";
       std::cin >> slope >> y_intercept;
 
-      std::cout << "What is the range you want to use (no decimals)? ";
-      std::cin >> start >> end;
-
-      generate_points(slope, y_intercept, start, end);
-    } else if (arg == cmd_args.end()) // No args
-    {
-
-      std::cout << "What is the slope and y-intercept? ";
-      std::cin >> slope >> y_intercept;
-
-      std::cout << "What is the range you want to use (no decimals)? ";
+      std::cout << "Enter your desired range (no decimals): ";
       std::cin >> start >> end;
 
       generate_points(slope, y_intercept, start, end);
