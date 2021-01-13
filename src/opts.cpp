@@ -68,7 +68,7 @@ bool opt_t::has_arg(std::string arg)
 
 bool opt_t::has_args()
 {
-  return (m_args.size() == 0) ? true : false;
+  return (m_args.size() == 0) ? false : true;
 }
 
 bool opt_t::has_args(std::vector<std::string> args)
