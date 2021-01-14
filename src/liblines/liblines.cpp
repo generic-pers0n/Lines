@@ -25,6 +25,10 @@
 #include "liblines.hpp"
 #include <iostream>
 
+#ifndef COMPAT_MODE
+LIBLINES_EXTERN_APIS // begin public APIs
+#endif
+
 // Find an equation using 2 coordinate points
 void coordinate(double xcoor1, double ycoor1, double xcoor2, double ycoor2)
 {
@@ -138,3 +142,6 @@ void generate_point(double slope, double y_intercept, double number)
   std::cout << "(" << number << ", " << result << ")\n";
 }
 
+#ifndef COMPAT_MODE
+END_EXTERN // end extern APIs
+#endif

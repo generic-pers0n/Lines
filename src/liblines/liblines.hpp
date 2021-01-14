@@ -29,10 +29,23 @@
    arrive WAY to early. In the mean time, we must unfortunately suffer).
 */
 
+#ifndef COMPAT_MODE
+
+#define LIBLINES_EXTERN_APIS extern "C" {
+#define END_EXTERN }
+
 // Function prototypes
+
+LIBLINES_EXTERN_APIS // begin external APIs
+#endif
+
 void coordinate(double xcoor1, double ycoor1, double xcoor2, double ycoor2);
 void slope(double xcoor, double ycoor, double slope);
 void generate_points(double slope, double y_intercept, int max_number, int starting_number);
 void generate_point(double slope, double y_intercept, double number);
+
+#ifndef COMPAT_MODE
+END_EXTERN // end external APIs
+#endif
 
 #endif // end liblines.hpp

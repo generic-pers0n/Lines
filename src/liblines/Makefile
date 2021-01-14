@@ -2,6 +2,10 @@ liblines: liblines.cpp liblines.o
 	$(CXX) -fPIC -Wall -c liblines.cpp
 	$(CXX) -shared -Wall liblines.o -o liblines.so
 
+compat: liblines.cpp
+	$(CXX) -fPIC -Wall -c liblines.cpp -D COMPAT_MODE
+	$(CXX) -shared -Wall liblines.o -o liblines.so
+
 debug: liblines.cpp liblines.o
 	$(CXX) -fPIC -g -Wall -c liblines.cpp
 	$(CXX) -shared -Wall -fPIC liblines.o -o liblines.so
