@@ -100,24 +100,16 @@ opts::opt_t prompt()
   // arguments.                                         //
   ////////////////////////////////////////////////////////
   {
-    /**
-     * This area here is what I want to refactor. I'm wanting to use
-     * iterators instead of what we're already doing instead, or maybe
-     * a hybrid (but more emphasism on iterators, if you know what I
-     * mean).
-     **/
-    std::size_t __space = raw_input.find(' ');
-    std::size_t __begin = 0; // Essentially this will stay constant
     std::string __tmp_str;
 
     for (std::size_t i = 0; i < raw_input.size(); i++)
     {
-      __space = raw_input.find(' ');
-      if (__space != std::string::npos)
+      whitespace = raw_input.find(' ');
+      if (whitespace != std::string::npos)
       {
-        __tmp_str = raw_input.substr(__begin, __space + 1);
+        __tmp_str = raw_input.substr(0, whitespace + 1);
 
-        raw_input.erase(__begin, __space); // We eventually modify this string
+        raw_input.erase(0, whitespace); // We eventually modify this string
       } else
       {
         __tmp_str = raw_input;
