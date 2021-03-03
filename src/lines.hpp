@@ -100,24 +100,16 @@ opts::opt_t prompt()
   // arguments.                                         //
   ////////////////////////////////////////////////////////
   {
-    /**
-     * This area here is what I want to refactor. I'm wanting to use
-     * iterators instead of what we're already doing instead, or maybe
-     * a hybrid (but more emphasism on iterators, if you know what I
-     * mean).
-     **/
-    std::size_t __space = raw_input.find(' ');
-    std::size_t __begin = 0; // Essentially this will stay constant
     std::string __tmp_str;
 
     for (std::size_t i = 0; i < raw_input.size(); i++)
     {
-      __space = raw_input.find(' ');
-      if (__space != std::string::npos)
+      whitespace = raw_input.find(' ');
+      if (whitespace != std::string::npos)
       {
-        __tmp_str = raw_input.substr(__begin, __space + 1);
+        __tmp_str = raw_input.substr(0, whitespace + 1);
 
-        raw_input.erase(__begin, __space); // We eventually modify this string
+        raw_input.erase(0, whitespace); // We eventually modify this string
       } else
       {
         __tmp_str = raw_input;
@@ -180,20 +172,40 @@ void exec_builtin_opt(opts::opt_t& command)
   else if (command.get_name() == "slope") // "slope" command
   {
     // Variables
-    double slope_value;
-    double coor[2];
+    double slope_input;
+    std::string coor_str, slope_str;
+    lcl_intr::coorpt coor;
 
     // Get the slope from the user
     std::cout << "Enter the slope of the graph: ";
-    std::cin >> slope_value;
+    std::getline(std::cin, slope_str);
+ 
+    try
+    {
+      slope_input = std::stod(slope_str);
+    } catch (...)
+    {
+      std::cout << "Could not convert input from string to number" << std::endl;
+      return;
+    }
 
-    // Get the coordinate points from the user
+    // Get the coordinate point from the user
     std::cout << "Enter the coordinate point to use: ";
-    std::cin >> coor[0] >> coor[1];
+    std::getline(std::cin, coor_str);
 
-    try {
+    try
+    {
+      coor = lcl_intr::mkcoorpt(coor_str);
+    } catch (std::invalid_argument& err)
+    {
+      std::cout << "Invalid coordinate point entered.\n";
+      return; // Just return
+    }
+
+    try
+    {
       // Calculate the equation
-      slope(coor[0], coor[1], slope_value);
+      slope(coor.x, coor.y, slope_input);
     } catch (const char* err) {
       std::cout << err << std::endl;
     }
@@ -207,10 +219,6 @@ void exec_builtin_opt(opts::opt_t& command)
     double slope, y_intercept, input;
     int start, end; // For ranges
 
-    // Find the subcommands in the vector
-    // Note: we're still keeping the 'default' subcommand until v4.0 or something
-    // std::vector<std::string> cmd_args = command.get_args();
-    // auto arg = cmd_args.begin();
 
     if (command.has_args() != true)
     {
@@ -223,18 +231,6 @@ void exec_builtin_opt(opts::opt_t& command)
       generate_points(slope, y_intercept, start, end);
       return;
     }
-
-    /*else if (*arg == "") // Default action, where there's no subcommand
-    {
-      // Get the y-intercept and slope
-      std::cout << "What is the slope and y-intercept of your equation? ";
-      std::cin >> slope >> y_intercept;
-
-      std::cout << "Enter your desired range (no decimals): ";
-      std::cin >> start >> end;
-
-      generate_points(slope, y_intercept, start, end);
-    }*/
 
     else if (command.has_arg("single")) // Found 'gencoor single'
     {
@@ -286,7 +282,7 @@ void exec_builtin_opt(opts::opt_t& command)
   else if (command.get_name() == "about") // "about" command
   {
     std::cout << "====================================\n";
-    std::cout << "\tLines v3.1b1\n";
+    std::cout << "\tLines v3.1b2\n";
     std::cout << "====================================\n";
     std::cout << "Built date: " << __DATE__ << " @ " << __TIME__ << std::endl << std::endl;    
 
@@ -327,6 +323,8 @@ void exec_builtin_opt(opts::opt_t& command)
     std::cout << "Partially made during a Xoads live stream (Xoads is my friend). Thanks to everyone who\n";
     std::cout << "supported me when I showed them this calculator. I would like to thank my friends,\n";
     std::cout << "classmates, and my parents! THANK YOU SO MUCH!!!\n\n";
+
+    return;
   }
 
   else if (command.get_name() == "help") // "help" command
@@ -337,7 +335,6 @@ void exec_builtin_opt(opts::opt_t& command)
     std::cout << "  * gencoor:\n";
 
     std::cout << "    - default (deprecated)\n";
-    std::cout << "    - write\n";
     std::cout << "    - single\n";
 
     std::cout << "  * about\n";
@@ -359,7 +356,8 @@ void exec_builtin_opt(opts::opt_t& command)
     return;
   }
 
-  else { // Unknown commands
+  else // Unknown commands
+  {
     std::cout << "Unknown command: \'" << command.get_name() << "\'" << std::endl;
     return;
   }
