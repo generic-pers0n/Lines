@@ -11,12 +11,6 @@
 #include <string>
 #include <vector>
 
-#ifdef DEBUG
-  #define MAX_LCL_OPTS 8
-#else
-  #define MAX_LCL_OPTS 7
-#endif
-
 namespace lines {
 namespace opts {
 
@@ -32,13 +26,13 @@ class opt_t
     opt_t() {}
 
     // Functions
-    std::string get_name();
+    std::string get_name() const;
     void set_name(std::string new_name);
-    std::vector<std::string> get_args();
+    std::vector<std::string> get_args() const;
 
-    bool has_arg(std::string arg);
-    bool has_args();
-    bool has_args(std::vector<std::string> args);
+    bool has_arg(std::string arg) const;
+    bool has_args() const;
+    bool has_args(std::vector<std::string> args) const;
 
     void set_args(std::vector<std::string> new_args);
     void add_arg(std::string new_arg);
