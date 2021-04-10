@@ -150,10 +150,8 @@ void exec_builtin_opt(opts::opt_t& command)
       coor2 = lcl_intr::mkcoorpt(coor2_str);
     } catch (std::invalid_argument& err)
     {
-      std::cout << "Invalid coordinate points entered (most likely), using default values\n";
-
-      coor1.x = coor1.y = 1;
-      coor2.x = coor2.y = 2;
+      std::cout << "Invalid coordinate points entered" << std::endl;
+      return;
     }
 
     // Calculate the equation and so with two coordinate points
