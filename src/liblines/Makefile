@@ -23,3 +23,6 @@ headers: liblines.hpp
 	mkdir -p $(HEADERS_DIR)
 	install liblines.hpp $(HEADERS_DIR)
 
+clean:
+	rm -rf *.o *.so
+
