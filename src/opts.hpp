@@ -21,10 +21,6 @@ class opt_t
     std::vector<std::string> m_args;
 
   public:
-    // Constructors
-    opt_t(std::string name) : m_opt_name(name) {}
-    opt_t() {}
-
     // Functions
     std::string get_name() const;
     void set_name(std::string new_name);
@@ -49,11 +45,6 @@ struct alias_t
   // Constructors
   alias_t(std::string new_alias) : alias(new_alias) {}
 };
-
-// External variables
-//static std::vector<opt_t> lcl_aliases;
-
-void mkalias(std::string new_alias, std::string alias_to);
 
 } // namespace lines
 } // namespace opts
