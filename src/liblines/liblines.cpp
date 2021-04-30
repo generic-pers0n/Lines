@@ -25,16 +25,36 @@
 #include "liblines.hpp"
 #include <iostream>
 
-#ifndef COMPAT_MODE
-LIBLINES_EXTERN_APIS // begin public APIs
+namespace liblines {
+
+#ifndef STATIC
+#define __LIBLINES_VER_CONSTS
+
+/** liblines version constants.
+ *
+ * These constants represent the current major version, minor version, and patch
+ * version of liblines. These are useful if you want to check at runtime for a
+ * certain version of liblines.
+ *
+ * Note that these variables are not present if a static version of liblines is
+ * present. These variables are only useful if liblines has been compiled as a
+ * dynamic library. Otherwise, you can use the LIBLINES_VER constants for
+ * compile time conditions.
+ *
+ **/
+const int major_ver = 3;
+const int minor_ver = 1;
+const int patch_ver = 0;
 #endif
 
+LIBLINES_EXTERN_APIS // begin public APIs
+
 // Find an equation using 2 coordinate points
-void coordinate(double xcoor1, double ycoor1, double xcoor2, double ycoor2)
+void coordinate(double x1, double y1, double x2, double y2)
 {
   // Find the slope of the graph
-  double delta_x = xcoor1 - xcoor2;
-  double delta_y = ycoor1 - ycoor2;
+  double delta_x = x1 - x2;
+  double delta_y = y1 - y2;
 
   if (delta_y == 0)
   {
@@ -48,7 +68,7 @@ void coordinate(double xcoor1, double ycoor1, double xcoor2, double ycoor2)
   double slope = delta_y / delta_x;
 
   // Find the y-intercept
-  double y_intercept = ycoor1 - slope * xcoor1;
+  double y_intercept = y1 - slope * x1;
 
 
   // Print the equation of the graph (formatting)
@@ -83,7 +103,7 @@ void coordinate(double xcoor1, double ycoor1, double xcoor2, double ycoor2)
  * Note that this function is literally coordinate() but with a few
  * changes. It's pretty much the same thing anyways...
  **/
-void slope(double xcoor, double ycoor, double slope)
+void slope(double x, double y, double slope)
 {
   // Throw an exception if the slope is 0
   if (slope == 0)
@@ -92,7 +112,7 @@ void slope(double xcoor, double ycoor, double slope)
   }
 
   // Find the y-intercept
-  double y_intercept = ycoor - slope * xcoor;
+  double y_intercept = y - slope * x;
 
   std::cout << "The equation of this graph is y=";
 
@@ -118,9 +138,9 @@ void slope(double xcoor, double ycoor, double slope)
 }
 
 // Generate multiple coordinate points 
-void generate_points(double slope, double y_intercept, int start, int end)
+void genpoints(double slope, double y_intercept, int start = 1, int end = 1)
 {
-  for (int i = start; i  < end + 1; i++)
+  for (int i = start; i  <= end; i++)
   {
     double result = (slope * i) + y_intercept;
     std::cout << "(" << i << ", " << result << ")\n";
@@ -133,15 +153,6 @@ void generate_points(double slope, double y_intercept, int start, int end)
   }
 }
 
-// Generate a coordinate point
-void generate_point(double slope, double y_intercept, double number)
-{
-  double result = slope * number + y_intercept;
+LIBLINES_END_EXTERN // end extern APIs
 
-  // Display the final result
-  std::cout << "(" << number << ", " << result << ")\n";
-}
-
-#ifndef COMPAT_MODE
-END_EXTERN // end extern APIs
-#endif
+} // namespace liblines
