@@ -178,22 +178,17 @@ coorpt mkcoorpt(std::string& str)
 
 str_vec split(std::string const& str, const char delim)
 {
-  /*std::string::iterator begin,
-	  		  end = str.begin();
-  */
-
-  //std::size_t found = 0;
   std::string str_token;
   str_vec split_str;
 
-  for (size_t i = 0; ; i++)
+  if (str.find(delim) == std::string::npos)
   {
-    if (i > str.size())
-    {
-      split_str.push_back(str_token);
-      break;
-    }
+    split_str.push_back(str);
+    return split_str;
+  }
 
+  for (size_t i = 0; i < str.size() ; i++)
+  {
     if (str[i] == delim)
     {
       if (str_token != "")
@@ -208,10 +203,7 @@ str_vec split(std::string const& str, const char delim)
     }
   }
 
-  if (split_str.size() == 0)
-  {
-    split_str.push_back(str);
-  }
+  split_str.push_back(str_token);
 
   return split_str;
 }

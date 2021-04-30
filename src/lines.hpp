@@ -59,62 +59,24 @@ opts::opt_t prompt()
 {
   opts::opt_t command;
   std::string raw_input;
-  std::string main_opt;
-  std::size_t whitespace;
+  lines::lcl_intr::str_vec split_input;
 
   std::cout << ">> ";
   std::getline(std::cin, raw_input);
-
-  whitespace = raw_input.find(' ');
 
   if (std::cin.eof())
   {
     std::exit(EXIT_FAILURE);
   }
 
-  if (whitespace == std::string::npos)
-  {
-    command.set_name(raw_input);
-    return command;
-  } else
-  {
-    main_opt = raw_input.substr(0, whitespace + 1);
-    size_t _space = main_opt.find(' ');
+  split_input = lines::lcl_intr::split(raw_input, ' ');
+  command.set_name(split_input[0]);
 
-    while (_space != std::string::npos)
+  if (split_input.size() > 1)
+  {
+    for (size_t i = 1; i < split_input.size(); i++)
     {
-      main_opt.erase(_space, main_opt.find(' '));
-	  _space = main_opt.find(' ');
-    }
-
-    command.set_name(main_opt);
-  }
-
-  // Erase the main option
-  raw_input.erase(0, whitespace + 1);
-
-  ////////////////////////////////////////////////////////
-  // Heyo! I'm a code block                             //
-  //                                                    //
-  // This block down here is for finding and splitting  //
-  // arguments.                                         //
-  ////////////////////////////////////////////////////////
-  {
-    std::string __tmp_str;
-
-    for (std::size_t i = 0; i < raw_input.size(); i++)
-    {
-      whitespace = raw_input.find(' ');
-      if (whitespace != std::string::npos)
-      {
-        __tmp_str = raw_input.substr(0, whitespace + 1);
-
-        raw_input.erase(0, whitespace); // We eventually modify this string
-      } else
-      {
-        __tmp_str = raw_input;
-        command.add_arg(__tmp_str);
-      }
+      command.add_arg(split_input[i]);
     }
   }
 
