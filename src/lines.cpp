@@ -31,11 +31,13 @@
  * this is where every program in C and C++ begins their execution. Why this
  * is even documented I don't even know.
  * 
- * @returns 0. Just 0. Unless std::exit() says otherwise.
+ * @returns 0. Just 0. Unless std::exit() says otherwise. But even then, it
+ * won't be here.
  *
  **/
 int main()
 {
+  lines::opts::opt_t commands;
   std::cout << "Lines  Copyright (C) 2019-2021  Avery King\n";
   std::cout << "This program comes with ABSOLUTELY NO WARRANTY; for details type `about\'.\n";
   std::cout << "This is free software, and you are welcome to redistribute it\n";
@@ -45,7 +47,7 @@ int main()
   // Return to the prompt
   while (true)
   {
-    lines::opts::opt_t commands = lines::prompt();
+    commands = lines::prompt();
     lines::exec_builtin_opt(commands);
   }
 

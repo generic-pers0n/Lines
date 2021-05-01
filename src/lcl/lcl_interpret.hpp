@@ -51,7 +51,7 @@ struct coorpt
 // Functions
 double frac(std::string& str);
 coorpt mkcoorpt(std::string& str);
-str_vec split(std::string const& str, const char delim);
+str_vec split(std::string& str, const char delim);
 
 } // namespace frac
 } // namespace lines

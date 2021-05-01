@@ -6,7 +6,6 @@
 #include "opts.hpp"
 #include <iostream>
 #include <algorithm>
-#include <cassert>
 
 /** \namespace lines
  *
@@ -40,8 +39,6 @@ namespace lines {
  */
 namespace opts {
 
-std::vector<alias_t> lcl_aliases; //!< A vector to store any aliases in the LCL. This vector does NOT contain any unaliased options in Lines!
-
 ////////////////////////////////////////////////////////
 // opt_t member functions                             //
 ////////////////////////////////////////////////////////
@@ -51,7 +48,7 @@ std::string opt_t::get_name() const
   return m_opt_name;
 }
 
-void opt_t::set_name(std::string new_name)
+void opt_t::set_name(std::string& new_name)
 {
   m_opt_name = new_name;
 }
@@ -61,7 +58,7 @@ std::vector<std::string> opt_t::get_args() const
   return m_args;
 }
 
-bool opt_t::has_arg(std::string arg) const
+bool opt_t::has_arg(std::string& arg) const
 {
   return (std::find(m_args.begin(), m_args.end(), arg) != m_args.end()) ? true : false;
 }
@@ -71,7 +68,7 @@ bool opt_t::has_args() const
   return (m_args.size() != 0) ? true : false;
 }
 
-bool opt_t::has_args(std::vector<std::string> args) const
+bool opt_t::has_args(std::vector<std::string>& args) const
 {
   auto it = m_args.begin();
 
@@ -86,12 +83,12 @@ bool opt_t::has_args(std::vector<std::string> args) const
   return true;
 }
 
-void opt_t::set_args(std::vector<std::string> new_args)
+void opt_t::set_args(std::vector<std::string>& new_args)
 {
   m_args = new_args;
 }
 
-void opt_t::add_arg(std::string new_arg)
+void opt_t::add_arg(std::string& new_arg)
 {
   m_args.push_back(new_arg);
 }

@@ -24,12 +24,8 @@
 
 #include <iostream>
 #include <string>
-#include <vector>
 #include <stdexcept>
 #include <limits>
-
-// C headers
-#include <cstdlib>
 
 #include "liblines/liblines.hpp"
 #include "lcl/lcl_interpret.hpp" // Interpreting funcitons

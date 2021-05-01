@@ -176,7 +176,7 @@ coorpt mkcoorpt(std::string& str)
   return coordinate;
 }
 
-str_vec split(std::string const& str, const char delim)
+str_vec split(std::string& str, const char delim)
 {
   std::string str_token;
   str_vec split_str;

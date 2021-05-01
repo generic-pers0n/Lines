@@ -23,15 +23,15 @@ class opt_t
   public:
     // Functions
     std::string get_name() const;
-    void set_name(std::string new_name);
+    void set_name(std::string& new_name);
     std::vector<std::string> get_args() const;
 
-    bool has_arg(std::string arg) const;
+    bool has_arg(std::string& arg) const;
     bool has_args() const;
-    bool has_args(std::vector<std::string> args) const;
+    bool has_args(std::vector<std::string>& args) const;
 
-    void set_args(std::vector<std::string> new_args);
-    void add_arg(std::string new_arg);
+    void set_args(std::vector<std::string>& new_args);
+    void add_arg(std::string& new_arg);
 
     void clear(); //!< Clears everything in this option.
 };
