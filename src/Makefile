@@ -5,10 +5,10 @@ INSTALL_DIR = /usr/local/bin
 CXXFLAGS = -o lines opts.cpp lines.cpp lcl/lcl_interpret.cpp -llines -Wall -std=c++14
 
 lines: lines.cpp
-	$(CXX) $(CXXFLAGS) -fPIE -Wl,-z,now,-z,relro
+	$(CXX) $(CXXFLAGS)
 
-no-pie: lines.cpp
-	$(CXX) $(CXXFLAGS) # No need to change any flags
+hardened: lines.cpp
+	$(CXX) $(CXXFLAGS) -fPIE -Wl,-z,now,-z,relro
 
 single: lines.cpp
 	$(CXX) $(CXXFLAGS) liblines/liblines.cpp
