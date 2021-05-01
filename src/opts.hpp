@@ -11,12 +11,6 @@
 #include <string>
 #include <vector>
 
-#ifdef DEBUG
-  #define MAX_LCL_OPTS 8
-#else
-  #define MAX_LCL_OPTS 7
-#endif
-
 namespace lines {
 namespace opts {
 
@@ -27,21 +21,17 @@ class opt_t
     std::vector<std::string> m_args;
 
   public:
-    // Constructors
-    opt_t(std::string name) : m_opt_name(name) {}
-    opt_t() {}
-
     // Functions
-    std::string get_name();
-    void set_name(std::string new_name);
-    std::vector<std::string> get_args();
+    std::string get_name() const;
+    void set_name(std::string& new_name);
+    std::vector<std::string> get_args() const;
 
-    bool has_arg(std::string arg);
-    bool has_args();
-    bool has_args(std::vector<std::string> args);
+    bool has_arg(std::string& arg) const;
+    bool has_args() const;
+    bool has_args(std::vector<std::string>& args) const;
 
-    void set_args(std::vector<std::string> new_args);
-    void add_arg(std::string new_arg);
+    void set_args(std::vector<std::string>& new_args);
+    void add_arg(std::string& new_arg);
 
     void clear(); //!< Clears everything in this option.
 };
@@ -55,11 +45,6 @@ struct alias_t
   // Constructors
   alias_t(std::string new_alias) : alias(new_alias) {}
 };
-
-// External variables
-//static std::vector<opt_t> lcl_aliases;
-
-void mkalias(std::string new_alias, std::string alias_to);
 
 } // namespace lines
 } // namespace opts

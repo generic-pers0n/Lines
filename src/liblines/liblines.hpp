@@ -17,35 +17,35 @@
 #ifndef LIBLINES_HPP
 #define LIBLINES_HPP
 
+
+
+#define LIBLINES_EXTERN_APIS extern "C" {
+#define LIBLINES_END_EXTERN }
+
+namespace liblines {
+
 #define LIBLINES_MAJOR_VER 3
 #define LIBLINES_MINOR_VER 1
 #define LIBLINES_PATCH_VER 0
 
-/* TODO: Add a namespace to liblines (named 'liblines'). Planed for 4.0
-   Yes, I know having a namespace is a good idea, and I want to add one.
-   However, this will (unfortunately) have to wait until Lines v4.0 because
-   this will case incompatible changes with older versions of Lines. I
-   don't want that to happen because that technically means Lines 4.0 will
-   arrive WAY to early. In the mean time, we must unfortunately suffer).
-*/
+#ifndef STATIC
+#define __LIBLINES_VER_CONSTS
 
-#ifndef COMPAT_MODE
+extern "C" const int major_ver;
+extern "C" const int minor_ver;
+extern "C" const int patch_ver;
 
-#define LIBLINES_EXTERN_APIS extern "C" {
-#define END_EXTERN }
-
-// Function prototypes
+#endif
 
 LIBLINES_EXTERN_APIS // begin external APIs
-#endif
 
-void coordinate(double xcoor1, double ycoor1, double xcoor2, double ycoor2);
-void slope(double xcoor, double ycoor, double slope);
-void generate_points(double slope, double y_intercept, int max_number, int starting_number);
-void generate_point(double slope, double y_intercept, double number);
+void coordinate(double x1, double y1, double x2, double y2);
+void slope(double x, double y, double slope);
+void genpoints(double slope, double y_intercept, int start, int end);
 
-#ifndef COMPAT_MODE
-END_EXTERN // end external APIs
-#endif
+LIBLINES_END_EXTERN // end external APIs
+
+} // namespace liblines
 
 #endif // end liblines.hpp
+

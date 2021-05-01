@@ -176,7 +176,39 @@ coorpt mkcoorpt(std::string& str)
   return coordinate;
 }
 
-} // namespace frac
+str_vec split(std::string& str, const char delim)
+{
+  std::string str_token;
+  str_vec split_str;
+
+  if (str.find(delim) == std::string::npos)
+  {
+    split_str.push_back(str);
+    return split_str;
+  }
+
+  for (size_t i = 0; i < str.size() ; i++)
+  {
+    if (str[i] == delim)
+    {
+      if (str_token != "")
+      {
+        split_str.push_back(str_token);
+      }
+
+      str_token.clear();
+    } else
+    {
+      str_token.push_back(str[i]);
+    }
+  }
+
+  split_str.push_back(str_token);
+
+  return split_str;
+}
+
+} // namespace lcl_intr
 } // namespace lines
 
 #endif // end frac.hpp

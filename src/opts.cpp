@@ -6,7 +6,6 @@
 #include "opts.hpp"
 #include <iostream>
 #include <algorithm>
-#include <cassert>
 
 /** \namespace lines
  *
@@ -40,65 +39,56 @@ namespace lines {
  */
 namespace opts {
 
-std::vector<alias_t> lcl_aliases; //!< A vector to store any aliases in the LCL. This vector does NOT contain any unaliased options in Lines!
-
 ////////////////////////////////////////////////////////
 // opt_t member functions                             //
 ////////////////////////////////////////////////////////
 
-std::string opt_t::get_name()
+std::string opt_t::get_name() const
 {
   return m_opt_name;
 }
 
-void opt_t::set_name(std::string new_name)
+void opt_t::set_name(std::string& new_name)
 {
   m_opt_name = new_name;
 }
 
-std::vector<std::string> opt_t::get_args()
+std::vector<std::string> opt_t::get_args() const
 {
   return m_args;
 }
 
-bool opt_t::has_arg(std::string arg)
+bool opt_t::has_arg(std::string& arg) const
 {
   return (std::find(m_args.begin(), m_args.end(), arg) != m_args.end()) ? true : false;
 }
 
-bool opt_t::has_args()
+bool opt_t::has_args() const
 {
-  return (m_args.size() == 0) ? false : true;
+  return (m_args.size() != 0) ? true : false;
 }
 
-bool opt_t::has_args(std::vector<std::string> args)
+bool opt_t::has_args(std::vector<std::string>& args) const
 {
   auto it = m_args.begin();
-  unsigned long found = 0;
 
   for (size_t i = 0; args[i] != *it; i++)
   {
     if (it == m_args.end())
     {
       return false;
-    } else if (*it == args[i])
-    {
-      found++;
     }
   }
-
-  // For debugging reasons, not to be included in final commit
-  assert(found < args.size());
 
   return true;
 }
 
-void opt_t::set_args(std::vector<std::string> new_args)
+void opt_t::set_args(std::vector<std::string>& new_args)
 {
   m_args = new_args;
 }
 
-void opt_t::add_arg(std::string new_arg)
+void opt_t::add_arg(std::string& new_arg)
 {
   m_args.push_back(new_arg);
 }
@@ -108,15 +98,6 @@ void opt_t::clear()
   m_args.clear();
   m_opt_name.clear();
 }
-
-// Functions
-void mkalias(std::string alias, std::string alias_to)
-{
-  alias_t new_alias = alias;
-  new_alias.alias_to = opt_t(alias_to);
-  lcl_aliases.push_back(alias);
-}
-
 
 } // namespace opts
 } // namespace lines

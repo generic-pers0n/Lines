@@ -26,9 +26,13 @@
 #define LCL_INTR_HPP
 
 #include <string>
+#include <vector>
 
 namespace lines {
 namespace lcl_intr {
+
+// Typedefs
+typedef std::vector<std::string> str_vec;
 
 // Data types
 struct coorpt
@@ -47,6 +51,7 @@ struct coorpt
 // Functions
 double frac(std::string& str);
 coorpt mkcoorpt(std::string& str);
+str_vec split(std::string& str, const char delim);
 
 } // namespace frac
 } // namespace lines
