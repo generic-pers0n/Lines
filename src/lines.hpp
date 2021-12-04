@@ -201,7 +201,7 @@ void exec_builtin_opt(opts::opt_t& command)
   else if (command.get_name() == "about") // "about" command
   {
     std::cout << "====================================\n";
-    std::cout << "\tLines v3.1b2\n";
+    std::cout << "\tLines v3.1\n";
     std::cout << "====================================\n";
     std::cout << "Built date: " << __DATE__ << " @ " << __TIME__ << std::endl;
     std::cout << "liblines version " << liblines::major_ver << "." << liblines::minor_ver;
