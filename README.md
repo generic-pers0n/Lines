@@ -1,4 +1,9 @@
 # Lines
+
+**Lines development has ended. This is because of my work on other projects, namely [Saucedacity](https://github.com/saucedacity/saucedacity).** I encourage you to go check it out in addition to what else I might be working on.
+
+As for the future of Lines, v3.1 is the last version, from the latest (and last) commit. Additionally, support requests regarding Lines will be ignored, 
+
 The Swiss Army Knife for linear graphs.
 
 **NOTE: Lines is NOT  graphing calculator. It does not make a graph using an equation from your answer or by inputting one in the calculator.** 
